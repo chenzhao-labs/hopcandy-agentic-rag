@@ -44,3 +44,12 @@ def test_manifest_documents_adapter_source_drift():
     assert provenance["source_lock_status"] == "documented_drift"
     assert provenance["source_byte_reproducible"] is False
     assert len(provenance["drifted_source_artifacts"]) == 2
+
+
+def test_ci_uses_module_pytest_from_repository_root():
+    workflow = (ROOT / ".github/workflows/public-release.yml").read_text(encoding="utf-8")
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    command = "python -m pytest tests/test_hopcandy_step1_contract.py tests/test_hopcandy_step3_backend.py tests/test_public_release.py"
+    assert command in workflow
+    assert command in readme
+    assert "run: pytest " not in workflow

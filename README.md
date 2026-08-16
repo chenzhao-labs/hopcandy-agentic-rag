@@ -212,7 +212,7 @@ Backend 默认返回 `Replay Available / Live Offline`。公开仓库不包含�
 
 ```bash
 python scripts/validate_public_release.py --root .
-pytest tests/test_hopcandy_step1_contract.py tests/test_hopcandy_step3_backend.py tests/test_public_release.py
+python -m pytest tests/test_hopcandy_step1_contract.py tests/test_hopcandy_step3_backend.py tests/test_public_release.py
 
 cd hopcandy/frontend
 npm test

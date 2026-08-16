@@ -64,7 +64,7 @@
     ],
     "current_adapter_validation": {
       "status": "requires_passing_public_contract_tests",
-      "command": "pytest tests/test_hopcandy_step1_contract.py tests/test_hopcandy_step3_backend.py tests/test_public_release.py",
+      "command": "python -m pytest tests/test_hopcandy_step1_contract.py tests/test_hopcandy_step3_backend.py tests/test_public_release.py",
       "scope": "Current Adapter is validated against frozen replay fixtures and the hopcandy-api-v1 public contract; it is not claimed to be byte-identical to the Step 1 lock."
     }
   },
@@ -78,10 +78,10 @@
     },
     {
       "path": ".github/workflows/public-release.yml",
-      "size_bytes": 895,
-      "sha256": "d1d54d50b22be4a322ff8ccc0c3da0e58d7c914f6a46c6ae187dcc1cc3372fbb",
+      "size_bytes": 905,
+      "sha256": "cff1812fd604e859dc56fb4bd31073914d5c6ced183b08b6bce6f71fc92ec9f5",
       "source_path": "hopcandy/release_assets/public-release-ci.yml",
-      "source_sha256": "d1d54d50b22be4a322ff8ccc0c3da0e58d7c914f6a46c6ae187dcc1cc3372fbb"
+      "source_sha256": "cff1812fd604e859dc56fb4bd31073914d5c6ced183b08b6bce6f71fc92ec9f5"
     },
     {
       "path": ".gitignore",
@@ -99,10 +99,10 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 9040,
-      "sha256": "424b8596cc45eeb845b747d287ce9aa18fa54902292c3e6580c8753060183469",
+      "size_bytes": 9050,
+      "sha256": "793335e2d83c5df7980fe21bd62749d822a2ac389f499ec21ef94fe6c08c4d5a",
       "source_path": "hopcandy/release_assets/README.public.md",
-      "source_sha256": "424b8596cc45eeb845b747d287ce9aa18fa54902292c3e6580c8753060183469"
+      "source_sha256": "793335e2d83c5df7980fe21bd62749d822a2ac389f499ec21ef94fe6c08c4d5a"
     },
     {
       "path": "hopcandy/__init__.py",
@@ -617,11 +617,11 @@
     },
     {
       "path": "tests/test_public_release.py",
-      "size_bytes": 1972,
-      "sha256": "4d84eb6eb5b47d76317830337b5cf3edea7307623a65ae0b55c99f7f51a64105",
+      "size_bytes": 2421,
+      "sha256": "677864b63f38de7863fd5683c712de0fe827a3603c89d7fe88bf82da1524a22d",
       "source_path": "hopcandy/release_assets/test_public_release.py",
-      "source_sha256": "4d84eb6eb5b47d76317830337b5cf3edea7307623a65ae0b55c99f7f51a64105"
+      "source_sha256": "677864b63f38de7863fd5683c712de0fe827a3603c89d7fe88bf82da1524a22d"
     }
   ],
-  "artifact_tree_sha256": "27d7eee9509df5b529acbfede0646fd59b46a13b5f5cc8ece178cb9f0b3f9694"
+  "artifact_tree_sha256": "fe8cca8d61867f5a1cd6e2f54259d88cb3493e012604a925651d21eaf7651148"
 }
