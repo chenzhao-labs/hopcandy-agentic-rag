@@ -1,0 +1,93 @@
+{
+  "schema_version": "hopcandy-step2-publication-lock-v1",
+  "publication_version": "hopcandy-v0.1-step2-2026-08-12",
+  "status": "deployable_static_contract_passed_remote_rls_pending",
+  "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+  "fixture_bundle_sha256": "d9a031e88fd177efb2e45e1c9093bd0c4e9a2baabdb8a17c1e4df115de7e3c84",
+  "api_schema_version": "hopcandy-api-v1",
+  "contract_bundle_sha256": "85bb5af995a4e47a35455cd202e8f8dba8a40f696cdfd6588c90dec819f6c532",
+  "row_counts": {
+    "demo_cases": 8,
+    "experiments": 3,
+    "timeline_entries": 10
+  },
+  "source_artifacts": [
+    {
+      "kind": "examples",
+      "path": "hopcandy/fixtures/examples.json",
+      "size_bytes": 531379,
+      "sha256": "b10a8583b7a2c815704ec09d3db657b2b545a79e1aab10511088477a04ee0801"
+    },
+    {
+      "kind": "experiments",
+      "path": "hopcandy/fixtures/experiments.json",
+      "size_bytes": 4767,
+      "sha256": "e11f7ba7e45a9681b714568537f4342baf6579daab4b4173080c500b0c9aea88"
+    },
+    {
+      "kind": "fixture_manifest",
+      "path": "hopcandy/fixtures/fixture_manifest.json",
+      "size_bytes": 3228,
+      "sha256": "514e837dc171df8128c2398064745f840fd3407fe7c3b1f1bc359344ed776407"
+    },
+    {
+      "kind": "responses",
+      "path": "hopcandy/fixtures/replay_responses.json",
+      "size_bytes": 152308,
+      "sha256": "905f72a94b371aa06f69451a4da795082e9914153e1db77cbc8a207be25943b5"
+    },
+    {
+      "kind": "step1_lock",
+      "path": "hopcandy/contracts/STEP1_CONTRACT_LOCK.json",
+      "size_bytes": 1750,
+      "sha256": "bbac185d12e628a2b0cefa253f6b7d3bf370ac74456e55cd0a138b783e09f8a6"
+    },
+    {
+      "kind": "timeline",
+      "path": "hopcandy/fixtures/engineering_timeline.json",
+      "size_bytes": 6263,
+      "sha256": "d4e2b3be714e0985c3b283dff007c92670a1555b2755c15f0675580009ed892f"
+    },
+    {
+      "kind": "publication_migration",
+      "path": "hopcandy/supabase/migrations/202608120001_hopcandy_publication_schema.sql",
+      "size_bytes": 4875,
+      "sha256": "02d3c24d3a09a262d32f73612f9f0d728bfcc6ee7d93be3ad2817eeaf50cb60a"
+    },
+    {
+      "kind": "publication_export_script",
+      "path": "scripts/196.prepare_hopcandy_step2_publication.py",
+      "size_bytes": 13435,
+      "sha256": "277de09681d41ec161d9daee36a31c1b72fed516c1fb76c05b647bbf6fd62369"
+    }
+  ],
+  "output_artifacts": [
+    {
+      "path": "hopcandy/public_data/demo_cases.json",
+      "size_bytes": 163910,
+      "sha256": "098f53ddde4b9b4f0389c4cc15220efe08cf90c2483406800fd8f89f10442dca"
+    },
+    {
+      "path": "hopcandy/public_data/experiments.json",
+      "size_bytes": 4919,
+      "sha256": "54e27166421834c99931292472df862fce54b4ef0b9e3bbee71965a8b75d365d"
+    },
+    {
+      "path": "hopcandy/public_data/timeline_entries.json",
+      "size_bytes": 8424,
+      "sha256": "879fcbad6d4d7b38a2570239d081c35da602b14101b26d52320b9d4bd7bc4601"
+    },
+    {
+      "path": "hopcandy/supabase/seed.sql",
+      "size_bytes": 131483,
+      "sha256": "4e17b4816af1ef17e8b9b7dec33b1571c862a60011c52bc79a7b1381512da286"
+    }
+  ],
+  "publication_bundle_sha256": "0472bbcf3664f87bbdda45b23668c363b7362bee68ea291d86f9b292041d9483",
+  "validation_scope": {
+    "migration_and_policy_static_contract": "passed",
+    "fallback_equivalence": "passed",
+    "secret_scan": "passed",
+    "remote_supabase_rls_execution": "pending_step7_preview"
+  }
+}

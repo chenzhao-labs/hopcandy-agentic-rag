@@ -1,0 +1,27 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+coverage.xml
+
+# Node/Vite
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Private research and runtime artifacts
+models/
+indexes/
+cache/
+checkpoints/
+logs/
+results/
+data/private/
+*.pdf

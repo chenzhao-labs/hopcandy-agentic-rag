@@ -1,0 +1,29 @@
+{
+  "schema_version": "hopcandy-public-release-allowlist-v2",
+  "release_name": "hopcandy-agentic-rag",
+  "include": [
+    {"source": "hopcandy/__init__.py", "destination": "hopcandy/__init__.py"},
+    {"source_tree": "hopcandy/backend", "destination_tree": "hopcandy/backend", "extensions": [".py", ".md", ".txt", ".example"]},
+    {"source_tree": "hopcandy/contracts", "destination_tree": "hopcandy/contracts", "extensions": [".json"]},
+    {"source_tree": "hopcandy/fixtures", "destination_tree": "hopcandy/fixtures", "extensions": [".json"]},
+    {"source_tree": "hopcandy/public_data", "destination_tree": "hopcandy/public_data", "extensions": [".json"]},
+    {"source_tree": "hopcandy/supabase", "destination_tree": "hopcandy/supabase", "extensions": [".md", ".sql", ".toml"]},
+    {"source": "hopcandy/frontend/index.html", "destination": "hopcandy/frontend/index.html"},
+    {"source": "hopcandy/frontend/package.json", "destination": "hopcandy/frontend/package.json"},
+    {"source": "hopcandy/frontend/package-lock.json", "destination": "hopcandy/frontend/package-lock.json"},
+    {"source": "hopcandy/frontend/.env.example", "destination": "hopcandy/frontend/.env.example"},
+    {"source": "hopcandy/frontend/README.md", "destination": "hopcandy/frontend/README.md"},
+    {"source": "hopcandy/frontend/tsconfig.app.json", "destination": "hopcandy/frontend/tsconfig.app.json"},
+    {"source": "hopcandy/frontend/tsconfig.json", "destination": "hopcandy/frontend/tsconfig.json"},
+    {"source": "hopcandy/frontend/tsconfig.node.json", "destination": "hopcandy/frontend/tsconfig.node.json"},
+    {"source": "hopcandy/frontend/vite.config.ts", "destination": "hopcandy/frontend/vite.config.ts"},
+    {"source_tree": "hopcandy/frontend/src", "destination_tree": "hopcandy/frontend/src", "extensions": [".ts", ".tsx", ".css"]},
+    {"source_tree": "hopcandy/frontend/assets", "destination_tree": "hopcandy/frontend/assets", "extensions": [".jpg", ".jpeg", ".png", ".webp"]},
+    {"source_tree": "hopcandy/frontend/public", "destination_tree": "hopcandy/frontend/public", "extensions": [".json", ".svg", ".png", ".webp"]},
+    {"source": "tests/test_hopcandy_step1_contract.py", "destination": "tests/test_hopcandy_step1_contract.py"},
+    {"source": "tests/test_hopcandy_step3_backend.py", "destination": "tests/test_hopcandy_step3_backend.py"}
+  ],
+  "excluded_directory_names": ["__pycache__", "node_modules", "dist", "everything_copy", ".venv", ".pytest_cache"],
+  "excluded_file_names": [".env", "*.tsbuildinfo", "vite.config.js", "vite.config.d.ts", "FRONTEND_DATA_LOCK.json", "STEP3_VALIDATION.json", "STEP4_VALIDATION.json", "STEP5_VALIDATION.json"],
+  "maximum_file_size_bytes": 2000000
+}

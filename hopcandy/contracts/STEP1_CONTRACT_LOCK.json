@@ -1,0 +1,53 @@
+{
+  "schema_version": "hopcandy-step1-contract-lock-v1",
+  "api_schema_version": "hopcandy-api-v1",
+  "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+  "status": "frozen_pass",
+  "response_count": 8,
+  "source_artifacts": [
+    {
+      "kind": "step0_examples",
+      "path": "hopcandy/fixtures/examples.json",
+      "size_bytes": 531379,
+      "sha256": "b10a8583b7a2c815704ec09d3db657b2b545a79e1aab10511088477a04ee0801"
+    },
+    {
+      "kind": "step0_manifest",
+      "path": "hopcandy/fixtures/fixture_manifest.json",
+      "size_bytes": 3228,
+      "sha256": "514e837dc171df8128c2398064745f840fd3407fe7c3b1f1bc359344ed776407"
+    },
+    {
+      "kind": "api_models",
+      "path": "hopcandy/backend/schemas.py",
+      "size_bytes": 4304,
+      "sha256": "a9916d157f8c8bfaa0759377efb343119a8bcaac291e62ceb32952e23d0504b0"
+    },
+    {
+      "kind": "trace_adapter",
+      "path": "hopcandy/backend/trace_adapter.py",
+      "size_bytes": 23300,
+      "sha256": "fdf5cfda2c3b5e80f67c8bda889b3ee5f0c7e33a420b74a9d10b17b7ebaf940a"
+    }
+  ],
+  "output_artifacts": [
+    {
+      "path": "hopcandy/contracts/query_response.schema.json",
+      "size_bytes": 18224,
+      "sha256": "b2e0a9515d4428a9da92fee7a4fc6c7b4b844e3815780fc1c1e5c21255548b86"
+    },
+    {
+      "path": "hopcandy/fixtures/replay_responses.json",
+      "size_bytes": 152308,
+      "sha256": "905f72a94b371aa06f69451a4da795082e9914153e1db77cbc8a207be25943b5"
+    }
+  ],
+  "contract_bundle_sha256": "85bb5af995a4e47a35455cd202e8f8dba8a40f696cdfd6588c90dec819f6c532",
+  "gates": {
+    "deterministic_adapter": true,
+    "frozen_replay_only": true,
+    "raw_trace_not_exposed": true,
+    "internal_paths_and_stacks_removed": true,
+    "missing_metadata_remains_null": true
+  }
+}

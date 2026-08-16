@@ -1,0 +1,84 @@
+{
+  "schema_version": "hopcandy-step0-fixture-lock-v1",
+  "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+  "status": "frozen_pass",
+  "frozen_on": "2026-08-12",
+  "case_count": 7,
+  "timeline_entry_count": 10,
+  "experiment_count": 3,
+  "source_artifacts": [
+    {
+      "role": "fixture_export_script",
+      "path": "scripts/192.prepare_hopcandy_step0_fixtures.py",
+      "size_bytes": 26581,
+      "sha256": "2b1532e700a712747316438d0ec5f2d53e621dee73d71847a66b352f87cd0a55"
+    },
+    {
+      "role": "structured_input",
+      "path": "data/ai_llm_company_v1_bt_3year/structured_test_v3/qa_pairs.json",
+      "size_bytes": 80603,
+      "sha256": "35a4c5fb940f32dc4380c7a062c08ab77dedb59d434423d75cfb56aca6a6173a"
+    },
+    {
+      "role": "structured_lock",
+      "path": "data/ai_llm_company_v1_bt_3year/baselines/structured_query_stable_v1/STRUCTURED_QUERY_STABLE_V1_LOCK.json",
+      "size_bytes": 11721,
+      "sha256": "ce8e0ba4bb820a688d2f62a87b294ea5ee5c6b4ec1dbaf58c11c2205a16ee40e"
+    },
+    {
+      "role": "structured_result",
+      "path": "data/ai_llm_company_v1_bt_3year/results/eval_structured_test_v3_once.json",
+      "size_bytes": 753051,
+      "sha256": "5c52c8dff0ea7780f24eed3166773691b554896980a5f5e1953c73f31786eba9"
+    },
+    {
+      "role": "textual_input",
+      "path": "data/ai_llm_company_v1_bt_3year/textual_multihop_v1/dataset/development_v0_1/agent_eval_dev24/qa_pairs.json",
+      "size_bytes": 106386,
+      "sha256": "f2524ee6af43431f25835ff233af88617aae76e54696d571fdb61b8a90a7b6e3"
+    },
+    {
+      "role": "textual_lock",
+      "path": "data/ai_llm_company_v1_bt_3year/baselines/textual_2hop_baseline_v0_1/TEXTUAL_2HOP_BASELINE_V0_1_LOCK.json",
+      "size_bytes": 10629,
+      "sha256": "9ff4b0d523b9abd613de3f40aecc08e938ee0cdabf83f45b4aa98a7bd8be77a0"
+    },
+    {
+      "role": "textual_result_4b",
+      "path": "data/ai_llm_company_v1_bt_3year/textual_multihop_v1/results/eval_fix4_9d3_agent_dev24.json",
+      "size_bytes": 1105556,
+      "sha256": "d03cb0d09620e6db5b6b3038969431cb9504c86a4c02595832c691940b1c3939"
+    },
+    {
+      "role": "textual_result_8b",
+      "path": "data/ai_llm_company_v1_bt_3year/textual_multihop_v1/results/eval_fix4_9d3_agent_dev24_8b_2048.json",
+      "size_bytes": 1644086,
+      "sha256": "21df5701f9d57eff9030cf826e7d492360970b190d5f615f614782498b4dc0c3"
+    }
+  ],
+  "output_artifacts": [
+    {
+      "path": "hopcandy/fixtures/engineering_timeline.json",
+      "size_bytes": 6263,
+      "sha256": "d4e2b3be714e0985c3b283dff007c92670a1555b2755c15f0675580009ed892f"
+    },
+    {
+      "path": "hopcandy/fixtures/examples.json",
+      "size_bytes": 531379,
+      "sha256": "b10a8583b7a2c815704ec09d3db657b2b545a79e1aab10511088477a04ee0801"
+    },
+    {
+      "path": "hopcandy/fixtures/experiments.json",
+      "size_bytes": 4767,
+      "sha256": "e11f7ba7e45a9681b714568537f4342baf6579daab4b4173080c500b0c9aea88"
+    }
+  ],
+  "bundle_sha256": "d9a031e88fd177efb2e45e1c9093bd0c4e9a2baabdb8a17c1e4df115de7e3c84",
+  "boundaries": {
+    "replay_is_not_live": true,
+    "textual_stable_not_claimed": true,
+    "development24_not_independent_test": true,
+    "live_agent_on_demand": true,
+    "frozen_baselines_not_modified": true
+  }
+}

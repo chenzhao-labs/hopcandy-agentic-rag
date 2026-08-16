@@ -1,0 +1,133 @@
+{
+  "schema_version": "hopcandy-public-fixtures-v1",
+  "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+  "status": "frozen_public_experiment_summary",
+  "experiments": [
+    {
+      "experiment_id": "BT3Y-Structured-Query-Stable-v1.0",
+      "name": "Structured Query Stable v1.0",
+      "label": "Stable",
+      "status": "passed_frozen",
+      "scope": "Structured financial lookup, multi-fact calculation, entity binding, and clarification over BT3Y six-report corpus",
+      "metrics": {
+        "samples": 24,
+        "system_errors": 0,
+        "recovered_samples": 0,
+        "em": 0.375,
+        "f1": 0.898,
+        "route_counts": {
+          "direct_structured": 18,
+          "entity_dependent": 4,
+          "clarification": 2
+        },
+        "structured_apply_rate": 1.0,
+        "entity_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "numeric_accuracy": 1.0,
+        "unit_accuracy": 1.0,
+        "calculation_accuracy": 1.0,
+        "answer_completeness": 1.0,
+        "evidence_grounding_accuracy": 1.0,
+        "rejected_fact_count": 0,
+        "avg_hop_recall": 1.0,
+        "hop_recall_by_hop": {
+          "1hop": {
+            "count": 2,
+            "avg_hop_recall": 1.0,
+            "premature_rate": 0.0,
+            "over_ext_rate": 0.0
+          },
+          "2hop": {
+            "count": 12,
+            "avg_hop_recall": 1.0,
+            "premature_rate": 0.0,
+            "over_ext_rate": 0.0
+          },
+          "3hop": {
+            "count": 8,
+            "avg_hop_recall": 1.0,
+            "premature_rate": 0.0,
+            "over_ext_rate": 0.0
+          }
+        },
+        "agent_latency_p50_ms": 4.488,
+        "agent_latency_p95_ms": 322.012,
+        "retrieval_latency_p50_ms": 0.18,
+        "retrieval_latency_p95_ms": 190.296,
+        "gpu_peak_allocated_mib": 4510.795,
+        "gpu_peak_reserved_mib": 4702.0
+      },
+      "source": {
+        "role": "baseline_lock",
+        "path": "data/ai_llm_company_v1_bt_3year/baselines/structured_query_stable_v1/STRUCTURED_QUERY_STABLE_V1_LOCK.json",
+        "size_bytes": 11721,
+        "sha256": "ce8e0ba4bb820a688d2f62a87b294ea5ee5c6b4ec1dbaf58c11c2205a16ee40e"
+      }
+    },
+    {
+      "experiment_id": "BT3Y-Textual-2hop-Baseline-v0.1",
+      "name": "Textual 2-hop Baseline v0.1",
+      "label": "Development Baseline",
+      "status": "frozen_baseline_with_known_limitations",
+      "scope": "Development evaluation of textual two-hop Agentic RAG over the BT3Y six-report corpus",
+      "metrics": {
+        "samples": 24,
+        "hop_count": 2,
+        "system_errors": 0,
+        "recovered_samples": 0,
+        "em": 0.25,
+        "f1": 0.375,
+        "avg_hop_recall": 0.479,
+        "full_gold_chain_rate": 0.125,
+        "avg_tool_calls": 2.417,
+        "avg_iterations": 1.333,
+        "machine_facts_calls": 0,
+        "trace_complete_rate": 1.0,
+        "tool_result_success_events": 58,
+        "failed_strategy_count": 0,
+        "numeric_grounding_rate": 1.0,
+        "actual_abstentions": 2,
+        "agent_latency_p50_ms": 3344.061,
+        "agent_latency_p95_ms": 10269.185,
+        "retrieval_latency_p50_ms": 400.977,
+        "retrieval_latency_p95_ms": 616.715,
+        "gpu_peak_allocated_mib": 4590.618,
+        "gpu_peak_reserved_mib": 5302.0
+      },
+      "source": {
+        "role": "baseline_lock",
+        "path": "data/ai_llm_company_v1_bt_3year/baselines/textual_2hop_baseline_v0_1/TEXTUAL_2HOP_BASELINE_V0_1_LOCK.json",
+        "size_bytes": 10629,
+        "sha256": "9ff4b0d523b9abd613de3f40aecc08e938ee0cdabf83f45b4aa98a7bd8be77a0"
+      }
+    },
+    {
+      "experiment_id": "BT3Y-Textual-2hop-Qwen3-8B-Ablation",
+      "name": "Qwen3-8B / 2048 model-scale ablation",
+      "label": "Ablation",
+      "status": "development_diagnostic_not_release",
+      "scope": "Same consumed Development24, six-document index, and Agent configuration as the 4B baseline.",
+      "metrics": {
+        "samples": 24,
+        "system_errors": 0,
+        "em": 0.333,
+        "f1": 0.451,
+        "avg_hop_recall": 0.688,
+        "full_gold_chain_rate": 0.5,
+        "avg_tool_calls": 3.667,
+        "avg_iterations": 1.833,
+        "agent_latency_p50_ms": 22275.892,
+        "agent_latency_p95_ms": 52795.659,
+        "machine_facts_calls": 0,
+        "trace_complete_rate": 1.0
+      },
+      "source": {
+        "role": "ablation_result",
+        "path": "data/ai_llm_company_v1_bt_3year/textual_multihop_v1/results/eval_fix4_9d3_agent_dev24_8b_2048.json",
+        "size_bytes": 1644086,
+        "sha256": "21df5701f9d57eff9030cf826e7d492360970b190d5f615f614782498b4dc0c3"
+      }
+    }
+  ],
+  "comparison_note": "Development metrics are descriptive and must not be presented as an independent Test or Textual Stable release."
+}

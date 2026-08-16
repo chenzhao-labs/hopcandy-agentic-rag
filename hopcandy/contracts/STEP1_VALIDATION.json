@@ -1,0 +1,23 @@
+{
+  "schema_version": "hopcandy-step1-validation-v1",
+  "status": "passed",
+  "gates": {
+    "responses_validate": true,
+    "required_statuses": true,
+    "required_routes": true,
+    "replan_observable": true,
+    "abstention_observable": true,
+    "error_sanitized": true,
+    "public_safety_scan": true,
+    "source_hashes_intact": true,
+    "output_hashes_intact": true
+  },
+  "metrics": {
+    "responses": 8,
+    "timeline_events": 61,
+    "evidence_cards": 76,
+    "plan_steps": 24,
+    "contract_bundle_sha256": "85bb5af995a4e47a35455cd202e8f8dba8a40f696cdfd6588c90dec819f6c532"
+  },
+  "errors": []
+}

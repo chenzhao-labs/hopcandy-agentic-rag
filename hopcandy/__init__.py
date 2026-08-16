@@ -1,0 +1,1 @@
+"""HopCandy product adapter package."""

@@ -1,0 +1,3129 @@
+{
+  "api_schema_version": "hopcandy-api-v1",
+  "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+  "fixture_bundle_sha256": "d9a031e88fd177efb2e45e1c9093bd0c4e9a2baabdb8a17c1e4df115de7e3c84",
+  "status": "frozen_replay_contract",
+  "response_count": 8,
+  "responses": [
+    {
+      "api_schema_version": "hopcandy-api-v1",
+      "request_id": "replay-structured-cross-company-comparison",
+      "mode": "replay",
+      "status": "success",
+      "question": "Compare Baidu's and Tencent's consolidated cash and cash equivalents at the end of 2024 in RMB million.",
+      "answer": "Baidu's cash and cash equivalents was RMB24,832 million in 2024; Tencent's was RMB132,519 million in 2024. Tencent was higher by RMB107,687 million, about 5.34 times Baidu.",
+      "route": {
+        "category": "structured",
+        "query_type": "multi_hop",
+        "path_type": "full_agentic",
+        "structured_route": "direct_structured",
+        "decision_source": "deterministic_structured_router"
+      },
+      "model": "Qwen3-4B",
+      "metrics": {
+        "latency_ms": 4.683,
+        "iterations": 1,
+        "tool_calls": 3,
+        "evidence_count": 3,
+        "replans": 0,
+        "hop_recall": 1.0,
+        "grounding_status": "grounded"
+      },
+      "timeline": [
+        {
+          "event_id": "event-1",
+          "sequence": 1,
+          "node": "router",
+          "event_type": "route_decision",
+          "status": "completed",
+          "title": "Route selected",
+          "detail": "direct_structured",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-2",
+          "sequence": 2,
+          "node": "planner",
+          "event_type": "plan_created",
+          "status": "completed",
+          "title": "Plan created",
+          "detail": "3 steps",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-3",
+          "sequence": 3,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "machine_facts completed",
+          "detail": "1 results",
+          "iteration": 1,
+          "step_id": 1,
+          "tool": "machine_facts",
+          "latency_ms": 0.167,
+          "evidence_ids": [
+            "evidence-1"
+          ]
+        },
+        {
+          "event_id": "event-4",
+          "sequence": 4,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "machine_facts completed",
+          "detail": "1 results",
+          "iteration": 1,
+          "step_id": 2,
+          "tool": "machine_facts",
+          "latency_ms": 0.141,
+          "evidence_ids": [
+            "evidence-2"
+          ]
+        },
+        {
+          "event_id": "event-5",
+          "sequence": 5,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "calculator completed",
+          "detail": "1 results",
+          "iteration": 1,
+          "step_id": 3,
+          "tool": "calculator",
+          "latency_ms": 0.219,
+          "evidence_ids": [
+            "evidence-3"
+          ]
+        },
+        {
+          "event_id": "event-6",
+          "sequence": 6,
+          "node": "verifier",
+          "event_type": "evidence_sufficient",
+          "status": "sufficient",
+          "title": "Evidence verified",
+          "detail": "sufficient",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-7",
+          "sequence": 7,
+          "node": "synthesizer",
+          "event_type": "answer_generated",
+          "status": "completed",
+          "title": "Answer generated",
+          "detail": "Synthesis completed",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        }
+      ],
+      "plan": [
+        {
+          "plan_id": "plan-1-1",
+          "iteration": 1,
+          "step_id": 1,
+          "sub_query": "Baidu cash_and_cash_equivalents 2024",
+          "tool": "machine_facts",
+          "depends_on": [],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-1-2",
+          "iteration": 1,
+          "step_id": 2,
+          "sub_query": "Tencent cash_and_cash_equivalents 2024",
+          "tool": "machine_facts",
+          "depends_on": [],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-1-3",
+          "iteration": 1,
+          "step_id": 3,
+          "sub_query": "Compare Baidu's and Tencent's consolidated cash and cash equivalents at the end of 2024 in RMB million.",
+          "tool": "calculator",
+          "depends_on": [
+            1,
+            2
+          ],
+          "status": "done"
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "evidence-1",
+          "chunk_id": "bd_2024_ar_0128",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": null,
+          "page": null,
+          "text": "Baidu cash_and_cash_equivalents 2024\nConsolidated Balance Sheets Data: Cash and cash equivalents 35,782 36,850 53,156 25,231 24,832 3,402 Restricted cash 758 10,821 11,330 11,503 11,697 1,602 Short-term investments, net(1) 126,402 143,243 120,839 168,670 102,608 14,057 Total assets 332,708 380,034 390,973 406,759 427,780 58,606 Short-term loans 3,016 4,168 5,343 10,257 10,669 1,462 Long-term loans, current portion 7,427 2 — 2 168 23 Long-term loans",
+          "tool": "machine_facts",
+          "score": null,
+          "hop": 1,
+          "sub_query": "Baidu cash_and_cash_equivalents 2024",
+          "is_gold": true,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-2",
+          "chunk_id": "tx_2024_ar_0599",
+          "document_id": "tx_2024_ar",
+          "company": "Tencent",
+          "report_year": 2024,
+          "section": null,
+          "page": null,
+          "text": "Tencent cash_and_cash_equivalents 2024\nsets 28 4,750 5,949 Financial assets at fair value through profit or loss 25 9,568 14,903 Financial assets at fair value through other comprehensive income 26 3,345 – Term deposits 30 192,977 185,983 Restricted cash 32 3,334 3,818 Cash and cash equivalents 32 132,519 172,320 496,180 518,446 Total assets 1,780,995 1,577,246 Tencent Holdings Limited 126 Consolidated Statement of Financial Position As at 31 December 2024 As at 31 December 2024 2023 Note RMB’Million",
+          "tool": "machine_facts",
+          "score": null,
+          "hop": 2,
+          "sub_query": "Tencent cash_and_cash_equivalents 2024",
+          "is_gold": true,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-3",
+          "chunk_id": "calculation:3",
+          "document_id": null,
+          "company": null,
+          "report_year": null,
+          "section": null,
+          "page": null,
+          "text": "Deterministic financial calculation\nBaidu's cash and cash equivalents was RMB24,832 million in 2024; Tencent's was RMB132,519 million in 2024. Tencent was higher by RMB107,687 million, about 5.34 times Baidu.",
+          "tool": "calculator",
+          "score": null,
+          "hop": 3,
+          "sub_query": "Compare Baidu's and Tencent's consolidated cash and cash equivalents at the end of 2024 in RMB million.",
+          "is_gold": false,
+          "retrieval_count": 1
+        }
+      ],
+      "verification": [
+        {
+          "verification_id": "verification-1",
+          "iteration": 1,
+          "verdict": "sufficient",
+          "feedback": ""
+        }
+      ],
+      "replans": [],
+      "grounding": {
+        "status": "grounded",
+        "complete": null,
+        "hop_recall": 1.0,
+        "abstention_reason": null,
+        "final_verdict": "sufficient"
+      },
+      "warnings": [
+        {
+          "code": "FROZEN_REPLAY",
+          "message": "This is a frozen experiment replay, not a live query.",
+          "severity": "info"
+        }
+      ],
+      "scope": {
+        "companies": [
+          "Baidu",
+          "Tencent"
+        ],
+        "years": [
+          2024
+        ],
+        "corpus": "Baidu and Tencent annual reports (2023-2025)",
+        "hop_count": 2,
+        "answerability": "answerable",
+        "release_label": "Stable",
+        "release_name": "Structured Query Stable v1.0"
+      },
+      "provenance": {
+        "source_kind": "frozen_replay",
+        "case_id": "structured-cross-company-comparison",
+        "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+        "source_result_sha256": "5c52c8dff0ea7780f24eed3166773691b554896980a5f5e1953c73f31786eba9",
+        "source_row_sha256": "89e4d69d9b7f0ff5b23ab639debb5d1a79d990345121522e05d03978a86b7c8e"
+      },
+      "error": null
+    },
+    {
+      "api_schema_version": "hopcandy-api-v1",
+      "request_id": "replay-structured-entity-dependent-change",
+      "mode": "replay",
+      "status": "success",
+      "question": "Identify the company that described Apollo RT6 as the first steering-wheel-free, all-electric model designed for fully driverless driving. Then state how its consolidated cash and cash equivalents changed from 2023 to 2024.",
+      "answer": "Baidu's cash and cash equivalents decreased from RMB25,231 million in 2023 to RMB24,832 million in 2024, a decline of RMB399 million or 1.58%.",
+      "route": {
+        "category": "structured",
+        "query_type": "multi_hop",
+        "path_type": "full_agentic",
+        "structured_route": "entity_dependent",
+        "decision_source": "deterministic_structured_router"
+      },
+      "model": "Qwen3-4B",
+      "metrics": {
+        "latency_ms": 1252.867,
+        "iterations": 1,
+        "tool_calls": 4,
+        "evidence_count": 8,
+        "replans": 0,
+        "hop_recall": 1.0,
+        "grounding_status": "grounded"
+      },
+      "timeline": [
+        {
+          "event_id": "event-1",
+          "sequence": 1,
+          "node": "router",
+          "event_type": "route_decision",
+          "status": "completed",
+          "title": "Route selected",
+          "detail": "entity_dependent",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-2",
+          "sequence": 2,
+          "node": "planner",
+          "event_type": "plan_created",
+          "status": "completed",
+          "title": "Plan created",
+          "detail": "4 steps",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-3",
+          "sequence": 3,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "10 results",
+          "iteration": 1,
+          "step_id": 1,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 1245.706,
+          "evidence_ids": [
+            "evidence-1",
+            "evidence-2",
+            "evidence-3",
+            "evidence-4",
+            "evidence-5"
+          ]
+        },
+        {
+          "event_id": "event-4",
+          "sequence": 4,
+          "node": "entity_resolver",
+          "event_type": "entity_resolved",
+          "status": "completed",
+          "title": "Entity resolved",
+          "detail": "{'strategy': 'query_evidence_anchor_v1', 'query_anchors': {'money': [], 'numbers': ['6'], 'years': [], 'terms': ['all', 'apollo', 'described', 'designed', 'driverless', 'driving', 'electric', 'first', 'free', 'fully', 'model', 'rt6', 'steering', 'wheel']}, 'selected_rank': 1, 'selected_evidence_score': 113, 'candidates': [{'rank': 1, 'chunk_id': 'bd_2024_ar_1046', 'entity_id': 'baidu', 'canonical_name': 'Baidu', 'evidence_score': 113, 'matches': {'entity_aliases': [], 'money': [], 'numbers': ['6'], 'years': [], 'terms': ['all', 'apollo', 'designed', 'driverless', 'driving', 'electric', 'first', 'free', 'fully', 'model', 'rt6', 'steering', 'wheel']}}, {'rank': 2, 'chunk_id': 'bd_2023_ar_1013', 'entity_id': 'baidu', 'canonical_name': 'Baidu', 'evidence_score': 113, 'matches': {'entity_aliases': [], 'money': [], 'numbers': ['6'], 'years': [], 'terms': ['all', 'apollo', 'designed', 'driverless', 'driving', 'electric', 'first', 'free', 'fully', 'model', 'rt6', 'steering', 'wheel']}}, {'ran…",
+          "iteration": null,
+          "step_id": 1,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-5",
+          "sequence": 5,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "machine_facts completed",
+          "detail": "1 results",
+          "iteration": 1,
+          "step_id": 2,
+          "tool": "machine_facts",
+          "latency_ms": 0.233,
+          "evidence_ids": [
+            "evidence-6"
+          ]
+        },
+        {
+          "event_id": "event-6",
+          "sequence": 6,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "machine_facts completed",
+          "detail": "1 results",
+          "iteration": 1,
+          "step_id": 3,
+          "tool": "machine_facts",
+          "latency_ms": 0.151,
+          "evidence_ids": [
+            "evidence-7"
+          ]
+        },
+        {
+          "event_id": "event-7",
+          "sequence": 7,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "calculator completed",
+          "detail": "1 results",
+          "iteration": 1,
+          "step_id": 4,
+          "tool": "calculator",
+          "latency_ms": 0.278,
+          "evidence_ids": [
+            "evidence-8"
+          ]
+        },
+        {
+          "event_id": "event-8",
+          "sequence": 8,
+          "node": "verifier",
+          "event_type": "evidence_sufficient",
+          "status": "sufficient",
+          "title": "Evidence verified",
+          "detail": "sufficient",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-9",
+          "sequence": 9,
+          "node": "synthesizer",
+          "event_type": "answer_generated",
+          "status": "completed",
+          "title": "Answer generated",
+          "detail": "Synthesis completed",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        }
+      ],
+      "plan": [
+        {
+          "plan_id": "plan-1-1",
+          "iteration": 1,
+          "step_id": 1,
+          "sub_query": "Identify the company that described Apollo RT6 as the first steering-wheel-free, all-electric model designed for fully driverless driving",
+          "tool": "hybrid_search",
+          "depends_on": [],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-1-2",
+          "iteration": 1,
+          "step_id": 2,
+          "sub_query": "the identified company cash_and_cash_equivalents 2023",
+          "tool": "machine_facts",
+          "depends_on": [
+            1
+          ],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-1-3",
+          "iteration": 1,
+          "step_id": 3,
+          "sub_query": "the identified company cash_and_cash_equivalents 2024",
+          "tool": "machine_facts",
+          "depends_on": [
+            1
+          ],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-1-4",
+          "iteration": 1,
+          "step_id": 4,
+          "sub_query": "Identify the company that described Apollo RT6 as the first steering-wheel-free, all-electric model designed for fully driverless driving. Then state how its consolidated cash and cash equivalents changed from 2023 to 2024.",
+          "tool": "calculator",
+          "depends_on": [
+            2,
+            3
+          ],
+          "status": "done"
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "evidence-1",
+          "chunk_id": "bd_2024_ar_1046",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": "ITEM 4.",
+          "page": null,
+          "text": "百度 2024 Annual Report - ITEM 4.\nvehicle Apollo RT6. RT6 is the first steering wheel-free, all electric model designed for fully driverless autonomous driving. Apollo RT6 is distinct from\nthe previous generations that had otherwise been retrofitted on conventional vehicles. RT6 has been operating on public roads in multiple cities in China\nsince October 2024.\nBaidu established the Technology Ethics Committee in October 2023 to guide the practices of technology professionals.",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "Identify the company that described Apollo RT6 as the first steering-wheel-free, all-electric model designed for fully driverless driving",
+          "is_gold": true,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-2",
+          "chunk_id": "bd_2023_ar_1013",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 4.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 4.\nand Chongqing. Apollo Go received permits to conduct fully driverless testing on open roads in Shanghai Pudong area in July 2023.\nIn June 2021, we introduced Apollo Moon, our 5th generation Apollo robotaxi vehicle. In July 2022, we unveiled our 6th generation robotaxi\nvehicle Apollo RT6. RT6 is the first steering wheel-free, all electric model designed for fully driverless autonomous driving. Apollo RT6 is distinct from",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "Identify the company that described Apollo RT6 as the first steering-wheel-free, all-electric model designed for fully driverless driving",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-3",
+          "chunk_id": "bd_2025_ar_1052",
+          "document_id": "bd_2025_ar",
+          "company": "Baidu",
+          "report_year": 2025,
+          "section": "ITEM 4.",
+          "page": null,
+          "text": "百度 2025 Annual Report - ITEM 4.\nIn June 2021, we introduced Apollo Moon, our 5th generation Apollo robotaxi vehicle. In July 2022, we unveiled our 6th generation robotaxi\nvehicle Apollo RT6. RT6 is the first steering wheel-free, all electric model designed for fully driverless autonomous driving. Apollo RT6 is distinct from\nthe previous generations that had otherwise been retrofitted on conventional vehicles. RT6 has been operating on public roads in multiple cities in China\nsince October 2024.\n92",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "Identify the company that described Apollo RT6 as the first steering-wheel-free, all-electric model designed for fully driverless driving",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-4",
+          "chunk_id": "bd_2023_ar_0961",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 4.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 4.\nservices to the public in four cities, including Beijing, Shenzhen, Wuhan and Chongqing. In addition, Apollo Go received permits to conduct fully\ndriverless testing on open roads in Shanghai Pudong area in July 2023.\nOur strong brand and market leadership in autonomous driving has been carried over to intelligent driving. Apollo is a well-recognized brand\namong automakers. We have partnered with many domestic and global automakers to power their passenger vehicles with Baidu Apollo’s auto",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "Identify the company that described Apollo RT6 as the first steering-wheel-free, all-electric model designed for fully driverless driving",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-5",
+          "chunk_id": "bd_2025_ar_1008",
+          "document_id": "bd_2025_ar",
+          "company": "Baidu",
+          "report_year": 2025,
+          "section": "ITEM 4.",
+          "page": null,
+          "text": "百度 2025 Annual Report - ITEM 4.\nroad testing in designated areas in both Dubai and Abu Dhabi. In November 2025, Apollo Go deepened local cooperation in Abu Dhabi and received\npermits for fully driverless commercial operations. In early 2026, Apollo Go accelerated its global footprint across multiple markets. In the UK, Apollo\nGo advanced partnerships with Uber and Lyft to pilot autonomous vehicles in London. In Switzerland, Apollo Go initiated testing in St. Gallen. In the",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "Identify the company that described Apollo RT6 as the first steering-wheel-free, all-electric model designed for fully driverless driving",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-6",
+          "chunk_id": "bd_2023_ar_0128",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": null,
+          "page": null,
+          "text": "Baidu cash_and_cash_equivalents 2023\nme attributable to Baidu, Inc. 2,057 22,472 10,226 7,559 20,315 2,861 9 Table of Contents As of December 31, 2019 2020 2021 2022 2023 RMB RMB RMB RMB RMB US$ (In millions) Consolidated Balance Sheets Data: Cash and cash equivalents 33,443 35,782 36,850 53,156 25,231 3,554 Restricted cash 996 758 10,821 11,330 11,503 1,620 Short-term investments, net(1)",
+          "tool": "machine_facts",
+          "score": null,
+          "hop": 2,
+          "sub_query": "Baidu cash_and_cash_equivalents 2023",
+          "is_gold": true,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-7",
+          "chunk_id": "bd_2024_ar_0128",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": null,
+          "page": null,
+          "text": "Baidu cash_and_cash_equivalents 2024\nConsolidated Balance Sheets Data: Cash and cash equivalents 35,782 36,850 53,156 25,231 24,832 3,402 Restricted cash 758 10,821 11,330 11,503 11,697 1,602 Short-term investments, net(1) 126,402 143,243 120,839 168,670 102,608 14,057 Total assets 332,708 380,034 390,973 406,759 427,780 58,606 Short-term loans 3,016 4,168 5,343 10,257 10,669 1,462 Long-term loans, current portion 7,427 2 — 2 168 23 Long-term loans",
+          "tool": "machine_facts",
+          "score": null,
+          "hop": 2,
+          "sub_query": "Baidu cash_and_cash_equivalents 2024",
+          "is_gold": true,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-8",
+          "chunk_id": "calculation:4",
+          "document_id": null,
+          "company": null,
+          "report_year": null,
+          "section": null,
+          "page": null,
+          "text": "Deterministic financial calculation\nBaidu's cash and cash equivalents decreased from RMB25,231 million in 2023 to RMB24,832 million in 2024, a decline of RMB399 million or 1.58%.",
+          "tool": "calculator",
+          "score": null,
+          "hop": 4,
+          "sub_query": "Identify the company that described Apollo RT6 as the first steering-wheel-free, all-electric model designed for fully driverless driving. Then state how its consolidated cash and cash equivalents changed from 2023 to 2024.",
+          "is_gold": false,
+          "retrieval_count": 1
+        }
+      ],
+      "verification": [
+        {
+          "verification_id": "verification-1",
+          "iteration": 1,
+          "verdict": "sufficient",
+          "feedback": ""
+        }
+      ],
+      "replans": [],
+      "grounding": {
+        "status": "grounded",
+        "complete": null,
+        "hop_recall": 1.0,
+        "abstention_reason": null,
+        "final_verdict": "sufficient"
+      },
+      "warnings": [
+        {
+          "code": "FROZEN_REPLAY",
+          "message": "This is a frozen experiment replay, not a live query.",
+          "severity": "info"
+        }
+      ],
+      "scope": {
+        "companies": [
+          "Baidu"
+        ],
+        "years": [
+          2023,
+          2024,
+          2025
+        ],
+        "corpus": "Baidu and Tencent annual reports (2023-2025)",
+        "hop_count": 3,
+        "answerability": "answerable",
+        "release_label": "Stable",
+        "release_name": "Structured Query Stable v1.0"
+      },
+      "provenance": {
+        "source_kind": "frozen_replay",
+        "case_id": "structured-entity-dependent-change",
+        "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+        "source_result_sha256": "5c52c8dff0ea7780f24eed3166773691b554896980a5f5e1953c73f31786eba9",
+        "source_row_sha256": "d5541ef042830c793169c9a5ea5badc17087c23dca16707d3b7db1e114ceda07"
+      },
+      "error": null
+    },
+    {
+      "api_schema_version": "hopcandy-api-v1",
+      "request_id": "replay-structured-missing-year-clarification",
+      "mode": "replay",
+      "status": "clarification",
+      "question": "What were Tencent's consolidated total assets at year end?",
+      "answer": "Insufficient information: the fiscal year is not specified, so the requested fact cannot be selected without clarification.",
+      "route": {
+        "category": "structured",
+        "query_type": "structured",
+        "path_type": "clarification",
+        "structured_route": "clarification",
+        "decision_source": "deterministic_structured_router"
+      },
+      "model": "Qwen3-4B",
+      "metrics": {
+        "latency_ms": 2.37,
+        "iterations": 0,
+        "tool_calls": 0,
+        "evidence_count": 0,
+        "replans": 0,
+        "hop_recall": 1.0,
+        "grounding_status": "not_applicable"
+      },
+      "timeline": [
+        {
+          "event_id": "event-1",
+          "sequence": 1,
+          "node": "router",
+          "event_type": "route_decision",
+          "status": "completed",
+          "title": "Route selected",
+          "detail": "clarification",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-2",
+          "sequence": 2,
+          "node": "structured_fast_path",
+          "event_type": "clarification_requested",
+          "status": "completed",
+          "title": "Clarification requested",
+          "detail": "clarification",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        }
+      ],
+      "plan": [],
+      "evidence": [],
+      "verification": [],
+      "replans": [],
+      "grounding": {
+        "status": "not_applicable",
+        "complete": null,
+        "hop_recall": 1.0,
+        "abstention_reason": null,
+        "final_verdict": null
+      },
+      "warnings": [
+        {
+          "code": "FROZEN_REPLAY",
+          "message": "This is a frozen experiment replay, not a live query.",
+          "severity": "info"
+        }
+      ],
+      "scope": {
+        "companies": [
+          "Tencent"
+        ],
+        "years": [],
+        "corpus": "Baidu and Tencent annual reports (2023-2025)",
+        "hop_count": 0,
+        "answerability": "unanswerable",
+        "release_label": "Stable",
+        "release_name": "Structured Query Stable v1.0"
+      },
+      "provenance": {
+        "source_kind": "frozen_replay",
+        "case_id": "structured-missing-year-clarification",
+        "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+        "source_result_sha256": "5c52c8dff0ea7780f24eed3166773691b554896980a5f5e1953c73f31786eba9",
+        "source_row_sha256": "3c35f9a68dad71a3b35470e7481c2673beba37d8e720997a9320a395e31cea48"
+      },
+      "error": null
+    },
+    {
+      "api_schema_version": "hopcandy-api-v1",
+      "request_id": "replay-textual-complete-chain-success-8b",
+      "mode": "replay",
+      "status": "success",
+      "question": "According to Tencent's 2023 and 2024 annual reports, which compliance system is overseen by the committee that continuously reviews risk management and internal controls on behalf of the Board?",
+      "answer": "anti-money laundering and sanctions compliance system",
+      "route": {
+        "category": "textual",
+        "query_type": "multi_hop",
+        "path_type": "full_agentic",
+        "structured_route": null,
+        "decision_source": "agentic_default"
+      },
+      "model": "Qwen3-8B",
+      "metrics": {
+        "latency_ms": 18524.47,
+        "iterations": 1,
+        "tool_calls": 3,
+        "evidence_count": 13,
+        "replans": 0,
+        "hop_recall": 1.0,
+        "grounding_status": "grounded"
+      },
+      "timeline": [
+        {
+          "event_id": "event-1",
+          "sequence": 1,
+          "node": "router",
+          "event_type": "route_decision",
+          "status": "completed",
+          "title": "Route selected",
+          "detail": "multi_hop",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-2",
+          "sequence": 2,
+          "node": "planner",
+          "event_type": "plan_created",
+          "status": "completed",
+          "title": "Plan created",
+          "detail": "3 steps",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-3",
+          "sequence": 3,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 1,
+          "step_id": 1,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 3688.404,
+          "evidence_ids": [
+            "evidence-1",
+            "evidence-2",
+            "evidence-3",
+            "evidence-4",
+            "evidence-5"
+          ]
+        },
+        {
+          "event_id": "event-4",
+          "sequence": 4,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 1,
+          "step_id": 2,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 4817.466,
+          "evidence_ids": [
+            "evidence-6",
+            "evidence-2",
+            "evidence-7",
+            "evidence-8",
+            "evidence-9"
+          ]
+        },
+        {
+          "event_id": "event-5",
+          "sequence": 5,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 1,
+          "step_id": 3,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 5281.719,
+          "evidence_ids": [
+            "evidence-6",
+            "evidence-10",
+            "evidence-11",
+            "evidence-12",
+            "evidence-13"
+          ]
+        },
+        {
+          "event_id": "event-6",
+          "sequence": 6,
+          "node": "verifier",
+          "event_type": "evidence_sufficient",
+          "status": "sufficient",
+          "title": "Evidence verified",
+          "detail": "sufficient",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-7",
+          "sequence": 7,
+          "node": "synthesizer",
+          "event_type": "answer_generated",
+          "status": "completed",
+          "title": "Answer generated",
+          "detail": "Synthesis completed",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        }
+      ],
+      "plan": [
+        {
+          "plan_id": "plan-1-1",
+          "iteration": 1,
+          "step_id": 1,
+          "sub_query": "committee that continuously reviews risk management and internal controls on behalf of the Board",
+          "tool": "semantic_search",
+          "depends_on": [],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-1-2",
+          "iteration": 1,
+          "step_id": 2,
+          "sub_query": "compliance system overseen by the committee mentioned in the previous step",
+          "tool": "semantic_search",
+          "depends_on": [
+            1
+          ],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-1-3",
+          "iteration": 1,
+          "step_id": 3,
+          "sub_query": "compliance system mentioned in the 2023 and 2024 annual reports of Tencent",
+          "tool": "keyword_search",
+          "depends_on": [
+            2
+          ],
+          "status": "done"
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "evidence-1",
+          "chunk_id": "tx_2023_ar_0554",
+          "document_id": "tx_2023_ar",
+          "company": "Tencent",
+          "report_year": 2023,
+          "section": "CORPORATE GOVERNANCE REPORT",
+          "page": null,
+          "text": "腾讯 2023 Annual Report - CORPORATE GOVERNANCE REPORT\nframework and an assessment of its internal audit quality to ensure their standards are in compliance with international best\npractices.\nAnnual Report 2023\n115\nCorporate Governance Report\nEffectiveness of Risk Management and Internal Control\nThe Audit Committee, on behalf of the Board, continuously reviews the risk management and internal control systems.\nThe review process comprises of, among other things, meetings with management of business groups, IA, IC, legal team, and",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "committee that continuously reviews risk management and internal controls on behalf of the Board",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-2",
+          "chunk_id": "tx_2025_ar_0530",
+          "document_id": "tx_2025_ar",
+          "company": "Tencent",
+          "report_year": 2025,
+          "section": "CORPORATE GOVERNANCE REPORT",
+          "page": null,
+          "text": "腾讯 2025 Annual Report - CORPORATE GOVERNANCE REPORT\nThe Company has also engaged independent professional consulting firms to perform a review of the Group’s internal control\nframework and an assessment of its internal audit quality to ensure that their standards are in compliance with international\nbest practices.\nEffectiveness of Risk Management and Internal Control\nThe Audit Committee, on behalf of the Board, continuously reviews the risk management and internal control systems.",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "committee that continuously reviews risk management and internal controls on behalf of the Board",
+          "is_gold": false,
+          "retrieval_count": 2
+        },
+        {
+          "evidence_id": "evidence-3",
+          "chunk_id": "tx_2024_ar_0516",
+          "document_id": "tx_2024_ar",
+          "company": "Tencent",
+          "report_year": 2024,
+          "section": "CORPORATE GOVERNANCE REPORT",
+          "page": null,
+          "text": "腾讯 2024 Annual Report - CORPORATE GOVERNANCE REPORT\nframework and an assessment of its internal audit quality to ensure their standards are in compliance with international best\npractices.\nTencent Holdings Limited\n110\nCorporate Governance Report\nEffectiveness of Risk Management and Internal Control\nThe Audit Committee, on behalf of the Board, continuously reviews the risk management and internal control systems.\nThe review process comprises of, among other things, meetings with management of business groups, IA, IC, legal team, and",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "committee that continuously reviews risk management and internal controls on behalf of the Board",
+          "is_gold": true,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-4",
+          "chunk_id": "tx_2025_ar_0436",
+          "document_id": "tx_2025_ar",
+          "company": "Tencent",
+          "report_year": 2025,
+          "section": "CORPORATE GOVERNANCE REPORT",
+          "page": null,
+          "text": "腾讯 2025 Annual Report - CORPORATE GOVERNANCE REPORT\nenhancement of risk culture building, the Company has been continuously improving its risk management and internal control\nsystems while enhancing its risk management capabilities to ensure the healthy and sustainable development of the Company.\nThe Board acknowledges its responsibility to ensure that the Company has established and maintained adequate and\neffective risk management and internal control systems. The Board delegates this responsibility to the Audit Committee,",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "committee that continuously reviews risk management and internal controls on behalf of the Board",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-5",
+          "chunk_id": "tx_2023_ar_0477",
+          "document_id": "tx_2023_ar",
+          "company": "Tencent",
+          "report_year": 2023,
+          "section": "CORPORATE GOVERNANCE REPORT",
+          "page": null,
+          "text": "腾讯 2023 Annual Report - CORPORATE GOVERNANCE REPORT\nculture enhancement, the Company has been continuously improving its risk management and internal control system and\nenhancing risk management capabilities to ensure the healthy and sustainable development of the Company.\nThe Board acknowledges that it is its responsibility to ensure that the Company has established and maintained adequate and\neffective risk management and internal control systems. The Board delegates its responsibility to the Audit Committee to review",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "committee that continuously reviews risk management and internal controls on behalf of the Board",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-6",
+          "chunk_id": "tx_2024_ar_0349",
+          "document_id": "tx_2024_ar",
+          "company": "Tencent",
+          "report_year": 2024,
+          "section": "CORPORATE GOVERNANCE REPORT",
+          "page": null,
+          "text": "腾讯 2024 Annual Report - CORPORATE GOVERNANCE REPORT\noversees the risks undertaken by the Company including determining the level of risk the Company expects and is able\nto take; and\n‧\noversees the Group’s anti-money laundering and sanctions compliance system.\nCorporate Governance Committee\n‧\nreviews the Company’s corporate governance and makes recommendations to the Board;\n‧\nreviews and monitors the Company’s policies and practices on its compliance with legal and regulatory requirements;\n‧",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "compliance system overseen by the committee mentioned in the previous step (dependency context: step 1: framework and an assessment of its internal audit quality to ensure their standards are in compliance with international best\npractices.\nAnnual Report 2023\n115\nCorporate Governance Report\nEffectivenes)",
+          "is_gold": false,
+          "retrieval_count": 2
+        },
+        {
+          "evidence_id": "evidence-7",
+          "chunk_id": "tx_2025_ar_0346",
+          "document_id": "tx_2025_ar",
+          "company": "Tencent",
+          "report_year": 2025,
+          "section": "CORPORATE GOVERNANCE REPORT",
+          "page": null,
+          "text": "腾讯 2025 Annual Report - CORPORATE GOVERNANCE REPORT\nCorporate Governance Committee\n‧\nreviews the Company’s corporate governance and makes recommendations to the Board;\n‧\nreviews and monitors the Company’s policies and practices on its compliance with legal and regulatory requirements;\n‧\ndevelops, reviews and monitors the code of conduct and compliance manual (if any) applicable to employees and\ndirectors;\n‧\nreviews the shareholders communication policy and makes recommendations to the Board where appropriate to",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "compliance system overseen by the committee mentioned in the previous step (dependency context: step 1: framework and an assessment of its internal audit quality to ensure their standards are in compliance with international best\npractices.\nAnnual Report 2023\n115\nCorporate Governance Report\nEffectivenes)",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-8",
+          "chunk_id": "tx_2023_ar_0388",
+          "document_id": "tx_2023_ar",
+          "company": "Tencent",
+          "report_year": 2023,
+          "section": "CORPORATE GOVERNANCE REPORT",
+          "page": null,
+          "text": "腾讯 2023 Annual Report - CORPORATE GOVERNANCE REPORT\nCorporate Governance Committee\n‧\nreviews the Company’s corporate governance and makes recommendations to the Board;\n‧\nreviews and monitors the Company’s policies and practices on its compliance with legal and regulatory requirements;\n‧\ndevelops, reviews and monitors the code of conduct and compliance manual (if any) applicable to employees and\ndirectors;\n‧\nreviews the shareholders communication policy and makes recommendations to the Board where appropriate to",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "compliance system overseen by the committee mentioned in the previous step (dependency context: step 1: framework and an assessment of its internal audit quality to ensure their standards are in compliance with international best\npractices.\nAnnual Report 2023\n115\nCorporate Governance Report\nEffectivenes)",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-9",
+          "chunk_id": "tx_2024_ar_0348",
+          "document_id": "tx_2024_ar",
+          "company": "Tencent",
+          "report_year": 2024,
+          "section": "CORPORATE GOVERNANCE REPORT",
+          "page": null,
+          "text": "腾讯 2024 Annual Report - CORPORATE GOVERNANCE REPORT\nThe Company’s governance structure of these committees can be summarised as follows:\nAudit Committee\n‧\nhandles the relationship with the Company’s external auditor;\n‧\nreviews the Company’s financial information;\n‧\nexercises oversight of the Company’s financial reporting system;\n‧\nreviews the work done by the Company’s management with respect to risk management and internal control systems;\n‧",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "compliance system overseen by the committee mentioned in the previous step (dependency context: step 1: framework and an assessment of its internal audit quality to ensure their standards are in compliance with international best\npractices.\nAnnual Report 2023\n115\nCorporate Governance Report\nEffectivenes)",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-10",
+          "chunk_id": "tx_2023_ar_0387",
+          "document_id": "tx_2023_ar",
+          "company": "Tencent",
+          "report_year": 2023,
+          "section": "CORPORATE GOVERNANCE REPORT",
+          "page": null,
+          "text": "腾讯 2023 Annual Report - CORPORATE GOVERNANCE REPORT\nhandles the relationship with the Company’s external auditor;\n‧\nreviews the Company’s financial information;\n‧\nexercises oversight of the Company’s financial reporting system;\n‧\nreviews the work done by the Company’s management with respect to risk management and internal control systems;\n‧\noversees the risks undertaken by the Company including determining the level of risk the Company expects and is able\nto take; and\n‧\noversees the Group’s anti-money laundering and sanctions compliance system.",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "compliance system mentioned in the 2023 and 2024 annual reports of Tencent (dependency context: step 2: oversees the risks undertaken by the Company including determining the level of risk the Company expects and is able\nto take; and\n‧\noversees the Group’s anti-money laundering and sanctions compliance )",
+          "is_gold": true,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-11",
+          "chunk_id": "tx_2023_ar_0479",
+          "document_id": "tx_2023_ar",
+          "company": "Tencent",
+          "report_year": 2023,
+          "section": "CORPORATE GOVERNANCE REPORT",
+          "page": null,
+          "text": "腾讯 2023 Annual Report - CORPORATE GOVERNANCE REPORT\nrisk management requirements and best practices from the internal teams and would discuss in the quarterly Audit Committee\nmeetings if necessary.\nTencent Holdings Limited\n104\nCorporate Governance Report\nThe Board is responsible for overseeing risks that the Company faces, determining the risk appetite of the Company, and\nproactively considering, analysing and formulating strategies to manage the Company’s significant risks to acceptable levels.",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 3,
+          "sub_query": "compliance system mentioned in the 2023 and 2024 annual reports of Tencent (dependency context: step 2: oversees the risks undertaken by the Company including determining the level of risk the Company expects and is able\nto take; and\n‧\noversees the Group’s anti-money laundering and sanctions compliance )",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-12",
+          "chunk_id": "tx_2023_ar_0492",
+          "document_id": "tx_2023_ar",
+          "company": "Tencent",
+          "report_year": 2023,
+          "section": "CORPORATE GOVERNANCE REPORT",
+          "page": null,
+          "text": "腾讯 2023 Annual Report - CORPORATE GOVERNANCE REPORT\nprocesses. Each business group of the Company, on a regular basis, identifies and assesses any risks that may negatively\nimpact the achievement of its objectives, and formulates appropriate response measures. The Company also provides risk\nmanagement and internal control training for staff on a regular basis.\nTencent Holdings Limited\n106\nCorporate Governance Report\nRisk Management Process",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 3,
+          "sub_query": "compliance system mentioned in the 2023 and 2024 annual reports of Tencent (dependency context: step 2: oversees the risks undertaken by the Company including determining the level of risk the Company expects and is able\nto take; and\n‧\noversees the Group’s anti-money laundering and sanctions compliance )",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-13",
+          "chunk_id": "tx_2024_ar_0455",
+          "document_id": "tx_2024_ar",
+          "company": "Tencent",
+          "report_year": 2024,
+          "section": "CORPORATE GOVERNANCE REPORT",
+          "page": null,
+          "text": "腾讯 2024 Annual Report - CORPORATE GOVERNANCE REPORT\nOn behalf of the Board, the Audit Committee supervises the overall risk management of the Company and assesses the\nrisk acceptable level, risk ratings and the response strategies for the Company’s risks. The Audit Committee considers that\nmanagement has taken appropriate measures to address and manage the significant risks for which they are responsible at a\nlevel acceptable to the Board.\nTencent Holdings Limited\n102\nCorporate Governance Report",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 3,
+          "sub_query": "compliance system mentioned in the 2023 and 2024 annual reports of Tencent (dependency context: step 2: oversees the risks undertaken by the Company including determining the level of risk the Company expects and is able\nto take; and\n‧\noversees the Group’s anti-money laundering and sanctions compliance )",
+          "is_gold": false,
+          "retrieval_count": 1
+        }
+      ],
+      "verification": [
+        {
+          "verification_id": "verification-1",
+          "iteration": 1,
+          "verdict": "sufficient",
+          "feedback": ""
+        }
+      ],
+      "replans": [],
+      "grounding": {
+        "status": "grounded",
+        "complete": true,
+        "hop_recall": 1.0,
+        "abstention_reason": null,
+        "final_verdict": "sufficient"
+      },
+      "warnings": [
+        {
+          "code": "FROZEN_REPLAY",
+          "message": "This is a frozen experiment replay, not a live query.",
+          "severity": "info"
+        },
+        {
+          "code": "ABLATION_ONLY",
+          "message": "This result is a model-scale ablation, not an independent release result.",
+          "severity": "warning"
+        }
+      ],
+      "scope": {
+        "companies": [
+          "Tencent"
+        ],
+        "years": [
+          2023,
+          2024
+        ],
+        "corpus": "Baidu and Tencent annual reports (2023-2025)",
+        "hop_count": 2,
+        "answerability": "answerable",
+        "release_label": "Ablation",
+        "release_name": "Qwen3-8B model-scale ablation"
+      },
+      "provenance": {
+        "source_kind": "frozen_replay",
+        "case_id": "textual-complete-chain-success-8b",
+        "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+        "source_result_sha256": "21df5701f9d57eff9030cf826e7d492360970b190d5f615f614782498b4dc0c3",
+        "source_row_sha256": "247169f2232f8afe657b853d0f42fbcbcbb604ecd2a0b776c0a1e69658828712"
+      },
+      "error": null
+    },
+    {
+      "api_schema_version": "hopcandy-api-v1",
+      "request_id": "replay-textual-replan-recovers-gold-hop-4b",
+      "mode": "replay",
+      "status": "success",
+      "question": "According to Baidu's 2023 and 2024 annual reports, which circular replaced Circular No. 75 under the Chinese regulator whose registration requirements can create liability for evading foreign-exchange rules?",
+      "answer": "SAFE Circular No. 37",
+      "route": {
+        "category": "textual",
+        "query_type": "multi_hop",
+        "path_type": "full_agentic",
+        "structured_route": null,
+        "decision_source": "agentic_default"
+      },
+      "model": "Qwen3-4B",
+      "metrics": {
+        "latency_ms": 7755.226,
+        "iterations": 2,
+        "tool_calls": 4,
+        "evidence_count": 18,
+        "replans": 1,
+        "hop_recall": 0.5,
+        "grounding_status": "partial"
+      },
+      "timeline": [
+        {
+          "event_id": "event-1",
+          "sequence": 1,
+          "node": "router",
+          "event_type": "route_decision",
+          "status": "completed",
+          "title": "Route selected",
+          "detail": "multi_hop",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-2",
+          "sequence": 2,
+          "node": "planner",
+          "event_type": "plan_created",
+          "status": "completed",
+          "title": "Plan created",
+          "detail": "2 steps",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-3",
+          "sequence": 3,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 1,
+          "step_id": 1,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 296.712,
+          "evidence_ids": [
+            "evidence-1",
+            "evidence-2",
+            "evidence-3",
+            "evidence-4",
+            "evidence-5"
+          ]
+        },
+        {
+          "event_id": "event-4",
+          "sequence": 4,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 1,
+          "step_id": 2,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 542.595,
+          "evidence_ids": [
+            "evidence-6",
+            "evidence-7",
+            "evidence-8",
+            "evidence-9",
+            "evidence-1"
+          ]
+        },
+        {
+          "event_id": "event-5",
+          "sequence": 5,
+          "node": "verifier",
+          "event_type": "evidence_insufficient",
+          "status": "insufficient",
+          "title": "Evidence verified",
+          "detail": "Specific information about the circular that replaced Circular No. 75 and the Chinese regulator that issued Circular No. 76 is missing. Also, the connection between registration requirements and liability for evading foreign-exchange rules is not clearly established in the evidence.",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-6",
+          "sequence": 6,
+          "node": "planner",
+          "event_type": "plan_revised",
+          "status": "completed",
+          "title": "Plan revised",
+          "detail": "2 steps",
+          "iteration": 2,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-7",
+          "sequence": 7,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 2,
+          "step_id": 1,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 518.066,
+          "evidence_ids": [
+            "evidence-10",
+            "evidence-11",
+            "evidence-12",
+            "evidence-13",
+            "evidence-14"
+          ]
+        },
+        {
+          "event_id": "event-8",
+          "sequence": 8,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 2,
+          "step_id": 2,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 503.952,
+          "evidence_ids": [
+            "evidence-10",
+            "evidence-15",
+            "evidence-16",
+            "evidence-17",
+            "evidence-18"
+          ]
+        },
+        {
+          "event_id": "event-9",
+          "sequence": 9,
+          "node": "verifier",
+          "event_type": "evidence_sufficient",
+          "status": "sufficient",
+          "title": "Evidence verified",
+          "detail": "sufficient",
+          "iteration": 2,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-10",
+          "sequence": 10,
+          "node": "synthesizer",
+          "event_type": "answer_generated",
+          "status": "completed",
+          "title": "Answer generated",
+          "detail": "Synthesis completed",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        }
+      ],
+      "plan": [
+        {
+          "plan_id": "plan-1-1",
+          "iteration": 1,
+          "step_id": 1,
+          "sub_query": "Which circular was replaced by Circular No. 76 under the Chinese regulator according to Baidu's 2023 and 2024 annual reports?",
+          "tool": "semantic_search",
+          "depends_on": [],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-1-2",
+          "iteration": 1,
+          "step_id": 2,
+          "sub_query": "What is the name of the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports?",
+          "tool": "semantic_search",
+          "depends_on": [
+            1
+          ],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-2-1",
+          "iteration": 2,
+          "step_id": 1,
+          "sub_query": "What is the name of the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports?; annual report exact disclosure; missing fact: Specific information about the circular that replaced Circular No. 75 and the Chinese regulator that issued Circular No. 76 is missing. Also, the connection between registration requirements and liability for evading for",
+          "tool": "semantic_search",
+          "depends_on": [],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-2-2",
+          "iteration": 2,
+          "step_id": 2,
+          "sub_query": "Which circular replaced Circular No. 75 under the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports?",
+          "tool": "semantic_search",
+          "depends_on": [
+            1
+          ],
+          "status": "done"
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "evidence-1",
+          "chunk_id": "bd_2023_ar_2328",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 19.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 19.\nwith the Securities and Exchange Commission on March 15, 2019)\n4.75\nTranslation of the Termination Agreement of Current Control Contracts among Baidu Online, Beijing Perusal, Zhixiang Liang,\nXiaodong Wang, and Baidu, Inc. dated June  28, 2018 (incorporated by reference to Exhibit 4.75 of our Annual Report on\nForm 20-F filed with the Securities and Exchange Commission on March 15, 2019)\n4.76",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "Which circular was replaced by Circular No. 76 under the Chinese regulator according to Baidu's 2023 and 2024 annual reports?",
+          "is_gold": false,
+          "retrieval_count": 2
+        },
+        {
+          "evidence_id": "evidence-2",
+          "chunk_id": "bd_2023_ar_0739",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 3.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 3.\nforeign direct investment and overseas direct investment, including those required under the SAFE Circular No. 37, with qualified banks, instead of\nSAFE. The qualified banks, under the supervision of SAFE, directly examine the applications and conduct the registration.\nIn addition, our shareholders who are entities in mainland China must complete their overseas direct investment filings according to applicable",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "Which circular was replaced by Circular No. 76 under the Chinese regulator according to Baidu's 2023 and 2024 annual reports?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-3",
+          "chunk_id": "bd_2024_ar_2397",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": "ITEM 19.",
+          "page": null,
+          "text": "百度 2024 Annual Report - ITEM 19.\nXiaodong Wang, and Baidu, Inc. dated June 28, 2018 (incorporated by reference to Exhibit 4.75 of our Annual Report on Form\n20-F filed with the Securities and Exchange Commission on March 15, 2019)\n4.76\nTranslation of the Amended and Restated Loan Agreement between Baidu Online and Robin Yanhong Li dated July 10, 2019\n(incorporated by reference to Exhibit 4.83 of our Annual Report on Form 20-F filed with the Securities and Exchange Commission\non March 13, 2020)\n4.77",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "Which circular was replaced by Circular No. 76 under the Chinese regulator according to Baidu's 2023 and 2024 annual reports?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-4",
+          "chunk_id": "bd_2024_ar_2399",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": "ITEM 19.",
+          "page": null,
+          "text": "百度 2024 Annual Report - ITEM 19.\n2019 (incorporated by reference to Exhibit 4.85 of our Annual Report on Form 20-F filed with the Securities and Exchange\nCommission on March 13, 2020)\n4.79\nTranslation of the Termination Agreement of Current Control Contracts among Baidu, Inc., Baidu Online, Baidu Netcom, Robin\nYanhong Li and Hailong Xiang dated August 20, 2019 (incorporated by reference to Exhibit 4.86 of our Annual Report on Form\n20-F filed with the Securities and Exchange Commission on March 13, 2020)\n4.80",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "Which circular was replaced by Circular No. 76 under the Chinese regulator according to Baidu's 2023 and 2024 annual reports?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-5",
+          "chunk_id": "bd_2024_ar_1375",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": "ITEM 4.",
+          "page": null,
+          "text": "百度 2024 Annual Report - ITEM 4.\nAugust 2017, which became effective in November 2017. The MIIT is the major regulatory body responsible for the administration of the internet\ndomain names of mainland China, and under the supervision of the MIIT, the China Internet Network Information Center is responsible for the daily\nadministration of “.cn” domain names and Chinese domain names. According to the Circular on Administration of the Use of Domain Names for",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "Which circular was replaced by Circular No. 76 under the Chinese regulator according to Baidu's 2023 and 2024 annual reports?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-6",
+          "chunk_id": "bd_2024_ar_2395",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": "ITEM 19.",
+          "page": null,
+          "text": "百度 2024 Annual Report - ITEM 19.\n2018 (incorporated by reference to Exhibit 4.72 of our Annual Report on Form 20-F filed with the Securities and Exchange\nCommission on March 15, 2019)\n4.73\nTranslation of the Exclusive Equity Purchase and Transfer Option Agreement among Baidu, Inc., Baidu Online, Zhixiang Liang\nand Beijing Perusal, dated March 31, 2018 (incorporated by reference to Exhibit 4.73 of our Annual Report on Form 20-F filed\nwith the Securities and Exchange Commission on March 15, 2019)\n4.74",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What is the name of the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports? (dependency context: step 1: with the Securities and Exchange Commission on March 15, 2019)\n4.75\nTranslation of the Termination Agreement of Current Control Contracts among Baidu Online, Beijing Perusal, Zhixiang Liang,\nXiaodong )",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-7",
+          "chunk_id": "bd_2023_ar_2335",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 19.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 19.\nand certain investors party thereto, dated February 7, 2021 (incorporated by reference to Exhibit 4.85 of our Annual Report on\nForm 20-F filed with the Securities and Exchange Commission on March 9, 2021)\n4.86\nTranslation of Termination Agreement among Baidu Online, Beijing Perusal, Zhixiang Liang, Lu Wang and our company, dated\nOctober 30, 2019 (incorporated by reference to Exhibit 4.86 of our Annual Report on Form 20-F filed with the Securities and\nExchange Commission on March 9, 2021)\n4.87",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What is the name of the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports? (dependency context: step 1: with the Securities and Exchange Commission on March 15, 2019)\n4.75\nTranslation of the Termination Agreement of Current Control Contracts among Baidu Online, Beijing Perusal, Zhixiang Liang,\nXiaodong )",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-8",
+          "chunk_id": "bd_2025_ar_2348",
+          "document_id": "bd_2025_ar",
+          "company": "Baidu",
+          "report_year": 2025,
+          "section": "ITEM 19.",
+          "page": null,
+          "text": "百度 2025 Annual Report - ITEM 19.\n2018 (incorporated by reference to Exhibit 4.72 of our Annual Report on Form 20-F filed with the Securities and Exchange\nCommission on March 15, 2019)\n 4.73\nTranslation of the Exclusive Equity Purchase and Transfer Option Agreement among Baidu, Inc., Baidu Online, Zhixiang Liang\nand Beijing Perusal, dated March 31, 2018 (incorporated by reference to Exhibit 4.73 of our Annual Report on Form 20-F filed\nwith the Securities and Exchange Commission on March 15, 2019)\n218\nExhibit\nNumber",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What is the name of the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports? (dependency context: step 1: with the Securities and Exchange Commission on March 15, 2019)\n4.75\nTranslation of the Termination Agreement of Current Control Contracts among Baidu Online, Beijing Perusal, Zhixiang Liang,\nXiaodong )",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-9",
+          "chunk_id": "bd_2023_ar_2327",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 19.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 19.\nand Beijing Perusal, dated March 31, 2018 (incorporated by reference to Exhibit 4.73 of our Annual Report on Form 20-F filed\nwith the Securities and Exchange Commission on March 15, 2019)\n4.74\nTranslation of the Exclusive Equity Purchase and Transfer Option Agreement among Baidu, Inc., Baidu Online, Xiaodong Wang\nand Beijing Perusal, dated March 31, 2018 (incorporated by reference to Exhibit 4.74 of our Annual Report on Form 20-F filed",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What is the name of the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports? (dependency context: step 1: with the Securities and Exchange Commission on March 15, 2019)\n4.75\nTranslation of the Termination Agreement of Current Control Contracts among Baidu Online, Beijing Perusal, Zhixiang Liang,\nXiaodong )",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-10",
+          "chunk_id": "bd_2023_ar_0733",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 3.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 3.\noverseas equity financing activities, and to update such registration in the event of any significant changes with respect to that offshore company. SAFE\npromulgated the Circular on Relevant Issues Concerning Foreign Exchange Control on Domestic Residents’ Offshore Investment and Financing and\nRoundtrip Investment through Special Purpose Vehicles, or SAFE Circular No. 37, on July 4, 2014, which replaced the SAFE Circular No. 75. SAFE",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What is the name of the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports?; annual report exact disclosure; missing fact: Specific information about the circular that replaced Circular No. 75 and the Chinese regulator that issued Circular No. 76 is missing. Also, the connection between registration requirements and liability for evading for",
+          "is_gold": true,
+          "retrieval_count": 2
+        },
+        {
+          "evidence_id": "evidence-11",
+          "chunk_id": "bd_2023_ar_0738",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 3.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 3.\ncould result in liability under the laws of mainland China for evasion of applicable foreign exchange restrictions. On February  28, 2015, SAFE\npromulgated a Notice on Further Simplifying and Improving Foreign Exchange Administration Policy on Direct Investment, or SAFE Notice 13, which\nbecame effective on June 1, 2015. In accordance with SAFE Notice 13, entities and individuals are required to apply for foreign exchange registration of",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the name of the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports?; annual report exact disclosure; missing fact: Specific information about the circular that replaced Circular No. 75 and the Chinese regulator that issued Circular No. 76 is missing. Also, the connection between registration requirements and liability for evading for",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-12",
+          "chunk_id": "bd_2024_ar_3663",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "百度 2024 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nthe Rules and Registration of Medium- to Long- Term Foreign Debt of\nEnterprises（企業中長期外債審核登記管理辦法 which took effect on 10 February\n2023 (the “NDRC New Rules”) and its guidance rules in connection therewith as issued by the NDRC, and any implementation rules, regulations,\ncertificates, circulars or notices in connection therewith as issued by the NDRC from time to time (the “NDRC Circular”) on or before the relevant\ndeadline or to verify the accuracy, validity and/or genuineness of any documents in",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the name of the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports?; annual report exact disclosure; missing fact: Specific information about the circular that replaced Circular No. 75 and the Chinese regulator that issued Circular No. 76 is missing. Also, the connection between registration requirements and liability for evading for",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-13",
+          "chunk_id": "bd_2025_ar_0798",
+          "document_id": "bd_2025_ar",
+          "company": "Baidu",
+          "report_year": 2025,
+          "section": "ITEM 3.",
+          "page": null,
+          "text": "百度 2025 Annual Report - ITEM 3.\nsubsidiary Baidu Online to handle the registration and other procedures required by the notices. However, if we or our domestic optionees fail to comply\nwith these regulations on a timely basis, we or our domestic optionees and their local employers may be subject to fines and legal sanctions.\nChinese mainland’s regulations establish complex procedures for some acquisitions conducted by foreign investors, which could make it more",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the name of the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports?; annual report exact disclosure; missing fact: Specific information about the circular that replaced Circular No. 75 and the Chinese regulator that issued Circular No. 76 is missing. Also, the connection between registration requirements and liability for evading for",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-14",
+          "chunk_id": "bd_2023_ar_0748",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 3.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 3.\nsubsidiary Baidu Online to handle the registration and other procedures required by the notices. However, if we or our domestic optionees fail to comply\nwith these regulations on a timely basis, we or our domestic optionees and their local employers may be subject to fines and legal sanctions.\nMainland China’s regulations establish complex procedures for some acquisitions conducted by foreign investors, which could make it more",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the name of the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports?; annual report exact disclosure; missing fact: Specific information about the circular that replaced Circular No. 75 and the Chinese regulator that issued Circular No. 76 is missing. Also, the connection between registration requirements and liability for evading for",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-15",
+          "chunk_id": "bd_2023_ar_1489",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 4.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 4.\nthrough Special Purpose Vehicles, or SAFE Circular No. 37, on July 4, 2014, which replaced SAFE Circular No. 75. SAFE Circular No. 37 requires\ndomestic residents to register with local branches of SAFE in connection with their direct establishment or indirect control of an offshore entity, for the\npurpose of overseas investment and financing, with such domestic residents’ legally owned assets or equity interests in domestic enterprises or offshore",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "Which circular replaced Circular No. 75 under the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports? (dependency context: step 1: overseas equity financing activities, and to update such registration in the event of any significant changes with respect to that offshore company. SAFE\npromulgated the Circular on Relevant Issues Co)",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-16",
+          "chunk_id": "bd_2023_ar_1488",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 4.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 4.\nTable of Contents\nconnection with their direct or indirect offshore investment in an overseas special purpose vehicle, or SPV, for the purposes of overseas equity financing\nactivities, and to update such registration in the event of any significant changes with respect to that offshore company. SAFE promulgated the Circular\non Relevant Issues Concerning Foreign Exchange Control on Domestic Residents’ Offshore Investment and Financing and Roundtrip Investment",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "Which circular replaced Circular No. 75 under the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports? (dependency context: step 1: overseas equity financing activities, and to update such registration in the event of any significant changes with respect to that offshore company. SAFE\npromulgated the Circular on Relevant Issues Co)",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-17",
+          "chunk_id": "bd_2023_ar_0731",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 3.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 3.\ninject capital into our mainland China subsidiaries, limit our subsidiaries’ ability to increase their registered capital or distribute profits to us, or\nmay otherwise adversely affect us.\nThe Notice on Relevant Issues Concerning Foreign Exchange Administration for Domestic Residents to Engage in Financing and Inbound\nInvestment via Overseas Special Purpose Vehicles, or SAFE Circular No. 75, and a series of implementation rules and guidance issued by SAFE,",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "Which circular replaced Circular No. 75 under the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports? (dependency context: step 1: overseas equity financing activities, and to update such registration in the event of any significant changes with respect to that offshore company. SAFE\npromulgated the Circular on Relevant Issues Co)",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-18",
+          "chunk_id": "bd_2023_ar_1487",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 4.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 4.\nConcerning Foreign Exchange Administration for Domestic Residents to Engage in Financing and Inbound Investment via Overseas Special Purpose\nVehicles, or SAFE Circular No.  75, issued in October 2005, and a series of implementation rules and guidance, including the circular relating to\noperating procedures that came into effect in July 2011, Domestic residents of mainland China, including domestic resident natural persons or domestic\ncompanies, must register with local branches of SAFE in\n141",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "Which circular replaced Circular No. 75 under the Chinese regulator that issued Circular No. 76 according to Baidu's 2023 and 2024 annual reports? (dependency context: step 1: overseas equity financing activities, and to update such registration in the event of any significant changes with respect to that offshore company. SAFE\npromulgated the Circular on Relevant Issues Co)",
+          "is_gold": false,
+          "retrieval_count": 1
+        }
+      ],
+      "verification": [
+        {
+          "verification_id": "verification-1",
+          "iteration": 1,
+          "verdict": "insufficient",
+          "feedback": "Specific information about the circular that replaced Circular No. 75 and the Chinese regulator that issued Circular No. 76 is missing. Also, the connection between registration requirements and liability for evading foreign-exchange rules is not clearly established in the evidence."
+        },
+        {
+          "verification_id": "verification-2",
+          "iteration": 2,
+          "verdict": "sufficient",
+          "feedback": ""
+        }
+      ],
+      "replans": [
+        {
+          "replan_id": "replan-1",
+          "iteration": 2,
+          "reason": "verifier_feedback",
+          "feedback": "Specific information about the circular that replaced Circular No. 75 and the Chinese regulator that issued Circular No. 76 is missing. Also, the connection between registration requirements and liability for evading foreign-exchange rules is not clearly established in the evidence.",
+          "new_chunk_count": 9,
+          "new_gold_hops": 1
+        }
+      ],
+      "grounding": {
+        "status": "partial",
+        "complete": true,
+        "hop_recall": 0.5,
+        "abstention_reason": null,
+        "final_verdict": "sufficient"
+      },
+      "warnings": [
+        {
+          "code": "FROZEN_REPLAY",
+          "message": "This is a frozen experiment replay, not a live query.",
+          "severity": "info"
+        },
+        {
+          "code": "DEVELOPMENT_BASELINE",
+          "message": "Textual 2-hop behavior is a development baseline with known limitations.",
+          "severity": "warning"
+        },
+        {
+          "code": "PARTIAL_GOLD_CHAIN",
+          "message": "Only 0.500 of the Gold evidence hops were recalled.",
+          "severity": "warning"
+        }
+      ],
+      "scope": {
+        "companies": [
+          "Baidu"
+        ],
+        "years": [
+          2023,
+          2024
+        ],
+        "corpus": "Baidu and Tencent annual reports (2023-2025)",
+        "hop_count": 2,
+        "answerability": "answerable",
+        "release_label": "Development Baseline",
+        "release_name": "Textual 2-hop Baseline v0.1"
+      },
+      "provenance": {
+        "source_kind": "frozen_replay",
+        "case_id": "textual-replan-recovers-gold-hop-4b",
+        "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+        "source_result_sha256": "d03cb0d09620e6db5b6b3038969431cb9504c86a4c02595832c691940b1c3939",
+        "source_row_sha256": "1fdf332ea77f28dbaf3184e9e1845bf0149355052d01b593a1f20efcf25dd249"
+      },
+      "error": null
+    },
+    {
+      "api_schema_version": "hopcandy-api-v1",
+      "request_id": "replay-textual-known-failure-abstention-4b",
+      "mode": "replay",
+      "status": "abstained",
+      "question": "According to Baidu's 2024 and 2025 annual reports, how are most communications conducted on the entity whose integration may expose Baidu to additional risks?",
+      "answer": "Insufficient evidence to answer reliably from the retrieved sources.",
+      "route": {
+        "category": "textual",
+        "query_type": "multi_hop",
+        "path_type": "full_agentic",
+        "structured_route": null,
+        "decision_source": "agentic_default"
+      },
+      "model": "Qwen3-4B",
+      "metrics": {
+        "latency_ms": 11135.031,
+        "iterations": 3,
+        "tool_calls": 6,
+        "evidence_count": 14,
+        "replans": 2,
+        "hop_recall": 0.5,
+        "grounding_status": "abstained"
+      },
+      "timeline": [
+        {
+          "event_id": "event-1",
+          "sequence": 1,
+          "node": "router",
+          "event_type": "route_decision",
+          "status": "completed",
+          "title": "Route selected",
+          "detail": "multi_hop",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-2",
+          "sequence": 2,
+          "node": "planner",
+          "event_type": "plan_created",
+          "status": "completed",
+          "title": "Plan created",
+          "detail": "2 steps",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-3",
+          "sequence": 3,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 1,
+          "step_id": 1,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 327.161,
+          "evidence_ids": [
+            "evidence-1",
+            "evidence-2",
+            "evidence-3",
+            "evidence-4",
+            "evidence-5"
+          ]
+        },
+        {
+          "event_id": "event-4",
+          "sequence": 4,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 1,
+          "step_id": 2,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 511.452,
+          "evidence_ids": [
+            "evidence-6",
+            "evidence-7",
+            "evidence-1",
+            "evidence-8",
+            "evidence-9"
+          ]
+        },
+        {
+          "event_id": "event-5",
+          "sequence": 5,
+          "node": "verifier",
+          "event_type": "evidence_insufficient",
+          "status": "insufficient",
+          "title": "Evidence verified",
+          "detail": "Specific information about the entity (e.g., name, nature) and the method of communication (e.g., email, in-person, digital platforms) is missing.",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-6",
+          "sequence": 6,
+          "node": "planner",
+          "event_type": "plan_revised",
+          "status": "completed",
+          "title": "Plan revised",
+          "detail": "2 steps",
+          "iteration": 2,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-7",
+          "sequence": 7,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 2,
+          "step_id": 1,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 327.751,
+          "evidence_ids": [
+            "evidence-1",
+            "evidence-2",
+            "evidence-10",
+            "evidence-11",
+            "evidence-5"
+          ]
+        },
+        {
+          "event_id": "event-8",
+          "sequence": 8,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 2,
+          "step_id": 2,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 707.615,
+          "evidence_ids": [
+            "evidence-12",
+            "evidence-13",
+            "evidence-6",
+            "evidence-7",
+            "evidence-1"
+          ]
+        },
+        {
+          "event_id": "event-9",
+          "sequence": 9,
+          "node": "verifier",
+          "event_type": "evidence_insufficient",
+          "status": "insufficient",
+          "title": "Evidence verified",
+          "detail": "Specific name and nature of the entity, as well as the exact method of communication, are missing.",
+          "iteration": 2,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-10",
+          "sequence": 10,
+          "node": "planner",
+          "event_type": "plan_revised",
+          "status": "completed",
+          "title": "Plan revised",
+          "detail": "2 steps",
+          "iteration": 3,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-11",
+          "sequence": 11,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 3,
+          "step_id": 1,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 335.857,
+          "evidence_ids": [
+            "evidence-1",
+            "evidence-2",
+            "evidence-5",
+            "evidence-3",
+            "evidence-4"
+          ]
+        },
+        {
+          "event_id": "event-12",
+          "sequence": 12,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 3,
+          "step_id": 2,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 683.012,
+          "evidence_ids": [
+            "evidence-6",
+            "evidence-7",
+            "evidence-12",
+            "evidence-1",
+            "evidence-14"
+          ]
+        },
+        {
+          "event_id": "event-13",
+          "sequence": 13,
+          "node": "verifier",
+          "event_type": "evidence_insufficient",
+          "status": "insufficient",
+          "title": "Evidence verified",
+          "detail": "Specific name and nature of the entity, as well as the exact method of communication, are missing.",
+          "iteration": 3,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-14",
+          "sequence": 14,
+          "node": "synthesizer",
+          "event_type": "abstained",
+          "status": "abstained",
+          "title": "Answer abstained",
+          "detail": "verifier_insufficient_budget_exhausted",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        }
+      ],
+      "plan": [
+        {
+          "plan_id": "plan-1-1",
+          "iteration": 1,
+          "step_id": 1,
+          "sub_query": "What is the entity whose integration may expose Baidu to additional risks according to Baidu's 2024 and 2025 annual reports?",
+          "tool": "semantic_search",
+          "depends_on": [],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-1-2",
+          "iteration": 1,
+          "step_id": 2,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, how are most communications conducted on the entity identified in the previous step?",
+          "tool": "semantic_search",
+          "depends_on": [
+            1
+          ],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-2-1",
+          "iteration": 2,
+          "step_id": 1,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, what is the entity whose integration may expose Baidu to additional risks?",
+          "tool": "keyword_search",
+          "depends_on": [],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-2-2",
+          "iteration": 2,
+          "step_id": 2,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, how are most communications conducted on the entity identified in the previous step?; annual report exact disclosure; missing fact: Specific information about the entity (e.g., name, nature) and the method of communication (e.g., email, in-person, digital platforms) is missing.",
+          "tool": "semantic_search",
+          "depends_on": [
+            1
+          ],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-3-1",
+          "iteration": 3,
+          "step_id": 1,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, what is the specific entity whose integration may expose Baidu to additional risks?",
+          "tool": "semantic_search",
+          "depends_on": [],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-3-2",
+          "iteration": 3,
+          "step_id": 2,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, how are most communications conducted on the entity identified in the previous step?; annual report exact disclosure; missing fact: Specific name and nature of the entity, as well as the exact method of communication, are missing.; financial statement table or note",
+          "tool": "hybrid_search",
+          "depends_on": [
+            1
+          ],
+          "status": "done"
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "evidence-1",
+          "chunk_id": "bd_2025_ar_2050",
+          "document_id": "bd_2025_ar",
+          "company": "Baidu",
+          "report_year": 2025,
+          "section": "ITEM 8.",
+          "page": null,
+          "text": "百度 2025 Annual Report - ITEM 8.\nthe amended consolidated complaints to be completed by April 22, 2024. Both the iQIYI and Baidu Actions were dismissed on September 30, 2024.\nFor risks and uncertainties relating to legal proceedings, see “Item 3.D. Key Information—Risk Factors—Risks Related to Our Business and\nIndustry—We have been and may again be subject to legal proceedings, claims and investigations and could be adversely impacted by unfavorable\nresults of legal proceedings and investigations.”\nDividend Policy",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the entity whose integration may expose Baidu to additional risks according to Baidu's 2024 and 2025 annual reports?",
+          "is_gold": false,
+          "retrieval_count": 6
+        },
+        {
+          "evidence_id": "evidence-2",
+          "chunk_id": "bd_2024_ar_2507",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "百度 2024 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nperson(s) (including Baidu Online) an exclusive option to purchase, to the extent permitted under the laws of mainland China, all or part of the equity\ninterests in Baidu Netcom for the cost of the initial contributions to the registered capital or the minimum amount of consideration permitted by\napplicable laws of mainland China. The shareholders of Baidu\nF-14\nTable of Contents\nBAIDU, INC.\nNOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nFOR THE YEARS ENDED DECEMBER 31, 2022, 2023 AND 2024",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the entity whose integration may expose Baidu to additional risks according to Baidu's 2024 and 2025 annual reports?",
+          "is_gold": false,
+          "retrieval_count": 3
+        },
+        {
+          "evidence_id": "evidence-3",
+          "chunk_id": "bd_2024_ar_0082",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": "ITEM 3.",
+          "page": null,
+          "text": "百度 2024 Annual Report - ITEM 3.\nwhole. Baidu, Inc. may not be able to repay its indebtedness, and the Class A ordinary shares or ADSs of our company may decline in value or become\nworthless, if we are unable to assert our contractual control rights over the assets of our mainland China subsidiaries and the variable interest entities\nthat conduct all or substantially all of our operations. For a detailed description of the risks associated with our corporate structure, please refer to risks",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the entity whose integration may expose Baidu to additional risks according to Baidu's 2024 and 2025 annual reports?",
+          "is_gold": false,
+          "retrieval_count": 2
+        },
+        {
+          "evidence_id": "evidence-4",
+          "chunk_id": "bd_2023_ar_0082",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 3.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 3.\nwhole. Baidu, Inc. may not be able to repay its indebtedness, and the Class A ordinary shares or ADSs of our company may decline in value or become\nworthless, if we are unable to assert our contractual control rights over the assets of our mainland China subsidiaries and the variable interest entities\nthat conduct all or substantially all of our operations. For a detailed description of the risks associated with our corporate structure, please refer to risks",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the entity whose integration may expose Baidu to additional risks according to Baidu's 2024 and 2025 annual reports?",
+          "is_gold": false,
+          "retrieval_count": 2
+        },
+        {
+          "evidence_id": "evidence-5",
+          "chunk_id": "bd_2025_ar_0082",
+          "document_id": "bd_2025_ar",
+          "company": "Baidu",
+          "report_year": 2025,
+          "section": "ITEM 3.",
+          "page": null,
+          "text": "百度 2025 Annual Report - ITEM 3.\nwhole. Baidu, Inc. may not be able to repay its indebtedness, and the Class A ordinary shares or ADSs of our company may decline in value or become\nworthless, if we are unable to assert our contractual control rights over the assets of our Chinese mainland subsidiaries and the variable interest entities\nthat conduct all or substantially all of our operations. For a detailed description of the risks associated with our corporate structure, please refer to risks",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the entity whose integration may expose Baidu to additional risks according to Baidu's 2024 and 2025 annual reports?",
+          "is_gold": false,
+          "retrieval_count": 3
+        },
+        {
+          "evidence_id": "evidence-6",
+          "chunk_id": "bd_2025_ar_2819",
+          "document_id": "bd_2025_ar",
+          "company": "Baidu",
+          "report_year": 2025,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "百度 2025 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\ngranted plaintiffs leave to file amended consolidated complaints, and ordered the supplemental briefing on the amended consolidated complaints to be\ncompleted by April 22, 2024. Both the iQIYI and Baidu Actions were dismissed on September 30, 2024. As of December 31, 2025, the Group has not\nrecorded any liabilities for loss contingencies related to these matters.",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, how are most communications conducted on the entity identified in the previous step? (dependency context: step 1: the amended consolidated complaints to be completed by April 22, 2024. Both the iQIYI and Baidu Actions were dismissed on September 30, 2024.\nFor risks and uncertainties relating to legal proceedings,)",
+          "is_gold": false,
+          "retrieval_count": 3
+        },
+        {
+          "evidence_id": "evidence-7",
+          "chunk_id": "bd_2024_ar_2906",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "百度 2024 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\ngranted plaintiffs leave to file amended consolidated complaints, and ordered the supplemental briefing on the amended consolidated complaints to be\ncompleted by April 22, 2024. Both the iQIYI and Baidu Actions were dismissed on September 30, 2024. As a result, as of December 31, 2024, the\nGroup did not record any liabilities for the loss contingencies pertaining to the cases described above.",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, how are most communications conducted on the entity identified in the previous step? (dependency context: step 1: the amended consolidated complaints to be completed by April 22, 2024. Both the iQIYI and Baidu Actions were dismissed on September 30, 2024.\nFor risks and uncertainties relating to legal proceedings,)",
+          "is_gold": false,
+          "retrieval_count": 3
+        },
+        {
+          "evidence_id": "evidence-8",
+          "chunk_id": "bd_2024_ar_2100",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": "ITEM 8.",
+          "page": null,
+          "text": "百度 2024 Annual Report - ITEM 8.\namended consolidated complaints to be completed by April 22, 2024. Both the iQIYI and Baidu Actions were dismissed on September 30, 2024.\nFor risks and uncertainties relating to legal proceedings, see “Item 3.D. Key Information—Risk Factors—Risks Related to Our Business and\nIndustry—We have been and may again be subject to legal proceedings, claims and investigations and could be adversely impacted by unfavorable\nresults of legal proceedings and investigations.”\nDividend Policy",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, how are most communications conducted on the entity identified in the previous step? (dependency context: step 1: the amended consolidated complaints to be completed by April 22, 2024. Both the iQIYI and Baidu Actions were dismissed on September 30, 2024.\nFor risks and uncertainties relating to legal proceedings,)",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-9",
+          "chunk_id": "bd_2023_ar_2848",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "百度 2023 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nbriefing was completed in March 2023. On February 26, 2024, following oral argument on the motions to dismiss, the Court held Defendants’ motions\nin abeyance, granted Plaintiffs leave to file amended consolidated complaints, and ordered the supplemental briefing on the amended consolidated\ncomplaints to be completed by April 22, 2024. Both of those cases remain in preliminary stage, the likelihood of any unfavorable outcome or the",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, how are most communications conducted on the entity identified in the previous step? (dependency context: step 1: the amended consolidated complaints to be completed by April 22, 2024. Both the iQIYI and Baidu Actions were dismissed on September 30, 2024.\nFor risks and uncertainties relating to legal proceedings,)",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-10",
+          "chunk_id": "bd_2023_ar_0475",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 3.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 3.\nprevent and detect such activities may not be effective. This may materially and adversely affect our business, brand, financial condition and results of\noperations.\nWe rely on Baidu Union partners for a significant portion of our revenues. If we fail to retain existing Baidu Union partners or attract additional\nmembers, our revenue growth and profitability may be adversely affected.",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, what is the entity whose integration may expose Baidu to additional risks?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-11",
+          "chunk_id": "bd_2024_ar_2389",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": "ITEM 19.",
+          "page": null,
+          "text": "百度 2024 Annual Report - ITEM 19.\nNetcom, Baidu Online and Hailong Xiang dated May 7, 2018 (incorporated by reference to Exhibit 4.62 of our Annual Report on\nForm 20-F filed with the Securities and Exchange Commission on March 15, 2019)\n4.63\nTranslation of the Amended and Restated Exclusive Equity Purchase and Transfer Option Agreement among Baidu, Inc., Baidu\nNetcom, Baidu Online and Robin Yanhong Li dated May 7, 2018 (incorporated by reference to Exhibit 4.63 of our Annual Report",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, what is the entity whose integration may expose Baidu to additional risks?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-12",
+          "chunk_id": "bd_2024_ar_0212",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": "ITEM 3.",
+          "page": null,
+          "text": "百度 2024 Annual Report - ITEM 3.\nwe may face significant risks related to the content and communications on YY Live, as a majority of the communications on YY Live are\nconducted in real time, and we are unable to verify the sources of all information posted thereon or examine the content generated by users\nbefore it is posted;\n•\nthe revenue model for online live streaming may not remain effective, and we may not be able to retain existing users, attract new users,\nkeep users engaged and attract more paying users;\n•",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, how are most communications conducted on the entity identified in the previous step?; annual report exact disclosure; missing fact: Specific information about the entity (e.g., name, nature) and the method of communication (e.g., email, in-person, digital platforms) is missing. (dependency context: step 1: the amended consolidated complaints to be completed by April 22, 2024. Both the iQIYI and Baidu Actions were dismissed on September 30, 2024.\nFor risks and uncertainties relating to legal proceedings,)",
+          "is_gold": true,
+          "retrieval_count": 2
+        },
+        {
+          "evidence_id": "evidence-13",
+          "chunk_id": "bd_2025_ar_3047",
+          "document_id": "bd_2025_ar",
+          "company": "Baidu",
+          "report_year": 2025,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "百度 2025 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nother communications, provide to it a commercially reasonable degree of protection in light of its particular needs and circumstances.\n“Electronic Means” shall mean the following communications methods: (i) non-secure methods of transmission or communication such as\ne-mail transmission and (ii) secure electronic transmission containing applicable authorisation codes, passwords and/or authentication keys",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, how are most communications conducted on the entity identified in the previous step?; annual report exact disclosure; missing fact: Specific information about the entity (e.g., name, nature) and the method of communication (e.g., email, in-person, digital platforms) is missing. (dependency context: step 1: the amended consolidated complaints to be completed by April 22, 2024. Both the iQIYI and Baidu Actions were dismissed on September 30, 2024.\nFor risks and uncertainties relating to legal proceedings,)",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-14",
+          "chunk_id": "bd_2023_ar_2033",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 8.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 8.\ndefendants’ motions in abeyance, granted plaintiffs leave to file amended consolidated complaints, and ordered the supplemental briefing on the\namended consolidated complaints to be completed by April 22, 2024. Both the iQIYI and Baidu Actions otherwise remain in the preliminary stage.\nWe and iQIYI will have to defend against these putative securities class action lawsuits, as applicable, including any appeals of such lawsuits",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "According to Baidu's 2024 and 2025 annual reports, how are most communications conducted on the entity identified in the previous step?; annual report exact disclosure; missing fact: Specific name and nature of the entity, as well as the exact method of communication, are missing.; financial statement table or note (dependency context: step 1: the amended consolidated complaints to be completed by April 22, 2024. Both the iQIYI and Baidu Actions were dismissed on September 30, 2024.\nFor risks and uncertainties relating to legal proceedings,)",
+          "is_gold": false,
+          "retrieval_count": 1
+        }
+      ],
+      "verification": [
+        {
+          "verification_id": "verification-1",
+          "iteration": 1,
+          "verdict": "insufficient",
+          "feedback": "Specific information about the entity (e.g., name, nature) and the method of communication (e.g., email, in-person, digital platforms) is missing."
+        },
+        {
+          "verification_id": "verification-2",
+          "iteration": 2,
+          "verdict": "insufficient",
+          "feedback": "Specific name and nature of the entity, as well as the exact method of communication, are missing."
+        },
+        {
+          "verification_id": "verification-3",
+          "iteration": 3,
+          "verdict": "insufficient",
+          "feedback": "Specific name and nature of the entity, as well as the exact method of communication, are missing."
+        }
+      ],
+      "replans": [
+        {
+          "replan_id": "replan-1",
+          "iteration": 2,
+          "reason": "verifier_feedback",
+          "feedback": "Specific information about the entity (e.g., name, nature) and the method of communication (e.g., email, in-person, digital platforms) is missing.",
+          "new_chunk_count": 4,
+          "new_gold_hops": 1
+        },
+        {
+          "replan_id": "replan-2",
+          "iteration": 3,
+          "reason": "verifier_feedback",
+          "feedback": "Specific name and nature of the entity, as well as the exact method of communication, are missing.",
+          "new_chunk_count": 1,
+          "new_gold_hops": 0
+        }
+      ],
+      "grounding": {
+        "status": "abstained",
+        "complete": true,
+        "hop_recall": 0.5,
+        "abstention_reason": "verifier_insufficient_budget_exhausted",
+        "final_verdict": "insufficient"
+      },
+      "warnings": [
+        {
+          "code": "FROZEN_REPLAY",
+          "message": "This is a frozen experiment replay, not a live query.",
+          "severity": "info"
+        },
+        {
+          "code": "DEVELOPMENT_BASELINE",
+          "message": "Textual 2-hop behavior is a development baseline with known limitations.",
+          "severity": "warning"
+        },
+        {
+          "code": "PARTIAL_GOLD_CHAIN",
+          "message": "Only 0.500 of the Gold evidence hops were recalled.",
+          "severity": "warning"
+        },
+        {
+          "code": "EVIDENCE_EXHAUSTED",
+          "message": "The system abstained after the verifier remained insufficient.",
+          "severity": "warning"
+        }
+      ],
+      "scope": {
+        "companies": [
+          "Baidu"
+        ],
+        "years": [
+          2024,
+          2025
+        ],
+        "corpus": "Baidu and Tencent annual reports (2023-2025)",
+        "hop_count": 2,
+        "answerability": "answerable",
+        "release_label": "Development Baseline",
+        "release_name": "Textual 2-hop Baseline v0.1"
+      },
+      "provenance": {
+        "source_kind": "frozen_replay",
+        "case_id": "textual-known-failure-abstention-4b",
+        "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+        "source_result_sha256": "d03cb0d09620e6db5b6b3038969431cb9504c86a4c02595832c691940b1c3939",
+        "source_row_sha256": "6dd8022e676e2082211859f14725b358e350b92febfb7b1728b1e19f646837c1"
+      },
+      "error": null
+    },
+    {
+      "api_schema_version": "hopcandy-api-v1",
+      "request_id": "replay-textual-model-scale-comparison-qwen3-4b-2048",
+      "mode": "replay",
+      "status": "success",
+      "question": "According to Tencent's 2024 and Baidu's 2025 annual reports, what reporting lag does Baidu use for most investees accounted for using the method Tencent applies to investments in associates?",
+      "answer": "fair value less costs of disposal",
+      "route": {
+        "category": "textual",
+        "query_type": "multi_hop",
+        "path_type": "full_agentic",
+        "structured_route": null,
+        "decision_source": "agentic_default"
+      },
+      "model": "Qwen3-4B",
+      "metrics": {
+        "latency_ms": 3386.31,
+        "iterations": 1,
+        "tool_calls": 2,
+        "evidence_count": 10,
+        "replans": 0,
+        "hop_recall": 0.5,
+        "grounding_status": "partial"
+      },
+      "timeline": [
+        {
+          "event_id": "event-1",
+          "sequence": 1,
+          "node": "router",
+          "event_type": "route_decision",
+          "status": "completed",
+          "title": "Route selected",
+          "detail": "multi_hop",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-2",
+          "sequence": 2,
+          "node": "planner",
+          "event_type": "plan_created",
+          "status": "completed",
+          "title": "Plan created",
+          "detail": "2 steps",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-3",
+          "sequence": 3,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 1,
+          "step_id": 1,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 291.427,
+          "evidence_ids": [
+            "evidence-1",
+            "evidence-2",
+            "evidence-3",
+            "evidence-4",
+            "evidence-5"
+          ]
+        },
+        {
+          "event_id": "event-4",
+          "sequence": 4,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 1,
+          "step_id": 2,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 461.733,
+          "evidence_ids": [
+            "evidence-6",
+            "evidence-7",
+            "evidence-8",
+            "evidence-9",
+            "evidence-10"
+          ]
+        },
+        {
+          "event_id": "event-5",
+          "sequence": 5,
+          "node": "verifier",
+          "event_type": "evidence_sufficient",
+          "status": "sufficient",
+          "title": "Evidence verified",
+          "detail": "sufficient",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-6",
+          "sequence": 6,
+          "node": "synthesizer",
+          "event_type": "answer_generated",
+          "status": "completed",
+          "title": "Answer generated",
+          "detail": "Synthesis completed",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        }
+      ],
+      "plan": [
+        {
+          "plan_id": "plan-1-1",
+          "iteration": 1,
+          "step_id": 1,
+          "sub_query": "What is the reporting lag method used by Tencent for investments in associates?",
+          "tool": "semantic_search",
+          "depends_on": [],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-1-2",
+          "iteration": 1,
+          "step_id": 2,
+          "sub_query": "What is the reporting lag method used by Baidu for most investees according to their 2025 annual report?",
+          "tool": "semantic_search",
+          "depends_on": [
+            1
+          ],
+          "status": "done"
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "evidence-1",
+          "chunk_id": "tx_2024_ar_0979",
+          "document_id": "tx_2024_ar",
+          "company": "Tencent",
+          "report_year": 2024,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2024 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nrecoverable amounts were determined using fair value less costs of disposal where the respective fair values had been\ndetermined according to the principle set out in Note 4.3.\nTencent Holdings Limited\n218\nNotes to the Consolidated Financial Statements\nFor the year ended 31 December 2024\n22 INVESTMENTS IN ASSOCIATES (continued)\nInvestments in associates have been accounted for by using equity method based on the financial information of the",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the reporting lag method used by Tencent for investments in associates?",
+          "is_gold": true,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-2",
+          "chunk_id": "tx_2023_ar_0714",
+          "document_id": "tx_2023_ar",
+          "company": "Tencent",
+          "report_year": 2023,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2023 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nTencent Holdings Limited\n148\nNotes to the Consolidated Financial Statements\nFor the year ended 31 December 2023\n2\nSUMMARY OF MATERIAL ACCOUNTING POLICIES (continued)\n2.4 Investments under equity accounting method (continued)\n(d)\nInvestments in associates/joint ventures achieved in stages\nThe cost of associates/joint ventures acquired in stages, except for the change from an associate to a joint",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the reporting lag method used by Tencent for investments in associates?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-3",
+          "chunk_id": "tx_2024_ar_0660",
+          "document_id": "tx_2024_ar",
+          "company": "Tencent",
+          "report_year": 2024,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2024 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nAssociates are all entities over which the Group has significant influence but not control or joint control,\ngenerally but not necessarily accompanying a holding of between 20% and 50% of the voting rights.\nInvestments in associates are accounted for using the equity method of accounting. The Group’s investments\nin associates include underlying goodwill identified on acquisition, net of any accumulated impairment loss.\n(b)\nJoint ventures",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the reporting lag method used by Tencent for investments in associates?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-4",
+          "chunk_id": "tx_2025_ar_0989",
+          "document_id": "tx_2025_ar",
+          "company": "Tencent",
+          "report_year": 2025,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2025 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nNotes to the Consolidated Financial Statements\nFor the year ended 31 December 2025\n22 INVESTMENTS IN ASSOCIATES (continued)\nInvestments in associates have been accounted for by using equity method based on the financial information of the\nassociates prepared under the accounting policies generally consistent with those of the Group.\nThe Group’s share of the results, the revenues, the aggregated assets (including goodwill) and liabilities of its associates,",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the reporting lag method used by Tencent for investments in associates?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-5",
+          "chunk_id": "tx_2024_ar_0664",
+          "document_id": "tx_2024_ar",
+          "company": "Tencent",
+          "report_year": 2024,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2024 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\ninterests in the entity, including any unsecured long-term receivables, the Group does not recognise further\nlosses, unless it has incurred legal or constructive obligations or made payments on behalf of the entity.\nThe Group determines at each reporting date whether there is any objective evidence that investments\naccounted for using the equity method, including investments in associates and joint ventures, are impaired.",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What is the reporting lag method used by Tencent for investments in associates?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-6",
+          "chunk_id": "tx_2025_ar_0988",
+          "document_id": "tx_2025_ar",
+          "company": "Tencent",
+          "report_year": 2025,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2025 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nDuring the year ended 31 December 2025, net impairment reversals of approximately RMB3,427 million (2024: net impairment\nprovision of approximately RMB8,250 million) had been recognised for investments in associates, and the majority of these\ninvestments’ recoverable amounts were determined using fair value less costs of disposal where the respective fair values had\nbeen determined according to the principle set out in Note 4.3.\nTencent Holdings Limited\n226",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What is the reporting lag method used by Baidu for most investees according to their 2025 annual report? (dependency context: step 1: recoverable amounts were determined using fair value less costs of disposal where the respective fair values had been\ndetermined according to the principle set out in Note 4.3.\nTencent Holdings Limite)",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-7",
+          "chunk_id": "tx_2023_ar_1019",
+          "document_id": "tx_2023_ar",
+          "company": "Tencent",
+          "report_year": 2023,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2023 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nThe key assumptions used for the calculation of the recoverable amounts of the CGUs (or groups of CGUs) under\nimpairment testing are as follows:\nFor goodwill attributable to the Group’s online game business within VAS segment, the recoverable amount was\ndetermined using fair value less costs of disposal where the fair value was determined as Level 3 according to the\nprinciple set out in Note 4.3. Fair value less costs of disposal was primarily determined based on ratios of EV (enterprise",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What is the reporting lag method used by Baidu for most investees according to their 2025 annual report? (dependency context: step 1: recoverable amounts were determined using fair value less costs of disposal where the respective fair values had been\ndetermined according to the principle set out in Note 4.3.\nTencent Holdings Limite)",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-8",
+          "chunk_id": "tx_2023_ar_1032",
+          "document_id": "tx_2023_ar",
+          "company": "Tencent",
+          "report_year": 2023,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2023 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nDuring the year ended 31 December 2023, an aggregate impairment loss of approximately RMB6,847 million (2022: RMB25,689\nmillion) had been recognised for associates with impairment indicators, and the majority of these associates’ recoverable amounts\nwere determined using fair value less costs of disposal where the respective fair values had been determined according to the\nprinciple set out in Note 4.3.\nAnnual Report 2023\n225\nNotes to the Consolidated Financial Statements",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What is the reporting lag method used by Baidu for most investees according to their 2025 annual report? (dependency context: step 1: recoverable amounts were determined using fair value less costs of disposal where the respective fair values had been\ndetermined according to the principle set out in Note 4.3.\nTencent Holdings Limite)",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-9",
+          "chunk_id": "tx_2024_ar_0966",
+          "document_id": "tx_2024_ar",
+          "company": "Tencent",
+          "report_year": 2024,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2024 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nprinciple set out in Note 4.3. Fair value less costs of disposal was primarily determined based on ratios of EV (enterprise\nvalue) divided by EBITDA of several comparable public companies (range: 10-17x) (2023: range: 11-19x) multiplied by\nthe EBITDA of the related CGU (or group of CGUs) and liquidity discount for lack of marketability at a range of 10% to\n20% (2023: 10% to 20%). The comparable public companies were chosen based on factors such as industry similarity,",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What is the reporting lag method used by Baidu for most investees according to their 2025 annual report? (dependency context: step 1: recoverable amounts were determined using fair value less costs of disposal where the respective fair values had been\ndetermined according to the principle set out in Note 4.3.\nTencent Holdings Limite)",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-10",
+          "chunk_id": "tx_2025_ar_0987",
+          "document_id": "tx_2025_ar",
+          "company": "Tencent",
+          "report_year": 2025,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2025 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nrates, terminal growth rates and discount rates. In respect of the recoverable amount based on fair value less costs of disposal,\nthe amount is calculated with reference to their respective market prices for listed investments, or using certain key valuation\nassumptions including the selection of comparable companies, recent market transactions, liquidity discounts adopted for lack of\nmarketability for unlisted investments.",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What is the reporting lag method used by Baidu for most investees according to their 2025 annual report? (dependency context: step 1: recoverable amounts were determined using fair value less costs of disposal where the respective fair values had been\ndetermined according to the principle set out in Note 4.3.\nTencent Holdings Limite)",
+          "is_gold": false,
+          "retrieval_count": 1
+        }
+      ],
+      "verification": [
+        {
+          "verification_id": "verification-1",
+          "iteration": 1,
+          "verdict": "sufficient",
+          "feedback": ""
+        }
+      ],
+      "replans": [],
+      "grounding": {
+        "status": "partial",
+        "complete": true,
+        "hop_recall": 0.5,
+        "abstention_reason": null,
+        "final_verdict": "sufficient"
+      },
+      "warnings": [
+        {
+          "code": "FROZEN_REPLAY",
+          "message": "This is a frozen experiment replay, not a live query.",
+          "severity": "info"
+        },
+        {
+          "code": "ABLATION_ONLY",
+          "message": "This result is a model-scale ablation, not an independent release result.",
+          "severity": "warning"
+        },
+        {
+          "code": "PARTIAL_GOLD_CHAIN",
+          "message": "Only 0.500 of the Gold evidence hops were recalled.",
+          "severity": "warning"
+        }
+      ],
+      "scope": {
+        "companies": [
+          "Baidu",
+          "Tencent"
+        ],
+        "years": [
+          2024,
+          2025
+        ],
+        "corpus": "Baidu and Tencent annual reports (2023-2025)",
+        "hop_count": 2,
+        "answerability": "answerable",
+        "release_label": "Ablation",
+        "release_name": "Qwen3 model-scale comparison on consumed Development24"
+      },
+      "provenance": {
+        "source_kind": "frozen_replay",
+        "case_id": "textual-model-scale-comparison",
+        "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+        "source_result_sha256": "d03cb0d09620e6db5b6b3038969431cb9504c86a4c02595832c691940b1c3939",
+        "source_row_sha256": "ad43e3a5c51d8e754a9b0d40cda56e23854de2c1372112b8559f1fd73de73d1b"
+      },
+      "error": null
+    },
+    {
+      "api_schema_version": "hopcandy-api-v1",
+      "request_id": "replay-textual-model-scale-comparison-qwen3-8b-2048",
+      "mode": "replay",
+      "status": "success",
+      "question": "According to Tencent's 2024 and Baidu's 2025 annual reports, what reporting lag does Baidu use for most investees accounted for using the method Tencent applies to investments in associates?",
+      "answer": "one-quarter lag",
+      "route": {
+        "category": "textual",
+        "query_type": "multi_hop",
+        "path_type": "full_agentic",
+        "structured_route": null,
+        "decision_source": "agentic_default"
+      },
+      "model": "Qwen3-8B",
+      "metrics": {
+        "latency_ms": 12835.356,
+        "iterations": 1,
+        "tool_calls": 2,
+        "evidence_count": 10,
+        "replans": 0,
+        "hop_recall": 1.0,
+        "grounding_status": "grounded"
+      },
+      "timeline": [
+        {
+          "event_id": "event-1",
+          "sequence": 1,
+          "node": "router",
+          "event_type": "route_decision",
+          "status": "completed",
+          "title": "Route selected",
+          "detail": "multi_hop",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-2",
+          "sequence": 2,
+          "node": "planner",
+          "event_type": "plan_created",
+          "status": "completed",
+          "title": "Plan created",
+          "detail": "2 steps",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-3",
+          "sequence": 3,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 1,
+          "step_id": 1,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 4542.597,
+          "evidence_ids": [
+            "evidence-1",
+            "evidence-2",
+            "evidence-3",
+            "evidence-4",
+            "evidence-5"
+          ]
+        },
+        {
+          "event_id": "event-4",
+          "sequence": 4,
+          "node": "executor",
+          "event_type": "tool_completed",
+          "status": "completed",
+          "title": "keyword_search+semantic_search completed",
+          "detail": "5 results",
+          "iteration": 1,
+          "step_id": 2,
+          "tool": "keyword_search+semantic_search",
+          "latency_ms": 4300.237,
+          "evidence_ids": [
+            "evidence-6",
+            "evidence-7",
+            "evidence-8",
+            "evidence-9",
+            "evidence-10"
+          ]
+        },
+        {
+          "event_id": "event-5",
+          "sequence": 5,
+          "node": "verifier",
+          "event_type": "evidence_sufficient",
+          "status": "sufficient",
+          "title": "Evidence verified",
+          "detail": "sufficient",
+          "iteration": 1,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        },
+        {
+          "event_id": "event-6",
+          "sequence": 6,
+          "node": "synthesizer",
+          "event_type": "answer_generated",
+          "status": "completed",
+          "title": "Answer generated",
+          "detail": "Synthesis completed",
+          "iteration": null,
+          "step_id": null,
+          "tool": null,
+          "latency_ms": null,
+          "evidence_ids": []
+        }
+      ],
+      "plan": [
+        {
+          "plan_id": "plan-1-1",
+          "iteration": 1,
+          "step_id": 1,
+          "sub_query": "What reporting lag does Tencent use for investments in associates according to Tencent's 2024 annual report?",
+          "tool": "semantic_search",
+          "depends_on": [],
+          "status": "done"
+        },
+        {
+          "plan_id": "plan-1-2",
+          "iteration": 1,
+          "step_id": 2,
+          "sub_query": "What reporting lag does Baidu use for most investees according to Baidu's 2025 annual report?",
+          "tool": "semantic_search",
+          "depends_on": [],
+          "status": "done"
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "evidence-1",
+          "chunk_id": "tx_2024_ar_0979",
+          "document_id": "tx_2024_ar",
+          "company": "Tencent",
+          "report_year": 2024,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2024 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nrecoverable amounts were determined using fair value less costs of disposal where the respective fair values had been\ndetermined according to the principle set out in Note 4.3.\nTencent Holdings Limited\n218\nNotes to the Consolidated Financial Statements\nFor the year ended 31 December 2024\n22 INVESTMENTS IN ASSOCIATES (continued)\nInvestments in associates have been accounted for by using equity method based on the financial information of the",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What reporting lag does Tencent use for investments in associates according to Tencent's 2024 annual report?",
+          "is_gold": true,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-2",
+          "chunk_id": "tx_2025_ar_0988",
+          "document_id": "tx_2025_ar",
+          "company": "Tencent",
+          "report_year": 2025,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2025 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nDuring the year ended 31 December 2025, net impairment reversals of approximately RMB3,427 million (2024: net impairment\nprovision of approximately RMB8,250 million) had been recognised for investments in associates, and the majority of these\ninvestments’ recoverable amounts were determined using fair value less costs of disposal where the respective fair values had\nbeen determined according to the principle set out in Note 4.3.\nTencent Holdings Limited\n226",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What reporting lag does Tencent use for investments in associates according to Tencent's 2024 annual report?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-3",
+          "chunk_id": "tx_2023_ar_0714",
+          "document_id": "tx_2023_ar",
+          "company": "Tencent",
+          "report_year": 2023,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2023 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nTencent Holdings Limited\n148\nNotes to the Consolidated Financial Statements\nFor the year ended 31 December 2023\n2\nSUMMARY OF MATERIAL ACCOUNTING POLICIES (continued)\n2.4 Investments under equity accounting method (continued)\n(d)\nInvestments in associates/joint ventures achieved in stages\nThe cost of associates/joint ventures acquired in stages, except for the change from an associate to a joint",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What reporting lag does Tencent use for investments in associates according to Tencent's 2024 annual report?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-4",
+          "chunk_id": "tx_2025_ar_0578",
+          "document_id": "tx_2025_ar",
+          "company": "Tencent",
+          "report_year": 2025,
+          "section": "INDEPENDENT AUDITOR'S REPORT",
+          "page": null,
+          "text": "腾讯 2025 Annual Report - INDEPENDENT AUDITOR'S REPORT\nagainst the previous period’s forecasts.\nTencent Holdings Limited\n124\nIndependent Auditor’s Report\nKey Audit Matter\nHow our audit addressed the Key Audit Matter\nImpairment assessments of goodwill, investments in associates\nand investments in joint ventures (continued)\nIn carrying out impairment assessments, significant\njudgments are required to estimate the recoverable amounts,\nbeing the higher of fair value less costs of disposal and value\nin use.",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What reporting lag does Tencent use for investments in associates according to Tencent's 2024 annual report?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-5",
+          "chunk_id": "tx_2025_ar_0989",
+          "document_id": "tx_2025_ar",
+          "company": "Tencent",
+          "report_year": 2025,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "腾讯 2025 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nNotes to the Consolidated Financial Statements\nFor the year ended 31 December 2025\n22 INVESTMENTS IN ASSOCIATES (continued)\nInvestments in associates have been accounted for by using equity method based on the financial information of the\nassociates prepared under the accounting policies generally consistent with those of the Group.\nThe Group’s share of the results, the revenues, the aggregated assets (including goodwill) and liabilities of its associates,",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 1,
+          "sub_query": "What reporting lag does Tencent use for investments in associates according to Tencent's 2024 annual report?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-6",
+          "chunk_id": "bd_2023_ar_2533",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "百度 2023 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nhigher liquidation preference. The Group adopted a one-quarter lag in reporting for its share of equity income/(loss) to a majority of its equity method\ninvestees.\nF-25\nTable of Contents\nBAIDU, INC.\nNOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nFOR THE YEARS ENDED DECEMBER 31, 2021, 2022 AND 2023\nThe Group evaluates its equity method investments for impairment at each reporting date, or more frequently if events or changes in circumstances",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What reporting lag does Baidu use for most investees according to Baidu's 2025 annual report?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-7",
+          "chunk_id": "bd_2025_ar_1759",
+          "document_id": "bd_2025_ar",
+          "company": "Baidu",
+          "report_year": 2025,
+          "section": "ITEM 5.",
+          "page": null,
+          "text": "百度 2025 Annual Report - ITEM 5.\npreference before being further applied to the investments of a higher liquidation preference. We adopted a one-quarter lag in reporting for our share of\nequity earnings (losses) to a majority of our equity method investees.\n155\nWe evaluate the equity method investments for impairment at each reporting date, or more frequently if events or changes in circumstances",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What reporting lag does Baidu use for most investees according to Baidu's 2025 annual report?",
+          "is_gold": true,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-8",
+          "chunk_id": "bd_2023_ar_1724",
+          "document_id": "bd_2023_ar",
+          "company": "Baidu",
+          "report_year": 2023,
+          "section": "ITEM 5.",
+          "page": null,
+          "text": "百度 2023 Annual Report - ITEM 5.\npreference before being further applied to the investments of a higher liquidation preference. We adopted a one-quarter lag in reporting for our share of\nequity income (loss) to a majority of our equity method investees.\nWe evaluate the equity method investments for impairment at each reporting date, or more frequently if events or changes in circumstances",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What reporting lag does Baidu use for most investees according to Baidu's 2025 annual report?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-9",
+          "chunk_id": "bd_2025_ar_2546",
+          "document_id": "bd_2025_ar",
+          "company": "Baidu",
+          "report_year": 2025,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "百度 2025 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nhigher liquidation preference. The Group adopted a one-quarter lag in reporting for its share of equity earnings (losses) to a majority of its equity method\ninvestees.\nThe Group evaluates its equity method investments for impairment at each reporting date, or more frequently if events or changes in circumstances\nindicate that the carrying amount of the investment might not be recoverable. Factors considered by the Group when determining whether an investment",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What reporting lag does Baidu use for most investees according to Baidu's 2025 annual report?",
+          "is_gold": false,
+          "retrieval_count": 1
+        },
+        {
+          "evidence_id": "evidence-10",
+          "chunk_id": "bd_2024_ar_2971",
+          "document_id": "bd_2024_ar",
+          "company": "Baidu",
+          "report_year": 2024,
+          "section": "NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS",
+          "page": null,
+          "text": "百度 2024 Annual Report - NOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\n338\n523      72\nOther Investees\n939\n897\n893     122\nTotal\n2,243     2,699     2,728     374\nThe Group purchased content, traffic acquisition and other services from equity investees in an amount of RMB2.2  billion, RMB2.6  billion and\nRMB2.5 billion (US$346 million) for the years ended December 31, 2022, 2023 and 2024, respectively.\nF-78\nTable of Contents\nBAIDU, INC.\nNOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS\nFOR THE YEARS ENDED DECEMBER 31, 2022, 2023 AND 2024",
+          "tool": "keyword_search+semantic_search",
+          "score": null,
+          "hop": 2,
+          "sub_query": "What reporting lag does Baidu use for most investees according to Baidu's 2025 annual report?",
+          "is_gold": false,
+          "retrieval_count": 1
+        }
+      ],
+      "verification": [
+        {
+          "verification_id": "verification-1",
+          "iteration": 1,
+          "verdict": "sufficient",
+          "feedback": ""
+        }
+      ],
+      "replans": [],
+      "grounding": {
+        "status": "grounded",
+        "complete": true,
+        "hop_recall": 1.0,
+        "abstention_reason": null,
+        "final_verdict": "sufficient"
+      },
+      "warnings": [
+        {
+          "code": "FROZEN_REPLAY",
+          "message": "This is a frozen experiment replay, not a live query.",
+          "severity": "info"
+        },
+        {
+          "code": "ABLATION_ONLY",
+          "message": "This result is a model-scale ablation, not an independent release result.",
+          "severity": "warning"
+        }
+      ],
+      "scope": {
+        "companies": [
+          "Baidu",
+          "Tencent"
+        ],
+        "years": [
+          2024,
+          2025
+        ],
+        "corpus": "Baidu and Tencent annual reports (2023-2025)",
+        "hop_count": 2,
+        "answerability": "answerable",
+        "release_label": "Ablation",
+        "release_name": "Qwen3 model-scale comparison on consumed Development24"
+      },
+      "provenance": {
+        "source_kind": "frozen_replay",
+        "case_id": "textual-model-scale-comparison",
+        "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+        "source_result_sha256": "21df5701f9d57eff9030cf826e7d492360970b190d5f615f614782498b4dc0c3",
+        "source_row_sha256": "fa32487f2bed7ce4d06cbbe6c9f63065b7cc9a399b919119948c179312b7f43a"
+      },
+      "error": null
+    }
+  ]
+}

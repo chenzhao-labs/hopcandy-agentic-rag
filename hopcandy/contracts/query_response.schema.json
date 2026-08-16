@@ -1,0 +1,868 @@
+{
+  "$defs": {
+    "EvidenceCard": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {
+          "title": "Evidence Id",
+          "type": "string"
+        },
+        "chunk_id": {
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "document_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Document Id"
+        },
+        "company": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Company"
+        },
+        "report_year": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Report Year"
+        },
+        "section": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Section"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "tool": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tool"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Score"
+        },
+        "hop": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hop"
+        },
+        "sub_query": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sub Query"
+        },
+        "is_gold": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Is Gold"
+        },
+        "retrieval_count": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Retrieval Count",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "evidence_id",
+        "chunk_id",
+        "text"
+      ],
+      "title": "EvidenceCard",
+      "type": "object"
+    },
+    "GroundingSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "grounded",
+            "partial",
+            "abstained",
+            "not_applicable",
+            "unknown"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "complete": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Complete"
+        },
+        "hop_recall": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hop Recall"
+        },
+        "abstention_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Abstention Reason"
+        },
+        "final_verdict": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Final Verdict"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "GroundingSummary",
+      "type": "object"
+    },
+    "PlanStep": {
+      "additionalProperties": false,
+      "properties": {
+        "plan_id": {
+          "title": "Plan Id",
+          "type": "string"
+        },
+        "iteration": {
+          "minimum": 1,
+          "title": "Iteration",
+          "type": "integer"
+        },
+        "step_id": {
+          "minimum": 1,
+          "title": "Step Id",
+          "type": "integer"
+        },
+        "sub_query": {
+          "title": "Sub Query",
+          "type": "string"
+        },
+        "tool": {
+          "title": "Tool",
+          "type": "string"
+        },
+        "depends_on": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Depends On",
+          "type": "array"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id",
+        "iteration",
+        "step_id",
+        "sub_query",
+        "tool",
+        "status"
+      ],
+      "title": "PlanStep",
+      "type": "object"
+    },
+    "PublicError": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "retryable": {
+          "title": "Retryable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "retryable"
+      ],
+      "title": "PublicError",
+      "type": "object"
+    },
+    "ReplanEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "replan_id": {
+          "title": "Replan Id",
+          "type": "string"
+        },
+        "iteration": {
+          "minimum": 2,
+          "title": "Iteration",
+          "type": "integer"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "feedback": {
+          "title": "Feedback",
+          "type": "string"
+        },
+        "new_chunk_count": {
+          "default": 0,
+          "minimum": 0,
+          "title": "New Chunk Count",
+          "type": "integer"
+        },
+        "new_gold_hops": {
+          "default": 0,
+          "minimum": 0,
+          "title": "New Gold Hops",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "replan_id",
+        "iteration",
+        "reason",
+        "feedback"
+      ],
+      "title": "ReplanEvent",
+      "type": "object"
+    },
+    "ResponseProvenance": {
+      "additionalProperties": false,
+      "properties": {
+        "source_kind": {
+          "enum": [
+            "frozen_replay",
+            "live",
+            "error"
+          ],
+          "title": "Source Kind",
+          "type": "string"
+        },
+        "case_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Case Id"
+        },
+        "fixture_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Fixture Version"
+        },
+        "source_result_sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Result Sha256"
+        },
+        "source_row_sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Row Sha256"
+        }
+      },
+      "required": [
+        "source_kind"
+      ],
+      "title": "ResponseProvenance",
+      "type": "object"
+    },
+    "RouteInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "enum": [
+            "structured",
+            "textual",
+            "unknown"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "query_type": {
+          "title": "Query Type",
+          "type": "string"
+        },
+        "path_type": {
+          "title": "Path Type",
+          "type": "string"
+        },
+        "structured_route": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Structured Route"
+        },
+        "decision_source": {
+          "title": "Decision Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "category",
+        "query_type",
+        "path_type",
+        "decision_source"
+      ],
+      "title": "RouteInfo",
+      "type": "object"
+    },
+    "RunMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "latency_ms": {
+          "minimum": 0,
+          "title": "Latency Ms",
+          "type": "number"
+        },
+        "iterations": {
+          "minimum": 0,
+          "title": "Iterations",
+          "type": "integer"
+        },
+        "tool_calls": {
+          "minimum": 0,
+          "title": "Tool Calls",
+          "type": "integer"
+        },
+        "evidence_count": {
+          "minimum": 0,
+          "title": "Evidence Count",
+          "type": "integer"
+        },
+        "replans": {
+          "minimum": 0,
+          "title": "Replans",
+          "type": "integer"
+        },
+        "hop_recall": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hop Recall"
+        },
+        "grounding_status": {
+          "enum": [
+            "grounded",
+            "partial",
+            "abstained",
+            "not_applicable",
+            "unknown"
+          ],
+          "title": "Grounding Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "latency_ms",
+        "iterations",
+        "tool_calls",
+        "evidence_count",
+        "replans",
+        "grounding_status"
+      ],
+      "title": "RunMetrics",
+      "type": "object"
+    },
+    "ScopeInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "companies": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Companies",
+          "type": "array"
+        },
+        "years": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Years",
+          "type": "array"
+        },
+        "corpus": {
+          "title": "Corpus",
+          "type": "string"
+        },
+        "hop_count": {
+          "minimum": 0,
+          "title": "Hop Count",
+          "type": "integer"
+        },
+        "answerability": {
+          "title": "Answerability",
+          "type": "string"
+        },
+        "release_label": {
+          "title": "Release Label",
+          "type": "string"
+        },
+        "release_name": {
+          "title": "Release Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "corpus",
+        "hop_count",
+        "answerability",
+        "release_label",
+        "release_name"
+      ],
+      "title": "ScopeInfo",
+      "type": "object"
+    },
+    "TimelineEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "title": "Event Id",
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "node": {
+          "title": "Node",
+          "type": "string"
+        },
+        "event_type": {
+          "title": "Event Type",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "completed",
+            "sufficient",
+            "insufficient",
+            "abstained",
+            "error"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "detail": {
+          "title": "Detail",
+          "type": "string"
+        },
+        "iteration": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Iteration"
+        },
+        "step_id": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Step Id"
+        },
+        "tool": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tool"
+        },
+        "latency_ms": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latency Ms"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "event_id",
+        "sequence",
+        "node",
+        "event_type",
+        "status",
+        "title",
+        "detail"
+      ],
+      "title": "TimelineEvent",
+      "type": "object"
+    },
+    "VerificationEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "verification_id": {
+          "title": "Verification Id",
+          "type": "string"
+        },
+        "iteration": {
+          "minimum": 1,
+          "title": "Iteration",
+          "type": "integer"
+        },
+        "verdict": {
+          "enum": [
+            "sufficient",
+            "insufficient",
+            "unknown"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        },
+        "feedback": {
+          "title": "Feedback",
+          "type": "string"
+        }
+      },
+      "required": [
+        "verification_id",
+        "iteration",
+        "verdict",
+        "feedback"
+      ],
+      "title": "VerificationEvent",
+      "type": "object"
+    },
+    "WarningItem": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "info",
+            "warning",
+            "error"
+          ],
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "severity"
+      ],
+      "title": "WarningItem",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "api_schema_version": {
+      "const": "hopcandy-api-v1",
+      "default": "hopcandy-api-v1",
+      "title": "Api Schema Version",
+      "type": "string"
+    },
+    "request_id": {
+      "title": "Request Id",
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "replay",
+        "live"
+      ],
+      "title": "Mode",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "success",
+        "clarification",
+        "abstained",
+        "error"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "question": {
+      "title": "Question",
+      "type": "string"
+    },
+    "answer": {
+      "title": "Answer",
+      "type": "string"
+    },
+    "route": {
+      "$ref": "#/$defs/RouteInfo"
+    },
+    "model": {
+      "title": "Model",
+      "type": "string"
+    },
+    "metrics": {
+      "$ref": "#/$defs/RunMetrics"
+    },
+    "timeline": {
+      "items": {
+        "$ref": "#/$defs/TimelineEvent"
+      },
+      "title": "Timeline",
+      "type": "array"
+    },
+    "plan": {
+      "items": {
+        "$ref": "#/$defs/PlanStep"
+      },
+      "title": "Plan",
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/EvidenceCard"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "verification": {
+      "items": {
+        "$ref": "#/$defs/VerificationEvent"
+      },
+      "title": "Verification",
+      "type": "array"
+    },
+    "replans": {
+      "items": {
+        "$ref": "#/$defs/ReplanEvent"
+      },
+      "title": "Replans",
+      "type": "array"
+    },
+    "grounding": {
+      "$ref": "#/$defs/GroundingSummary"
+    },
+    "warnings": {
+      "items": {
+        "$ref": "#/$defs/WarningItem"
+      },
+      "title": "Warnings",
+      "type": "array"
+    },
+    "scope": {
+      "$ref": "#/$defs/ScopeInfo"
+    },
+    "provenance": {
+      "$ref": "#/$defs/ResponseProvenance"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PublicError"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "request_id",
+    "mode",
+    "status",
+    "question",
+    "answer",
+    "route",
+    "model",
+    "metrics",
+    "grounding",
+    "scope",
+    "provenance"
+  ],
+  "title": "QueryResponse",
+  "type": "object",
+  "$id": "https://hopcandy.dev/schemas/query-response-v1.json",
+  "x-api-schema-version": "hopcandy-api-v1"
+}

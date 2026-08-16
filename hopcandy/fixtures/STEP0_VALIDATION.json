@@ -1,0 +1,21 @@
+{
+  "schema_version": "hopcandy-step0-validation-v1",
+  "status": "passed",
+  "gates": {
+    "case_count_7": true,
+    "required_case_types": true,
+    "experiment_labels_and_metrics": true,
+    "timeline_entries_10": true,
+    "manifest_sources_intact": true,
+    "manifest_outputs_intact": true,
+    "provenance_intact": true,
+    "public_safety_scan": true
+  },
+  "metrics": {
+    "cases": 7,
+    "experiments": 3,
+    "timeline_entries": 10,
+    "bundle_sha256": "d9a031e88fd177efb2e45e1c9093bd0c4e9a2baabdb8a17c1e4df115de7e3c84"
+  },
+  "errors": []
+}

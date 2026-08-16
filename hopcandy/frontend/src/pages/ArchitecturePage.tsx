@@ -1,0 +1,18 @@
+import { useState } from 'react';
+import { AlertTriangle, ArrowDown, ArrowRight, CornerLeftUp, TerminalSquare } from 'lucide-react';
+import { architectureNodes, executorTools } from '../data/architecture';
+import { PageHeading } from '../components/common/PageHeading';
+
+export function ArchitecturePage() {
+  const [active, setActive] = useState(architectureNodes[2]);
+  const node = (id: string) => architectureNodes.find((item) => item.id === id)!;
+  const FlowNode = ({ id, compact = false }: { id: string; compact?: boolean }) => {
+    const item = node(id);
+    const Icon = item.icon;
+    return <button className={`architecture-node ${compact ? 'compact' : ''} ${active.id === id ? 'active' : ''}`} onClick={() => setActive(item)}><Icon size={compact ? 17 : 22} /><strong>{item.label}</strong><small>{compact ? '反馈节点' : id === 'executor' ? '6 个工具' : id === 'router' ? '路由节点' : '智能体节点'}</small></button>;
+  };
+  return <main className="content-page architecture-page"><PageHeading title="一个智能体核心，一条可选快速路" description="复杂问题进入完整 Agent Loop；极简单结构化请求可以跳过规划器，但仍由同一个执行器调用工具" />
+    <section className="architecture-section" aria-labelledby="runtime-heading"><div className="architecture-section-heading"><span id="runtime-heading">01 · Agent 运行时</span><p>复杂请求进入完整 Agent Loop；极简单结构化请求可跳过 Planner，但仍由同一执行器调用工具。</p></div><div className="architecture-board"><div className="architecture-flow" aria-label="可交互系统架构"><div className="complex-flow"><div className="flow-core"><div className="fast-path-bypass" aria-label="Fast Path：路由器直接进入同一执行器，跳过规划器"><span className="fast-path-label"><strong>Fast Path</strong><small>极简单结构化请求</small></span><span className="fast-path-stem start" aria-hidden="true" /><span className="fast-path-stem end" aria-hidden="true" /><ArrowRight className="fast-path-arrow" size={16} aria-hidden="true" /></div><div className="flow-path-label">复杂请求</div><div className="flow-row"><FlowNode id="router" /><ArrowRight className="flow-arrow" size={20} /><FlowNode id="planner" /><ArrowRight className="flow-arrow" size={20} /><FlowNode id="executor" /><ArrowRight className="flow-arrow" size={20} /><FlowNode id="verifier" /><ArrowRight className="flow-arrow" size={20} /><FlowNode id="synthesizer" /></div><div className="fast-path-mobile-note"><span>Fast Path</span><small>极简单结构化请求可跳过 Planner → Executor</small></div></div><div className="replan-loop"><div className="replan-trigger"><span>证据不足</span><ArrowDown size={16} /></div><FlowNode id="replanner" compact /><div className="loop-return"><CornerLeftUp size={16} /><span>修订计划<br />返回执行器</span></div></div></div><div className="tool-shelf"><span>执行器工具</span>{executorTools.map((tool) => <div key={tool} className={tool === '机器事实' ? 'highlight' : ''}><TerminalSquare size={15} /><span>{tool}</span>{tool === '机器事实' && <small>Executor Tool · Fast Path 可调用</small>}</div>)}</div></div><aside className="node-detail"><span>节点说明</span><h2>{active.label}</h2><p>{active.text}</p><div><AlertTriangle size={16} /><span>{active.boundary}</span></div></aside></div></section>
+    <section className="architecture-section delivery-section" aria-labelledby="delivery-heading"><div className="architecture-section-heading"><span id="delivery-heading">02 · 公开交付</span><p>Replay 与 Live 是不同的交付边界；当前 Live 后端默认离线，不将按需 GPU 描述为常驻公开服务。</p></div><div className="deployment-band"><div><span>公开网页</span><strong>Vercel</strong><small>静态前端与只读工作台</small></div><div><span>冻结回放</span><strong>Supabase + JSON</strong><small>已发布数据优先，Bundled JSON 负责离线回退</small></div><div><span>在线推理</span><strong>受保护后端 · 按需 GPU</strong><small>需要服务端 Token；默认 Offline</small></div></div></section>
+  </main>;
+}

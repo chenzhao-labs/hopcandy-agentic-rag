@@ -1,0 +1,29 @@
+{
+  "schema_version": "hopcandy-step2-validation-v1",
+  "status": "passed_static_contract_remote_rls_pending",
+  "gates": {
+    "four_tables_declared": true,
+    "rls_enabled_and_forced": true,
+    "anonymous_published_read_only_contract": true,
+    "query_runs_server_only_no_raw_question": true,
+    "fallback_matches_frozen_sources": true,
+    "version_contract_consistent": true,
+    "published_response_schema_valid": true,
+    "seed_is_idempotent_and_has_no_telemetry": true,
+    "secret_and_path_scan": true,
+    "source_hashes_intact": true,
+    "output_hashes_intact": true
+  },
+  "metrics": {
+    "demo_cases": 8,
+    "experiments": 3,
+    "timeline_entries": 10,
+    "published_responses": 8,
+    "publication_bundle_sha256": "0472bbcf3664f87bbdda45b23668c363b7362bee68ea291d86f9b292041d9483"
+  },
+  "limitations": [
+    "Supabase CLI, Docker, and psql were unavailable on this workstation.",
+    "Real anon SELECT and denied INSERT/UPDATE/DELETE checks remain mandatory on the Step 7 Preview project."
+  ],
+  "errors": []
+}

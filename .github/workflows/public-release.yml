@@ -1,0 +1,32 @@
+name: Public release checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - run: python scripts/validate_public_release.py --root .
+      - run: pytest tests/test_hopcandy_step1_contract.py tests/test_hopcandy_step3_backend.py tests/test_public_release.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: hopcandy/frontend/package-lock.json
+      - working-directory: hopcandy/frontend
+        run: npm ci
+      - working-directory: hopcandy/frontend
+        run: npm test
+      - working-directory: hopcandy/frontend
+        run: npm run build

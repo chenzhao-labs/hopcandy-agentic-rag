@@ -1,0 +1,135 @@
+{
+  "schema_version": "hopcandy-publication-v1",
+  "publication_version": "hopcandy-v0.1-step2-2026-08-12",
+  "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+  "fixture_bundle_sha256": "d9a031e88fd177efb2e45e1c9093bd0c4e9a2baabdb8a17c1e4df115de7e3c84",
+  "api_schema_version": "hopcandy-api-v1",
+  "contract_bundle_sha256": "85bb5af995a4e47a35455cd202e8f8dba8a40f696cdfd6588c90dec819f6c532",
+  "source": "bundled_json_fallback",
+  "table": "experiments",
+  "row_count": 3,
+  "rows": [
+    {
+      "id": "BT3Y-Structured-Query-Stable-v1.0",
+      "display_order": 1,
+      "name": "Structured Query Stable v1.0",
+      "label": "Stable",
+      "status": "passed_frozen",
+      "scope": "Structured financial lookup, multi-fact calculation, entity binding, and clarification over BT3Y six-report corpus",
+      "metrics": {
+        "samples": 24,
+        "system_errors": 0,
+        "recovered_samples": 0,
+        "em": 0.375,
+        "f1": 0.898,
+        "route_counts": {
+          "direct_structured": 18,
+          "entity_dependent": 4,
+          "clarification": 2
+        },
+        "structured_apply_rate": 1.0,
+        "entity_accuracy": 1.0,
+        "metric_accuracy": 1.0,
+        "numeric_accuracy": 1.0,
+        "unit_accuracy": 1.0,
+        "calculation_accuracy": 1.0,
+        "answer_completeness": 1.0,
+        "evidence_grounding_accuracy": 1.0,
+        "rejected_fact_count": 0,
+        "avg_hop_recall": 1.0,
+        "hop_recall_by_hop": {
+          "1hop": {
+            "count": 2,
+            "avg_hop_recall": 1.0,
+            "premature_rate": 0.0,
+            "over_ext_rate": 0.0
+          },
+          "2hop": {
+            "count": 12,
+            "avg_hop_recall": 1.0,
+            "premature_rate": 0.0,
+            "over_ext_rate": 0.0
+          },
+          "3hop": {
+            "count": 8,
+            "avg_hop_recall": 1.0,
+            "premature_rate": 0.0,
+            "over_ext_rate": 0.0
+          }
+        },
+        "agent_latency_p50_ms": 4.488,
+        "agent_latency_p95_ms": 322.012,
+        "retrieval_latency_p50_ms": 0.18,
+        "retrieval_latency_p95_ms": 190.296,
+        "gpu_peak_allocated_mib": 4510.795,
+        "gpu_peak_reserved_mib": 4702.0
+      },
+      "source_sha256": "ce8e0ba4bb820a688d2f62a87b294ea5ee5c6b4ec1dbaf58c11c2205a16ee40e",
+      "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+      "fixture_bundle_sha256": "d9a031e88fd177efb2e45e1c9093bd0c4e9a2baabdb8a17c1e4df115de7e3c84",
+      "published": true
+    },
+    {
+      "id": "BT3Y-Textual-2hop-Baseline-v0.1",
+      "display_order": 2,
+      "name": "Textual 2-hop Baseline v0.1",
+      "label": "Development Baseline",
+      "status": "frozen_baseline_with_known_limitations",
+      "scope": "Development evaluation of textual two-hop Agentic RAG over the BT3Y six-report corpus",
+      "metrics": {
+        "samples": 24,
+        "hop_count": 2,
+        "system_errors": 0,
+        "recovered_samples": 0,
+        "em": 0.25,
+        "f1": 0.375,
+        "avg_hop_recall": 0.479,
+        "full_gold_chain_rate": 0.125,
+        "avg_tool_calls": 2.417,
+        "avg_iterations": 1.333,
+        "machine_facts_calls": 0,
+        "trace_complete_rate": 1.0,
+        "tool_result_success_events": 58,
+        "failed_strategy_count": 0,
+        "numeric_grounding_rate": 1.0,
+        "actual_abstentions": 2,
+        "agent_latency_p50_ms": 3344.061,
+        "agent_latency_p95_ms": 10269.185,
+        "retrieval_latency_p50_ms": 400.977,
+        "retrieval_latency_p95_ms": 616.715,
+        "gpu_peak_allocated_mib": 4590.618,
+        "gpu_peak_reserved_mib": 5302.0
+      },
+      "source_sha256": "9ff4b0d523b9abd613de3f40aecc08e938ee0cdabf83f45b4aa98a7bd8be77a0",
+      "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+      "fixture_bundle_sha256": "d9a031e88fd177efb2e45e1c9093bd0c4e9a2baabdb8a17c1e4df115de7e3c84",
+      "published": true
+    },
+    {
+      "id": "BT3Y-Textual-2hop-Qwen3-8B-Ablation",
+      "display_order": 3,
+      "name": "Qwen3-8B / 2048 model-scale ablation",
+      "label": "Ablation",
+      "status": "development_diagnostic_not_release",
+      "scope": "Same consumed Development24, six-document index, and Agent configuration as the 4B baseline.",
+      "metrics": {
+        "samples": 24,
+        "system_errors": 0,
+        "em": 0.333,
+        "f1": 0.451,
+        "avg_hop_recall": 0.688,
+        "full_gold_chain_rate": 0.5,
+        "avg_tool_calls": 3.667,
+        "avg_iterations": 1.833,
+        "agent_latency_p50_ms": 22275.892,
+        "agent_latency_p95_ms": 52795.659,
+        "machine_facts_calls": 0,
+        "trace_complete_rate": 1.0
+      },
+      "source_sha256": "21df5701f9d57eff9030cf826e7d492360970b190d5f615f614782498b4dc0c3",
+      "fixture_version": "hopcandy-v0.1-step0-2026-08-12",
+      "fixture_bundle_sha256": "d9a031e88fd177efb2e45e1c9093bd0c4e9a2baabdb8a17c1e4df115de7e3c84",
+      "published": true
+    }
+  ]
+}
