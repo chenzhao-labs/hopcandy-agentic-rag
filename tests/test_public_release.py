@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+from scripts.refresh_public_release_manifest import refresh
 from scripts.validate_public_release import validate
 
 
@@ -53,3 +54,35 @@ def test_ci_uses_module_pytest_from_repository_root():
     assert command in workflow
     assert command in readme
     assert "run: pytest " not in workflow
+
+
+def test_manifest_refresh_rehashes_changed_artifacts(tmp_path):
+    root = tmp_path / "release"
+    root.mkdir()
+    readme = root / "README.md"
+    readme.write_text("before\n", encoding="utf-8")
+    manifest_path = root / "PUBLIC_RELEASE_MANIFEST.json"
+    manifest_path.write_text(
+        json.dumps(
+            {
+                "release_name": "hopcandy-agentic-rag",
+                "artifacts": [
+                    {
+                        "path": "README.md",
+                        "size_bytes": len("before\n"),
+                        "sha256": "obsolete",
+                        "source_path": "README.md",
+                        "source_sha256": "obsolete",
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    readme.write_text("after\n", encoding="utf-8")
+    refreshed = refresh(root)
+
+    assert refreshed["artifacts"][0]["path"] == "README.md"
+    assert refreshed["artifacts"][0]["sha256"] != "obsolete"
+    assert refreshed["artifact_tree_sha256"]

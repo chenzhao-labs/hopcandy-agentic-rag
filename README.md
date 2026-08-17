@@ -5,6 +5,8 @@
   <p>把答案、证据链、规划、工具调用与能力边界放在同一个可检查界面中。</p>
   <p>
     <img src="https://img.shields.io/badge/模式-Replay--first-7C3AED?style=flat-square" alt="Replay-first" />
+    <img src="https://img.shields.io/badge/核心模型-Qwen3--4B-2563EB?style=flat-square" alt="Qwen3-4B" />
+    <img src="https://img.shields.io/badge/运行资源-CPU%20可运行-16A34A?style=flat-square" alt="CPU 可运行" />
     <img src="https://img.shields.io/badge/结构化查询-Stable-0EA5E9?style=flat-square" alt="Structured Query Stable" />
     <img src="https://img.shields.io/badge/文本两跳-Development%20Baseline-F59E0B?style=flat-square" alt="Textual 2-hop Development Baseline" />
     <img src="https://img.shields.io/badge/许可-MIT-22C55E?style=flat-square" alt="MIT License" />
@@ -28,6 +30,8 @@
 | 公开数据 | 脱敏冻结 Replay、实验摘要、API Contract 与部署制品 |
 | 当前部署 | GitHub 源码 + Vercel 静态前端；Supabase 暂不连接 |
 | 在线模式 | Replay 始终可用；Live Agent 默认关闭、按需接入 GPU |
+| 核心模型 | Qwen3-4B，`max_output_tokens=2048` |
+| 本地资源 | 紧凑模型可在 CPU 环境运行；GPU 不是体验 Replay 的前提 |
 | 数据范围 | 百度、腾讯 2023—2025 年六份年报 |
 | 许可证 | MIT |
 
@@ -44,6 +48,16 @@ Textual 2-hop Baseline v0.1（Development，存在已知限制）
 MVP 完成不代表所有文本多跳问题已经稳定解决，也不代表公网 Live Agent 已经常驻上线。项目保留真实失败、弃答、Replan、成本与能力边界，不用回放结果伪装实时推理。
 
 ![跳跳糖工作台](hopcandy/frontend/assets/WorkbenchPage.jpg)
+
+## 模型与运行资源
+
+文本两跳 Baseline 使用 **Qwen3-4B**，输出上限固定为 `2048`。选择紧凑模型的目的，是让完整
+Agent 在不依赖高端 GPU 的条件下也能运行；CPU 运行可行，但推理速度会更低。
+
+这也是项目保留 Textual 2-hop 为 Development Baseline 的原因之一：相比同配置下的 Qwen3-8B
+消融，4B 在完整两跳证据链覆盖上存在明显限制。8B 结果只用于诊断模型规模影响，不替换 4B
+Baseline，也不被描述为独立 Stable Release。公开 Vercel 站点始终使用冻结 Replay，不在浏览器
+或 Vercel Function 中加载模型。
 
 ## 项目解决什么问题
 
@@ -260,7 +274,10 @@ Backend 默认返回 `Replay Available / Live Offline`。公开仓库不包含�
 
 ## 测试与发布审计
 
+每次在本仓库中新增、删除、重命名或修改公开文件后，先刷新 Manifest，再运行审计和测试：
+
 ```bash
+python scripts/refresh_public_release_manifest.py --root .
 python scripts/validate_public_release.py --root .
 python -m pytest tests/test_hopcandy_step1_contract.py tests/test_hopcandy_step3_backend.py tests/test_public_release.py
 
@@ -268,6 +285,8 @@ cd hopcandy/frontend
 npm test
 npm run build
 ```
+
+文件重命名等同于“删除旧文件 + 新增新文件”。不要手工编辑 `PUBLIC_RELEASE_MANIFEST.json`；刷新脚本会保留未变制品的来源元数据，只更新新增或修改文件的哈希、文件清单与树摘要。脚本遇到 `.env`、模型、索引、`node_modules`、`dist`、PDF 或超过 2 MB 的文件会拒绝执行，避免把不应公开的文件加入发布包。
 
 `PUBLIC_RELEASE_MANIFEST.json` 记录每个公开文件的 SHA256，并绑定 Fixture Version、Publication Version 与 API Contract Version。GitHub Actions 会重复执行安全审计、Python Contract 测试、前端单测和生产构建。
 

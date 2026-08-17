@@ -99,10 +99,10 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 11619,
-      "sha256": "05bcee8788f370dbdfd1b3cc2868cb715d18d990c90578eeeabd72182c6e3546",
-      "source_path": "hopcandy/release_assets/README.public.md",
-      "source_sha256": "05bcee8788f370dbdfd1b3cc2868cb715d18d990c90578eeeabd72182c6e3546"
+      "size_bytes": 13232,
+      "sha256": "cfa5750bbd2dddf4749dc231f517b45c68d53fe8744a14fbd6a869d350b7cf0f",
+      "source_path": "README.md",
+      "source_sha256": "cfa5750bbd2dddf4749dc231f517b45c68d53fe8744a14fbd6a869d350b7cf0f"
     },
     {
       "path": "hopcandy/__init__.py",
@@ -287,11 +287,11 @@
       "source_sha256": "39d341b49b4c5c4cdb36a53a62eae1a5b77a56a9af5e797cff2996d10e17aef4"
     },
     {
-      "path": "hopcandy/frontend/assets/logo.jpg",
-      "size_bytes": 4183,
-      "sha256": "1dda4a360509213bee78e0cbcc59fb7de245e2d4169fc7cfe02c0c9c8ebdde3d",
-      "source_path": "hopcandy/frontend/assets/logo.jpg",
-      "source_sha256": "1dda4a360509213bee78e0cbcc59fb7de245e2d4169fc7cfe02c0c9c8ebdde3d"
+      "path": "hopcandy/frontend/assets/hopycandy_logo.png",
+      "size_bytes": 664206,
+      "sha256": "59d27ac60d97dbbdf06d7f5e4917388cf792dd3df63999f0aceaa3d93335daac",
+      "source_path": "hopcandy/frontend/assets/hopycandy_logo.png",
+      "source_sha256": "59d27ac60d97dbbdf06d7f5e4917388cf792dd3df63999f0aceaa3d93335daac"
     },
     {
       "path": "hopcandy/frontend/index.html",
@@ -609,6 +609,13 @@
       "source_sha256": "d1bb29da99d939cd45dfb5138779381d0d59cb9f627ea07451c233e36e43d2b9"
     },
     {
+      "path": "scripts/refresh_public_release_manifest.py",
+      "size_bytes": 4091,
+      "sha256": "6f3bcd7414798eb00133783a12e137a7bb47dd1a6cceb1c9dba03b0a02d699d4",
+      "source_path": "scripts/refresh_public_release_manifest.py",
+      "source_sha256": "6f3bcd7414798eb00133783a12e137a7bb47dd1a6cceb1c9dba03b0a02d699d4"
+    },
+    {
       "path": "scripts/validate_public_release.py",
       "size_bytes": 5296,
       "sha256": "39afa879867403f9694348c08a48d67bb3e6f7dabdd0483844b85dd3bae03232",
@@ -631,11 +638,11 @@
     },
     {
       "path": "tests/test_public_release.py",
-      "size_bytes": 2421,
-      "sha256": "677864b63f38de7863fd5683c712de0fe827a3603c89d7fe88bf82da1524a22d",
-      "source_path": "hopcandy/release_assets/test_public_release.py",
-      "source_sha256": "677864b63f38de7863fd5683c712de0fe827a3603c89d7fe88bf82da1524a22d"
+      "size_bytes": 3509,
+      "sha256": "36c754bb6ac31806241f69ac7ff3a25f485f4a93fe508e9ad837139fd3332d43",
+      "source_path": "tests/test_public_release.py",
+      "source_sha256": "36c754bb6ac31806241f69ac7ff3a25f485f4a93fe508e9ad837139fd3332d43"
     }
   ],
-  "artifact_tree_sha256": "4eeef6288a7da3faac2250bfba89e475b8966b6a27229010aba0f44fbb9272d9"
+  "artifact_tree_sha256": "6135f51b5c3146d7afb150350fad9b994f39b5ac9128486628f48f993103dad9"
 }
