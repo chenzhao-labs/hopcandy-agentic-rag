@@ -99,10 +99,10 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 9050,
-      "sha256": "793335e2d83c5df7980fe21bd62749d822a2ac389f499ec21ef94fe6c08c4d5a",
+      "size_bytes": 11632,
+      "sha256": "79f64631ef0e4ecd3de3ed42f05f7798ee5dd92e6ae58bf5601a74393bc068c3",
       "source_path": "hopcandy/release_assets/README.public.md",
-      "source_sha256": "793335e2d83c5df7980fe21bd62749d822a2ac389f499ec21ef94fe6c08c4d5a"
+      "source_sha256": "79f64631ef0e4ecd3de3ed42f05f7798ee5dd92e6ae58bf5601a74393bc068c3"
     },
     {
       "path": "hopcandy/__init__.py",
@@ -120,10 +120,10 @@
     },
     {
       "path": "hopcandy/backend/README.md",
-      "size_bytes": 1453,
-      "sha256": "d44d04d035958bcdd1cde3784324786efc59f880a0616c4e5d611111151a453d",
+      "size_bytes": 1372,
+      "sha256": "7fac6074232d0442a193fa92428a6190500868efa7c8ede70276253863a34e98",
       "source_path": "hopcandy/backend/README.md",
-      "source_sha256": "d44d04d035958bcdd1cde3784324786efc59f880a0616c4e5d611111151a453d"
+      "source_sha256": "7fac6074232d0442a193fa92428a6190500868efa7c8ede70276253863a34e98"
     },
     {
       "path": "hopcandy/backend/__init__.py",
@@ -260,10 +260,10 @@
     },
     {
       "path": "hopcandy/frontend/README.md",
-      "size_bytes": 493,
-      "sha256": "03743184874530468df64ca0d555cedabdd2a1eb43f6dce5652cadfaf4223c8a",
+      "size_bytes": 1123,
+      "sha256": "8a0378c5f63880f63bb3e5455dba61c9fd7c32107c9a7cbe7a1cc4fd0bea036d",
       "source_path": "hopcandy/frontend/README.md",
-      "source_sha256": "03743184874530468df64ca0d555cedabdd2a1eb43f6dce5652cadfaf4223c8a"
+      "source_sha256": "8a0378c5f63880f63bb3e5455dba61c9fd7c32107c9a7cbe7a1cc4fd0bea036d"
     },
     {
       "path": "hopcandy/frontend/assets/ArchitecturePage.jpg",
@@ -285,6 +285,13 @@
       "sha256": "39d341b49b4c5c4cdb36a53a62eae1a5b77a56a9af5e797cff2996d10e17aef4",
       "source_path": "hopcandy/frontend/assets/WorkbenchPage.jpg",
       "source_sha256": "39d341b49b4c5c4cdb36a53a62eae1a5b77a56a9af5e797cff2996d10e17aef4"
+    },
+    {
+      "path": "hopcandy/frontend/assets/logo.jpg",
+      "size_bytes": 4183,
+      "sha256": "1dda4a360509213bee78e0cbcc59fb7de245e2d4169fc7cfe02c0c9c8ebdde3d",
+      "source_path": "hopcandy/frontend/assets/logo.jpg",
+      "source_sha256": "1dda4a360509213bee78e0cbcc59fb7de245e2d4169fc7cfe02c0c9c8ebdde3d"
     },
     {
       "path": "hopcandy/frontend/index.html",
@@ -511,6 +518,13 @@
       "source_sha256": "f08d33457fe4c71b2cd0aac534bf59acd68c769447eb175ef3d471ae12de1a14"
     },
     {
+      "path": "hopcandy/frontend/vercel.json",
+      "size_bytes": 150,
+      "sha256": "29afc6166ec968586a13e65e526754525abfbac1ef73ad5c6b9c75e2c16697f7",
+      "source_path": "hopcandy/frontend/vercel.json",
+      "source_sha256": "29afc6166ec968586a13e65e526754525abfbac1ef73ad5c6b9c75e2c16697f7"
+    },
+    {
       "path": "hopcandy/frontend/vite.config.ts",
       "size_bytes": 192,
       "sha256": "cd1fbea465c7652fa1bd5e19bb85e83a004435cd1ffef3b492343a92a6e40341",
@@ -554,10 +568,10 @@
     },
     {
       "path": "hopcandy/supabase/README.md",
-      "size_bytes": 1526,
-      "sha256": "f264ba60b2bfdd762e4cbd82a3acb25d37157ab61b2bdba92d3a23e5dc7090f2",
+      "size_bytes": 1627,
+      "sha256": "dc41c420adaa46aaf3fc1e8f8ba73d800e085b0598c3b5811aaf4d07634873af",
       "source_path": "hopcandy/supabase/README.md",
-      "source_sha256": "f264ba60b2bfdd762e4cbd82a3acb25d37157ab61b2bdba92d3a23e5dc7090f2"
+      "source_sha256": "dc41c420adaa46aaf3fc1e8f8ba73d800e085b0598c3b5811aaf4d07634873af"
     },
     {
       "path": "hopcandy/supabase/config.toml",
@@ -582,10 +596,10 @@
     },
     {
       "path": "release/PUBLIC_RELEASE_ALLOWLIST.json",
-      "size_bytes": 2702,
-      "sha256": "a9702d49a5ea54f4871f17c9a7ce09ed0a5d8a536bc0b06ba9a70bec5c44348d",
+      "size_bytes": 2799,
+      "sha256": "39c9dab6cd8b3e384451923f9a196ce73d6b82460e3057043b5b88a429e94c91",
       "source_path": "hopcandy/release_assets/PUBLIC_RELEASE_ALLOWLIST.json",
-      "source_sha256": "a9702d49a5ea54f4871f17c9a7ce09ed0a5d8a536bc0b06ba9a70bec5c44348d"
+      "source_sha256": "39c9dab6cd8b3e384451923f9a196ce73d6b82460e3057043b5b88a429e94c91"
     },
     {
       "path": "requirements-dev.txt",
@@ -623,5 +637,5 @@
       "source_sha256": "677864b63f38de7863fd5683c712de0fe827a3603c89d7fe88bf82da1524a22d"
     }
   ],
-  "artifact_tree_sha256": "fe8cca8d61867f5a1cd6e2f54259d88cb3493e012604a925651d21eaf7651148"
+  "artifact_tree_sha256": "db05df4ea21a62906543b6119f73aeae5a4877f76c1420dc40c9e19be8d3d58f"
 }

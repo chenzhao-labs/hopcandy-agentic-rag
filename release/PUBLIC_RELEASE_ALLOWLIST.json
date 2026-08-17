@@ -17,6 +17,7 @@
     {"source": "hopcandy/frontend/tsconfig.json", "destination": "hopcandy/frontend/tsconfig.json"},
     {"source": "hopcandy/frontend/tsconfig.node.json", "destination": "hopcandy/frontend/tsconfig.node.json"},
     {"source": "hopcandy/frontend/vite.config.ts", "destination": "hopcandy/frontend/vite.config.ts"},
+    {"source": "hopcandy/frontend/vercel.json", "destination": "hopcandy/frontend/vercel.json"},
     {"source_tree": "hopcandy/frontend/src", "destination_tree": "hopcandy/frontend/src", "extensions": [".ts", ".tsx", ".css"]},
     {"source_tree": "hopcandy/frontend/assets", "destination_tree": "hopcandy/frontend/assets", "extensions": [".jpg", ".jpeg", ".png", ".webp"]},
     {"source_tree": "hopcandy/frontend/public", "destination_tree": "hopcandy/frontend/public", "extensions": [".json", ".svg", ".png", ".webp"]},

@@ -1,16 +1,45 @@
-# 跳跳糖（HopCandy）
+<div align="center">
+  <img src="hopcandy/frontend/assets/logo.jpg" alt="HopCandy 跳跳糖 Logo" width="236" />
+  <h1>HopCandy · 跳跳糖</h1>
+  <p><strong>面向金融年报多跳问答的可观测 Agentic RAG 工作台</strong></p>
+  <p>把答案、证据链、规划、工具调用与能力边界放在同一个可检查界面中。</p>
+  <p>
+    <img src="https://img.shields.io/badge/模式-Replay--first-7C3AED?style=flat-square" alt="Replay-first" />
+    <img src="https://img.shields.io/badge/结构化查询-Stable-0EA5E9?style=flat-square" alt="Structured Query Stable" />
+    <img src="https://img.shields.io/badge/文本两跳-Development%20Baseline-F59E0B?style=flat-square" alt="Textual 2-hop Development Baseline" />
+    <img src="https://img.shields.io/badge/许可-MIT-22C55E?style=flat-square" alt="MIT License" />
+  </p>
+  <p>
+    <a href="https://hopcandy-demo.vercel.app">在线演示（部署占位）</a>
+    ·
+    <a href="https://github.com/chenzhao-labs/hopcandy-agentic-rag">GitHub 源码</a>
+  </p>
+</div>
 
-> 一个面向金融年报多跳问答的可观测 Agentic RAG 系统。
+> **部署说明：** `https://hopcandy-demo.vercel.app` 是 Vercel 部署占位链接，尚未代表可用服务；完成部署后请替换为真实地址。
 
-**Replay-first MVP 已完成。** 当前版本已经打通真实冻结结果、稳定展示契约、查询工作台、证据链、Agent 执行轨迹、实验对照、Backend Adapter 与公开发布数据层，可在 GPU 和 Supabase 离线时独立运行回放演示。
+---
 
-当前能力定位：
+## 项目元数据
+
+| 维度 | 当前状态 |
+| --- | --- |
+| 项目形态 | 可运行、可评测、可复现、可展示的 Agentic RAG Baseline |
+| 公开数据 | 脱敏冻结 Replay、实验摘要、API Contract 与部署制品 |
+| 当前部署 | GitHub 源码 + Vercel 静态前端；Supabase 暂不连接 |
+| 在线模式 | Replay 始终可用；Live Agent 默认关闭、按需接入 GPU |
+| 数据范围 | 百度、腾讯 2023—2025 年六份年报 |
+| 许可证 | MIT |
+
+## 能力状态
 
 ```text
 Structured Query Stable v1.0
 +
 Textual 2-hop Baseline v0.1（Development，存在已知限制）
 ```
+
+**Replay-first MVP 已完成。** 当前版本已打通真实冻结结果、稳定展示契约、查询工作台、证据链、Agent 执行轨迹、实验对照、Backend Adapter 与公开发布数据层。本轮 Vercel 部署不连接 Supabase 或 GPU，直接使用仓库内冻结数据完成回放演示。
 
 MVP 完成不代表所有文本多跳问题已经稳定解决，也不代表公网 Live Agent 已经常驻上线。项目保留真实失败、弃答、Replan、成本与能力边界，不用回放结果伪装实时推理。
 
@@ -35,8 +64,8 @@ MVP 完成不代表所有文本多跳问题已经稳定解决，也不代表公�
 - 8 个真实冻结 Replay：覆盖结构化计算、文本两跳、实体绑定、澄清、Replan、弃答和模型对照。
 - 稳定的 `hopcandy-api-v1`：统一 Replay 与 Live 响应结构。
 - Replay / Live 双态：Replay 始终可用，Live Agent 默认关闭并按需接入 GPU。
-- 版本化发布数据：Bundled JSON 本地兜底，可选读取 Supabase 发布表。
-- 数据一致性检查：Supabase 行数或 Fixture Hash 不匹配时自动回退本地快照。
+- 版本化发布数据：当前使用 Bundled JSON；后续可选接入 Supabase 发布表。
+- 数据一致性检查：未来启用 Supabase 后，行数或 Fixture Hash 不匹配时自动回退本地快照。
 - 实验页：明确区分 Stable、Development Baseline 与 Ablation。
 - 架构页：展示一个 Agentic RAG 核心与一条可选 Structured Fast Path。
 - Backend 防护：服务间 Token、CORS、输入长度、单并发、超时与错误清洗。
@@ -54,7 +83,7 @@ Trace Adapter（字段归一化与敏感信息清洗）
         ↓
 hopcandy-api-v1 Replay Responses
         ↓
-Bundled JSON 或版本匹配的 Supabase Published Rows
+Bundled JSON（当前 Vercel 部署；后续可选版本匹配的 Supabase Published Rows）
         ↓
 答案 / Evidence Chain / Plan / Agent Timeline
 ```
@@ -66,6 +95,8 @@ Bundled JSON 或版本匹配的 Supabase Published Rows
 - `publication_manifest.json`：Fixture、API Contract 和发布数据版本及 Hash。
 
 Replay 会清楚标记为“冻结实验回放”，不会发起模型请求。只有启用 Live Feature Flag 且受保护 Backend 健康检查通过时，新问题才会调用真实 Agent。
+
+当前网站不配置 `VITE_SUPABASE_URL` 或 `VITE_SUPABASE_PUBLISHABLE_KEY`，因此始终读取 Bundled JSON。后续接入登录、用户数据或远端发布数据时，再启用 Supabase。
 
 ## 数据范围
 
@@ -144,7 +175,7 @@ flowchart LR
 ```text
 GitHub       公开源码、脱敏 Fixtures、测试与部署配置
 Vercel       React/Vite 工作台，Replay 始终可访问
-Supabase     已发布案例与实验数据，RLS 控制匿名只读
+Supabase     当前不连接；保留 Schema、RLS 与 Seed，供后续登录/持久化阶段启用
 GPU Backend  按需启动真实 Agent，不作为 Replay 可用性的前提
 ```
 
@@ -181,6 +212,22 @@ npm run dev
 
 默认配置不依赖 Supabase 或 GPU。访问终端输出中的本地地址即可浏览工作台、实验和架构页面。
 
+### 当前 Vercel 部署
+
+在 Vercel 导入 GitHub 仓库时，设置：
+
+```text
+Root Directory: hopcandy/frontend
+Framework Preset: Vite
+Install Command: npm ci
+Build Command: npm run build
+Output Directory: dist
+```
+
+`hopcandy/frontend/vercel.json` 已为 React 单页路由配置 rewrite，因此直接访问或刷新
+`/experiments`、`/architecture` 也会返回前端入口。当前不配置任何 Supabase 环境变量，
+并将 `VITE_HOPCANDY_LIVE_ENABLED=false`。
+
 ### 前端环境变量
 
 复制 `hopcandy/frontend/.env.example`，按需配置：
@@ -193,6 +240,9 @@ VITE_PUBLIC_REPOSITORY_URL=
 ```
 
 `VITE_*` 会进入浏览器 Bundle，只能填写公开值。Supabase Secret Key、Backend Token 和 GPU 地址不得使用 `VITE_` 前缀。
+
+当前 Vercel 首发只需要保持 `VITE_HOPCANDY_LIVE_ENABLED=false`；两个 `VITE_SUPABASE_*`
+变量不配置即可。`VITE_PUBLIC_REPOSITORY_URL` 可按需填写公开 GitHub 仓库地址。
 
 ### 可选 Backend
 
@@ -230,6 +280,6 @@ npm run build
 - 当前公开页面只有工作台、实验和架构，不包含 `/engineering`。
 - 当前源码与早期 Step 1 Adapter 快照存在已记录的源码漂移；兼容性由公开契约测试证明，不宣称字节级复刻。
 
-## License
+## 许可证
 
 MIT，详见 [LICENSE](LICENSE)。
