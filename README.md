@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="hopcandy/frontend/assets/logo.jpg" alt="HopCandy 跳跳糖 Logo" width="236" />
+  <img src="hopcandy/frontend/assets/hopycandy_logo.png" alt="HopCandy 跳跳糖 Logo" width="236" />
   <h1>HopCandy · 跳跳糖</h1>
   <p><strong>面向金融年报多跳问答的可观测 Agentic RAG 工作台</strong></p>
   <p>把答案、证据链、规划、工具调用与能力边界放在同一个可检查界面中。</p>
@@ -10,13 +10,13 @@
     <img src="https://img.shields.io/badge/许可-MIT-22C55E?style=flat-square" alt="MIT License" />
   </p>
   <p>
-    <a href="https://hopcandy-demo.vercel.app">在线演示（部署占位）</a>
+    <a href="https://hopcandy-agentic-rag.vercel.app/">在线演示</a>
     ·
     <a href="https://github.com/chenzhao-labs/hopcandy-agentic-rag">GitHub 源码</a>
   </p>
 </div>
 
-> **部署说明：** `https://hopcandy-demo.vercel.app` 是 Vercel 部署占位链接，尚未代表可用服务；完成部署后请替换为真实地址。
+> **在线演示：** [hopcandy-agentic-rag.vercel.app](https://hopcandy-agentic-rag.vercel.app/)，当前以冻结 Bundled JSON 提供 Replay 工作台。
 
 ---
 

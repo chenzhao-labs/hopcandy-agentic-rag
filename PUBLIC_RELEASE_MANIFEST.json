@@ -99,10 +99,10 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 11632,
-      "sha256": "79f64631ef0e4ecd3de3ed42f05f7798ee5dd92e6ae58bf5601a74393bc068c3",
+      "size_bytes": 11619,
+      "sha256": "05bcee8788f370dbdfd1b3cc2868cb715d18d990c90578eeeabd72182c6e3546",
       "source_path": "hopcandy/release_assets/README.public.md",
-      "source_sha256": "79f64631ef0e4ecd3de3ed42f05f7798ee5dd92e6ae58bf5601a74393bc068c3"
+      "source_sha256": "05bcee8788f370dbdfd1b3cc2868cb715d18d990c90578eeeabd72182c6e3546"
     },
     {
       "path": "hopcandy/__init__.py",
@@ -637,5 +637,5 @@
       "source_sha256": "677864b63f38de7863fd5683c712de0fe827a3603c89d7fe88bf82da1524a22d"
     }
   ],
-  "artifact_tree_sha256": "db05df4ea21a62906543b6119f73aeae5a4877f76c1420dc40c9e19be8d3d58f"
+  "artifact_tree_sha256": "4eeef6288a7da3faac2250bfba89e475b8966b6a27229010aba0f44fbb9272d9"
 }
