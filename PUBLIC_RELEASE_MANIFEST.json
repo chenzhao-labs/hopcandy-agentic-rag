@@ -99,10 +99,10 @@
     },
     {
       "path": "README.md",
-      "size_bytes": 13232,
-      "sha256": "cfa5750bbd2dddf4749dc231f517b45c68d53fe8744a14fbd6a869d350b7cf0f",
+      "size_bytes": 14194,
+      "sha256": "cbeb36b1169b502e4bfb8d21d26ef45d2b8dd01fba2602b41e64c228eaea5160",
       "source_path": "README.md",
-      "source_sha256": "cfa5750bbd2dddf4749dc231f517b45c68d53fe8744a14fbd6a869d350b7cf0f"
+      "source_sha256": "cbeb36b1169b502e4bfb8d21d26ef45d2b8dd01fba2602b41e64c228eaea5160"
     },
     {
       "path": "hopcandy/__init__.py",
@@ -266,32 +266,32 @@
       "source_sha256": "8a0378c5f63880f63bb3e5455dba61c9fd7c32107c9a7cbe7a1cc4fd0bea036d"
     },
     {
-      "path": "hopcandy/frontend/assets/ArchitecturePage.jpg",
-      "size_bytes": 167080,
-      "sha256": "ab0a08a5abd96e114cbab6782ac8e3344b2e941677d3a1cbb3426afba6f38802",
-      "source_path": "hopcandy/frontend/assets/ArchitecturePage.jpg",
-      "source_sha256": "ab0a08a5abd96e114cbab6782ac8e3344b2e941677d3a1cbb3426afba6f38802"
+      "path": "hopcandy/frontend/assets/ArchitecturePage.png",
+      "size_bytes": 149666,
+      "sha256": "3a058912e1f9d8dec8cf721d7f4f75f90c678117b3b34f55e5f77b909069953c",
+      "source_path": "hopcandy/frontend/assets/ArchitecturePage.png",
+      "source_sha256": "3a058912e1f9d8dec8cf721d7f4f75f90c678117b3b34f55e5f77b909069953c"
     },
     {
-      "path": "hopcandy/frontend/assets/ExperimentsPage.jpg",
-      "size_bytes": 180373,
-      "sha256": "d12bc445bfb322b51b318087c09f37a7b9044082327deffd2e3659550e88f183",
-      "source_path": "hopcandy/frontend/assets/ExperimentsPage.jpg",
-      "source_sha256": "d12bc445bfb322b51b318087c09f37a7b9044082327deffd2e3659550e88f183"
+      "path": "hopcandy/frontend/assets/ExperimentsPage.png",
+      "size_bytes": 137313,
+      "sha256": "bf88a81aa8a55c85da7be92f3bab6bfae26eb2c43adaf67578eca1a04ac34554",
+      "source_path": "hopcandy/frontend/assets/ExperimentsPage.png",
+      "source_sha256": "bf88a81aa8a55c85da7be92f3bab6bfae26eb2c43adaf67578eca1a04ac34554"
     },
     {
-      "path": "hopcandy/frontend/assets/WorkbenchPage.jpg",
-      "size_bytes": 227593,
-      "sha256": "39d341b49b4c5c4cdb36a53a62eae1a5b77a56a9af5e797cff2996d10e17aef4",
-      "source_path": "hopcandy/frontend/assets/WorkbenchPage.jpg",
-      "source_sha256": "39d341b49b4c5c4cdb36a53a62eae1a5b77a56a9af5e797cff2996d10e17aef4"
+      "path": "hopcandy/frontend/assets/WorkbenchPage.png",
+      "size_bytes": 239278,
+      "sha256": "1abfb728c167fd4bbe3a5d7673e881baa8fa6baf58e27a060e35787fae3b9507",
+      "source_path": "hopcandy/frontend/assets/WorkbenchPage.png",
+      "source_sha256": "1abfb728c167fd4bbe3a5d7673e881baa8fa6baf58e27a060e35787fae3b9507"
     },
     {
       "path": "hopcandy/frontend/assets/hopycandy_logo.png",
-      "size_bytes": 664206,
-      "sha256": "59d27ac60d97dbbdf06d7f5e4917388cf792dd3df63999f0aceaa3d93335daac",
+      "size_bytes": 1467259,
+      "sha256": "6af1e6982e438e34f0dec6310a93f5709bedb04958e9a6d03aa0d8bc36b78c8c",
       "source_path": "hopcandy/frontend/assets/hopycandy_logo.png",
-      "source_sha256": "59d27ac60d97dbbdf06d7f5e4917388cf792dd3df63999f0aceaa3d93335daac"
+      "source_sha256": "6af1e6982e438e34f0dec6310a93f5709bedb04958e9a6d03aa0d8bc36b78c8c"
     },
     {
       "path": "hopcandy/frontend/index.html",
@@ -334,6 +334,13 @@
       "sha256": "8249e6ee89e5a7caee45b24511081ab78ae41b61220e18f9ae2ae72e7f95d887",
       "source_path": "hopcandy/frontend/public/data/publication_manifest.json",
       "source_sha256": "8249e6ee89e5a7caee45b24511081ab78ae41b61220e18f9ae2ae72e7f95d887"
+    },
+    {
+      "path": "hopcandy/frontend/public/data/textual_holdout_matrix.json",
+      "size_bytes": 3280,
+      "sha256": "d985af041d4738deb09fe9dd9400761f6459ff907ad0740656881de9ff539ee2",
+      "source_path": "hopcandy/frontend/public/data/textual_holdout_matrix.json",
+      "source_sha256": "d985af041d4738deb09fe9dd9400761f6459ff907ad0740656881de9ff539ee2"
     },
     {
       "path": "hopcandy/frontend/src/App.tsx",
@@ -386,10 +393,10 @@
     },
     {
       "path": "hopcandy/frontend/src/components/workbench/EvidenceChain.tsx",
-      "size_bytes": 6912,
-      "sha256": "9a4d05b3713a68a4b25da170eca8196a934d56427dbbf0bbd7551ddc3b41819d",
+      "size_bytes": 6823,
+      "sha256": "45103ae2083f5f15164ffc2a90a910d0c4bf2a878ba743d4352c7c1423a84c05",
       "source_path": "hopcandy/frontend/src/components/workbench/EvidenceChain.tsx",
-      "source_sha256": "9a4d05b3713a68a4b25da170eca8196a934d56427dbbf0bbd7551ddc3b41819d"
+      "source_sha256": "45103ae2083f5f15164ffc2a90a910d0c4bf2a878ba743d4352c7c1423a84c05"
     },
     {
       "path": "hopcandy/frontend/src/data/architecture.ts",
@@ -404,6 +411,20 @@
       "sha256": "f9cadc4b73b96ec28a001e6437594bf5c5a667354532322cc78d75e5b40e49bf",
       "source_path": "hopcandy/frontend/src/data/workbenchPresentation.ts",
       "source_sha256": "f9cadc4b73b96ec28a001e6437594bf5c5a667354532322cc78d75e5b40e49bf"
+    },
+    {
+      "path": "hopcandy/frontend/src/lib/evidenceRelations.test.ts",
+      "size_bytes": 2739,
+      "sha256": "b8927a0f6445dd854eca1e3083851591ccc18b750c19e36a51bce058733b1fc8",
+      "source_path": "hopcandy/frontend/src/lib/evidenceRelations.test.ts",
+      "source_sha256": "b8927a0f6445dd854eca1e3083851591ccc18b750c19e36a51bce058733b1fc8"
+    },
+    {
+      "path": "hopcandy/frontend/src/lib/evidenceRelations.ts",
+      "size_bytes": 3234,
+      "sha256": "ab0d2f4d9a80a7800924025c1f0200eabaeb2e90f5c7cf64dc05180dff241293",
+      "source_path": "hopcandy/frontend/src/lib/evidenceRelations.ts",
+      "source_sha256": "ab0d2f4d9a80a7800924025c1f0200eabaeb2e90f5c7cf64dc05180dff241293"
     },
     {
       "path": "hopcandy/frontend/src/lib/experiments.test.ts",
@@ -435,10 +456,10 @@
     },
     {
       "path": "hopcandy/frontend/src/lib/publication.ts",
-      "size_bytes": 3062,
-      "sha256": "afa75c9bdd4a52ccb49d908ecbe99696241f4703af2961243a1ab7c102ccfcc6",
+      "size_bytes": 3200,
+      "sha256": "2699107892148d1ce82166107463ab087dc570d30a1fe31f08a2a345ca43d2b6",
       "source_path": "hopcandy/frontend/src/lib/publication.ts",
-      "source_sha256": "afa75c9bdd4a52ccb49d908ecbe99696241f4703af2961243a1ab7c102ccfcc6"
+      "source_sha256": "2699107892148d1ce82166107463ab087dc570d30a1fe31f08a2a345ca43d2b6"
     },
     {
       "path": "hopcandy/frontend/src/main.tsx",
@@ -456,31 +477,31 @@
     },
     {
       "path": "hopcandy/frontend/src/pages/ExperimentsPage.tsx",
-      "size_bytes": 6339,
-      "sha256": "4d14988bfb6dad56e342ab83b4a28412d9a8e2ce94fd3048f99a0dbb9d582c96",
+      "size_bytes": 10572,
+      "sha256": "608ec12ea639b59d3307370f1aabdcd18c7f9cb8bb99880bc2b578c36d629fed",
       "source_path": "hopcandy/frontend/src/pages/ExperimentsPage.tsx",
-      "source_sha256": "4d14988bfb6dad56e342ab83b4a28412d9a8e2ce94fd3048f99a0dbb9d582c96"
+      "source_sha256": "608ec12ea639b59d3307370f1aabdcd18c7f9cb8bb99880bc2b578c36d629fed"
     },
     {
       "path": "hopcandy/frontend/src/pages/WorkbenchPage.tsx",
-      "size_bytes": 6869,
-      "sha256": "cc47f1e79db05c4aff80c0563112028b948fe2954688a3d85601c2685890cac5",
+      "size_bytes": 6821,
+      "sha256": "eac163e47a29003d9c2462eba3d9d4f84d728a95bc9962c0a8381db7cd3d34a6",
       "source_path": "hopcandy/frontend/src/pages/WorkbenchPage.tsx",
-      "source_sha256": "cc47f1e79db05c4aff80c0563112028b948fe2954688a3d85601c2685890cac5"
+      "source_sha256": "eac163e47a29003d9c2462eba3d9d4f84d728a95bc9962c0a8381db7cd3d34a6"
     },
     {
       "path": "hopcandy/frontend/src/styles.css",
-      "size_bytes": 49079,
-      "sha256": "d024e7448db27fdc66b714b76e68848b76aabf4ee7841a4fce94e660a9dc74d6",
+      "size_bytes": 50333,
+      "sha256": "d761a4d7a1abdb8f011c17224dd69ce958b4d4b62322b36a5bd0b8bb7f7c7a46",
       "source_path": "hopcandy/frontend/src/styles.css",
-      "source_sha256": "d024e7448db27fdc66b714b76e68848b76aabf4ee7841a4fce94e660a9dc74d6"
+      "source_sha256": "d761a4d7a1abdb8f011c17224dd69ce958b4d4b62322b36a5bd0b8bb7f7c7a46"
     },
     {
       "path": "hopcandy/frontend/src/types.ts",
-      "size_bytes": 4118,
-      "sha256": "d556cb1832bdee17798657685826ca05c23e9b50dcea869909bdbfdefa9dc3e8",
+      "size_bytes": 4727,
+      "sha256": "608fa2230fdc1ce2bcdc9aa8d8df9695b6b1668169870b1aa2ca9cbf6a40d2c0",
       "source_path": "hopcandy/frontend/src/types.ts",
-      "source_sha256": "d556cb1832bdee17798657685826ca05c23e9b50dcea869909bdbfdefa9dc3e8"
+      "source_sha256": "608fa2230fdc1ce2bcdc9aa8d8df9695b6b1668169870b1aa2ca9cbf6a40d2c0"
     },
     {
       "path": "hopcandy/frontend/src/types/ui.ts",
@@ -560,6 +581,13 @@
       "source_sha256": "8249e6ee89e5a7caee45b24511081ab78ae41b61220e18f9ae2ae72e7f95d887"
     },
     {
+      "path": "hopcandy/public_data/textual_holdout_matrix.json",
+      "size_bytes": 3688,
+      "sha256": "8c921589632bcac97dd087cc2ebb35c79660acbaec82b827f25a326875477b03",
+      "source_path": "hopcandy/public_data/textual_holdout_matrix.json",
+      "source_sha256": "8c921589632bcac97dd087cc2ebb35c79660acbaec82b827f25a326875477b03"
+    },
+    {
       "path": "hopcandy/public_data/timeline_entries.json",
       "size_bytes": 8424,
       "sha256": "879fcbad6d4d7b38a2570239d081c35da602b14101b26d52320b9d4bd7bc4601",
@@ -596,10 +624,10 @@
     },
     {
       "path": "release/PUBLIC_RELEASE_ALLOWLIST.json",
-      "size_bytes": 2799,
-      "sha256": "39c9dab6cd8b3e384451923f9a196ce73d6b82460e3057043b5b88a429e94c91",
+      "size_bytes": 3156,
+      "sha256": "2a7ff4cec3aecc2b50fe07f815062010eef3059bde45d8da945d00f06f256013",
       "source_path": "hopcandy/release_assets/PUBLIC_RELEASE_ALLOWLIST.json",
-      "source_sha256": "39c9dab6cd8b3e384451923f9a196ce73d6b82460e3057043b5b88a429e94c91"
+      "source_sha256": "2a7ff4cec3aecc2b50fe07f815062010eef3059bde45d8da945d00f06f256013"
     },
     {
       "path": "requirements-dev.txt",
@@ -612,7 +640,7 @@
       "path": "scripts/refresh_public_release_manifest.py",
       "size_bytes": 4091,
       "sha256": "6f3bcd7414798eb00133783a12e137a7bb47dd1a6cceb1c9dba03b0a02d699d4",
-      "source_path": "scripts/refresh_public_release_manifest.py",
+      "source_path": "hopcandy/release_assets/refresh_public_release_manifest.py",
       "source_sha256": "6f3bcd7414798eb00133783a12e137a7bb47dd1a6cceb1c9dba03b0a02d699d4"
     },
     {
@@ -638,11 +666,11 @@
     },
     {
       "path": "tests/test_public_release.py",
-      "size_bytes": 3509,
-      "sha256": "36c754bb6ac31806241f69ac7ff3a25f485f4a93fe508e9ad837139fd3332d43",
+      "size_bytes": 3601,
+      "sha256": "f66bcff3087677cbd24a167ba3e9803ff524d0bb0a0d60a5cee7c38d64aaefdf",
       "source_path": "tests/test_public_release.py",
-      "source_sha256": "36c754bb6ac31806241f69ac7ff3a25f485f4a93fe508e9ad837139fd3332d43"
+      "source_sha256": "f66bcff3087677cbd24a167ba3e9803ff524d0bb0a0d60a5cee7c38d64aaefdf"
     }
   ],
-  "artifact_tree_sha256": "6135f51b5c3146d7afb150350fad9b994f39b5ac9128486628f48f993103dad9"
+  "artifact_tree_sha256": "1107f34b65921a57eadf30c4633ac944d2bac8e8c34f5af216c4fb97f9208206"
 }

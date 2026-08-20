@@ -149,6 +149,33 @@ export interface ExperimentRow {
   published: boolean;
 }
 
+export interface TextualHoldoutRun {
+  id: string;
+  display_order: number;
+  system: string;
+  model: string;
+  max_output_tokens: number;
+  status: string;
+  status_label: string;
+  metrics: Record<string, number | null>;
+  provenance: {
+    location: string;
+    runtime_sha256: string | null;
+    report_sha256?: string;
+    raw_artifact_status: string;
+  };
+}
+
+export interface TextualHoldoutMatrix {
+  schema_version: string;
+  status: string;
+  title: string;
+  scope: string;
+  method_note: string;
+  archive_note: string;
+  runs: TextualHoldoutRun[];
+}
+
 export interface PublicationEnvelope<T> {
   schema_version: string;
   publication_version: string;
@@ -173,6 +200,7 @@ export interface PublicationManifest {
 export interface PublicationData {
   cases: DemoCase[];
   experiments: ExperimentRow[];
+  textualHoldoutMatrix: TextualHoldoutMatrix;
   manifest: PublicationManifest;
   source: 'supabase' | 'bundled';
 }

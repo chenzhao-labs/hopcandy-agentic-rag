@@ -1,4 +1,4 @@
-import type { DemoCase, ExperimentRow, LiveHealth, HopCandyResponse, PublicationData, PublicationEnvelope, PublicationManifest } from '../types';
+import type { DemoCase, ExperimentRow, LiveHealth, HopCandyResponse, PublicationData, PublicationEnvelope, PublicationManifest, TextualHoldoutMatrix } from '../types';
 
 async function getJson<T>(url: string, init?: RequestInit): Promise<T> {
   const response = await fetch(url, init);
@@ -7,9 +7,10 @@ async function getJson<T>(url: string, init?: RequestInit): Promise<T> {
 }
 
 async function loadBundled(): Promise<PublicationData> {
-  const [cases, experiments, manifest] = await Promise.all([
+  const [cases, experiments, textualHoldoutMatrix, manifest] = await Promise.all([
     getJson<PublicationEnvelope<DemoCase>>('/data/demo_cases.json'),
     getJson<PublicationEnvelope<ExperimentRow>>('/data/experiments.json'),
+    getJson<TextualHoldoutMatrix>('/data/textual_holdout_matrix.json'),
     getJson<PublicationManifest>('/data/publication_manifest.json'),
   ]);
 
@@ -20,7 +21,7 @@ async function loadBundled(): Promise<PublicationData> {
     throw new Error('Bundled publication data does not match its manifest.');
   }
 
-  return { cases: cases.rows, experiments: experiments.rows, manifest, source: 'bundled' };
+  return { cases: cases.rows, experiments: experiments.rows, textualHoldoutMatrix, manifest, source: 'bundled' };
 }
 
 async function loadSupabase(fallback: PublicationData): Promise<PublicationData> {

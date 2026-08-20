@@ -30,7 +30,7 @@
 | 公开数据 | 脱敏冻结 Replay、实验摘要、API Contract 与部署制品 |
 | 当前部署 | GitHub 源码 + Vercel 静态前端；Supabase 暂不连接 |
 | 在线模式 | Replay 始终可用；Live Agent 默认关闭、按需接入 GPU |
-| 核心模型 | Qwen3-4B，`max_output_tokens=2048` |
+| 核心模型 | Qwen3-4B |
 | 本地资源 | 紧凑模型可在 CPU 环境运行；GPU 不是体验 Replay 的前提 |
 | 数据范围 | 百度、腾讯 2023—2025 年六份年报 |
 | 许可证 | MIT |
@@ -40,19 +40,19 @@
 ```text
 Structured Query Stable v1.0
 +
-Textual 2-hop Baseline v0.1（Development，存在已知限制）
+Textual 2-hop Baseline（Development）
 ```
 
 **Replay-first MVP 已完成。** 当前版本已打通真实冻结结果、稳定展示契约、查询工作台、证据链、Agent 执行轨迹、实验对照、Backend Adapter 与公开发布数据层。本轮 Vercel 部署不连接 Supabase 或 GPU，直接使用仓库内冻结数据完成回放演示。
 
 MVP 完成不代表所有文本多跳问题已经稳定解决，也不代表公网 Live Agent 已经常驻上线。项目保留真实失败、弃答、Replan、成本与能力边界，不用回放结果伪装实时推理。
 
-![跳跳糖工作台](hopcandy/frontend/assets/WorkbenchPage.jpg)
+![跳跳糖工作台](hopcandy/frontend/assets/WorkbenchPage.png)
 
 ## 模型与运行资源
 
-文本两跳 Baseline 使用 **Qwen3-4B**，输出上限固定为 `2048`。选择紧凑模型的目的，是让完整
-Agent 在不依赖高端 GPU 的条件下也能运行；CPU 运行可行，但推理速度会更低。
+文本两跳 Baseline 使用 **Qwen3-4B**。选择紧凑模型的目的，是让完整 Agent 在不依赖高端
+GPU 的条件下也能运行；CPU 运行可行，但推理速度会更低。完整运行参数保留在冻结评测产物中。
 
 这也是项目保留 Textual 2-hop 为 Development Baseline 的原因之一：相比同配置下的 Qwen3-8B
 消融，4B 在完整两跳证据链覆盖上存在明显限制。8B 结果只用于诊断模型规模影响，不替换 4B
@@ -80,7 +80,7 @@ Baseline，也不被描述为独立 Stable Release。公开 Vercel 站点始终�
 - Replay / Live 双态：Replay 始终可用，Live Agent 默认关闭并按需接入 GPU。
 - 版本化发布数据：当前使用 Bundled JSON；后续可选接入 Supabase 发布表。
 - 数据一致性检查：未来启用 Supabase 后，行数或 Fixture Hash 不匹配时自动回退本地快照。
-- 实验页：明确区分 Stable、Development Baseline 与 Ablation。
+- 实验页：明确区分 Stable、Development Baseline、Ablation 与独立 Holdout 对照。
 - 架构页：展示一个 Agentic RAG 核心与一条可选 Structured Fast Path。
 - Backend 防护：服务间 Token、CORS、输入长度、单并发、超时与错误清洗。
 - 公开发布审计：Allowlist、SHA256 Manifest、Secret/路径/大文件检查与 GitHub Actions。
@@ -106,6 +106,7 @@ Bundled JSON（当前 Vercel 部署；后续可选版本匹配的 Supabase Publi
 
 - `demo_cases.json`：8 个冻结真实案例及其答案、证据、Plan 和 Agent Trace；
 - `experiments.json`：3 组冻结实验结果；
+- `textual_holdout_matrix.json`：独立文本两跳 Holdout 的冻结对照矩阵；
 - `publication_manifest.json`：Fixture、API Contract 和发布数据版本及 Hash。
 
 Replay 会清楚标记为“冻结实验回放”，不会发起模型请求。只有启用 Live Feature Flag 且受保护 Backend 健康检查通过时，新问题才会调用真实 Agent。
@@ -132,32 +133,46 @@ Replay 会清楚标记为“冻结实验回放”，不会发起模型请求。�
 
 | 指标 | 结果 |
 | --- | ---: |
-| 独立 Structured Test v3 | 24 题 |
-| 系统错误 | 0 |
+| 测试集系统错误 | 0 |
 | Overall / 1-hop / 2-hop / 3-hop Hop Recall | 1.000 |
 | Structured Apply | 1.000 |
 | Numeric / Unit / Calculation / Completeness / Grounding | 1.000 |
 | F1 | 0.898 |
 | EM | 0.375 |
 
-这里的 1/2/3-hop 指结构化事实数量或确定性操作链，不能外推为通用文本型 3-hop 已稳定。
 
-### Textual 2-hop Baseline v0.1
+### Textual 2-hop Baseline
 
-这是 Development24 上冻结的开发基线，用于暴露真实的检索、证据覆盖和端到端推理问题，不是独立 Test 或 Stable Release。
+这是冻结开发基线，用于暴露真实的检索、证据覆盖和端到端推理问题。
 
-| 指标 | Qwen3-4B / 2048 |
+| 指标 | Qwen3-4B |
 | --- | ---: |
-| Samples / System Errors | 24 / 0 |
+| 测试集系统错误 | 0 |
 | EM | 0.250 |
 | F1 | 0.375 |
 | Average Hop Recall | 0.479 |
 | Full Gold Chain Rate | 0.125 |
 | Trace Complete Rate | 1.000 |
 
-Qwen3-8B 消融实验在同一 Development24 上将 Average Hop Recall 提高到 `0.688`、Full Gold Chain Rate 提高到 `0.500`，但 P50 延迟约为 4B 的 `6.661×`。该结果用于分析模型规模影响，不替换 4B Baseline，也不升级为 Stable。
+Qwen3-8B 消融实验在同一冻结开发集上将 Average Hop Recall 提高到 `0.688`、Full Gold Chain Rate 提高到 `0.500`，但 P50 延迟约为 4B 的 `6.661×`。该结果用于分析模型规模影响，不替换 4B Baseline，也不升级为 Stable。
 
-![跳跳糖实验页](hopcandy/frontend/assets/ExperimentsPage.jpg)
+### Textual 2-hop 独立 Holdout 对照
+
+独立 Holdout 使用与开发集隔离的冻结输入。已完成行均不再用于调参、重跑或扩充；
+`Baseline Optimized / Qwen3-8B` 尚未运行，保持“待补充”。
+
+| 系统版本 | 模型 | 状态 | EM | F1 | Hop Recall | Full Gold Chain |
+| --- | --- | --- | ---: | ---: | ---: | ---: |
+| Baseline | Qwen3-4B | 已完成 | 0.133 | 0.316 | 0.333 | 0.267 |
+| Baseline Optimized | Qwen3-4B | 已完成 | 0.200 | 0.462 | 0.600 | 0.400 |
+| Baseline | Qwen3-8B | 已完成 | 0.200 | 0.436 | 0.433 | 0.400 |
+| Baseline Optimized | Qwen3-8B | 待补充 | — | — | — | — |
+
+`Full Gold Chain Rate` 表示每个适用 Gold Hop 都至少检索到一条可接受证据。该矩阵仅支持同一冻结 Holdout
+上的有限比较，不构成统计显著性、跨语料泛化或 Textual 2-hop Stable 认证。完成运行的原始 result/runtime JSON
+保留在私有运行环境；公开仓库不包含私有语料、索引或模型。
+
+![跳跳糖实验页](hopcandy/frontend/assets/ExperimentsPage.png)
 
 ## 系统架构
 
@@ -182,7 +197,7 @@ flowchart LR
     E --- C[Calculator]
 ```
 
-![跳跳糖架构页](hopcandy/frontend/assets/ArchitecturePage.jpg)
+![跳跳糖架构页](hopcandy/frontend/assets/ArchitecturePage.png)
 
 公开部署边界：
 
@@ -294,6 +309,7 @@ npm run build
 
 - Textual 2-hop 仍是带已知限制的 Development Baseline。
 - Qwen3-8B 结果是同一开发集上的模型规模消融，不是独立发布结果。
+- 独立 Holdout 中的 Optimized / Qwen3-8B 尚未运行；完成单元格的原始 JSON 仍在私有归档流程中。
 - 3-hop、知识图谱、SFT/GRPO 和公司扩展不属于当前 MVP。
 - Live Agent 默认关闭；GPU 离线时网站仍完整提供 Replay。
 - 当前公开页面只有工作台、实验和架构，不包含 `/engineering`。

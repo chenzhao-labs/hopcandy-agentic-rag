@@ -323,7 +323,7 @@ code { font-family: "IBM Plex Mono", monospace; }
 .experiment-card dl { display: grid; grid-template-columns: 1fr 1fr; margin: 17px 0 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .experiment-card dl div { padding: 12px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .experiment-card dt { color: #7d8581; font-size: 8px; font-family: "IBM Plex Mono", monospace; }
-.experiment-card dd { margin: 5px 0 0; font-size: clamp(15px, 1.35vw, 18px); font-weight: 600; font-family: "IBM Plex Mono", monospace; }
+.experiment-card dd { margin: 5px 0 0; font-size: clamp(15px, 1.35vw, 18px); font-weight: 600; font-family: "IBM Plex Mono", monospace;}
 .experiment-card footer { display: flex; align-items: center; gap: 6px; margin-top: 14px; color: #838b87; font-size: 8px; }
 .experiment-card footer code { color: #68716c; }
 .evaluation-boundary { margin-top: 18px; border: 1px solid var(--line); background: var(--surface); }
@@ -343,6 +343,19 @@ td small { margin-top: 3px; color: #838b87; font-size: 9px; }
 .model-comparison td { font-variant-numeric: tabular-nums; }
 .model-comparison td.positive-change { color: #00766a; font-weight: 600; }
 .model-comparison td.cost-change { color: #9a560d; font-weight: 600; }
+.holdout-comparison { border-top: 4px solid var(--teal); }
+.holdout-comparison .section-head > div > span { color: var(--teal); font-family: "IBM Plex Mono", monospace; font-size: 9px; }
+.holdout-status { display: inline-block; color: #4c5a53; font-family: Inter, "Noto Sans SC", sans-serif; font-size: 10px; line-height: 1.4; }
+.holdout-status.completed::before { content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 6px 1px 0; border-radius: 50%; background: var(--teal); }
+.holdout-status.pending { color: #8a5b1f; }
+.holdout-status.pending::before { content: ""; display: inline-block; width: 5px; height: 5px; margin: 0 6px 1px 0; border-radius: 50%; background: var(--amber); }
+.holdout-pending-row { background: #fffaf2; }
+.holdout-metric-value { display: inline; }
+.holdout-delta { display: inline-block; margin-left: 7px; font-family: "IBM Plex Mono", monospace; font-size: 9px; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.holdout-delta.positive { color: #008654; }
+.holdout-delta.negative { color: #b74836; }
+.holdout-delta.neutral { color: #838b87; }
+.holdout-note { margin: 0; padding: 14px 18px 17px; border-top: 1px solid var(--line); color: #626b66; font-size: 10px; line-height: 1.65; }
 .key-findings-heading { padding: 11px 18px; border-top: 1px solid var(--line); color: #6d7671; font-family: "IBM Plex Mono", monospace; font-size: 9px; }
 .comparison-summary { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
 .comparison-summary > div { min-width: 0; padding: 16px 18px; border-right: 1px solid var(--line); }

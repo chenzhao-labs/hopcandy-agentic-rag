@@ -19,7 +19,10 @@
     {"source": "hopcandy/frontend/vite.config.ts", "destination": "hopcandy/frontend/vite.config.ts"},
     {"source": "hopcandy/frontend/vercel.json", "destination": "hopcandy/frontend/vercel.json"},
     {"source_tree": "hopcandy/frontend/src", "destination_tree": "hopcandy/frontend/src", "extensions": [".ts", ".tsx", ".css"]},
-    {"source_tree": "hopcandy/frontend/assets", "destination_tree": "hopcandy/frontend/assets", "extensions": [".jpg", ".jpeg", ".png", ".webp"]},
+    {"source": "hopcandy/frontend/assets/hopycandy_logo.png", "destination": "hopcandy/frontend/assets/hopycandy_logo.png"},
+    {"source": "hopcandy/frontend/assets/WorkbenchPage.png", "destination": "hopcandy/frontend/assets/WorkbenchPage.png"},
+    {"source": "hopcandy/frontend/assets/ExperimentsPage.png", "destination": "hopcandy/frontend/assets/ExperimentsPage.png"},
+    {"source": "hopcandy/frontend/assets/ArchitecturePage.png", "destination": "hopcandy/frontend/assets/ArchitecturePage.png"},
     {"source_tree": "hopcandy/frontend/public", "destination_tree": "hopcandy/frontend/public", "extensions": [".json", ".svg", ".png", ".webp"]},
     {"source": "tests/test_hopcandy_step1_contract.py", "destination": "tests/test_hopcandy_step1_contract.py"},
     {"source": "tests/test_hopcandy_step3_backend.py", "destination": "tests/test_hopcandy_step3_backend.py"}

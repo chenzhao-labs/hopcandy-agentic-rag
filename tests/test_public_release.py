@@ -30,13 +30,14 @@ def test_public_release_matches_current_ui_scope_and_boundaries():
     assert 'path="/architecture"' in app
     assert "/engineering" not in app
     assert 'to="/engineering"' not in header
-    assert "demo_cases" in publication and "experiments" in publication
+    assert "demo_cases" in publication and "experiments" in publication and "textual_holdout_matrix" in publication
     assert "timeline_entries" not in publication
     assert "Replay-first MVP 已完成" in readme
-    assert "Textual 2-hop Baseline v0.1" in readme
-    assert "开发基线" in readme and "已知限制" in readme
+    assert "Textual 2-hop Baseline（Development）" in readme
+    assert "Textual 2-hop 独立 Holdout 对照" in readme
+    assert "冻结开发基线" in readme
     assert "Live Agent" in readme and "默认关闭" in readme
-    assert "hopcandy/frontend/assets/WorkbenchPage.jpg" in readme
+    assert "hopcandy/frontend/assets/WorkbenchPage.png" in readme
 
 
 def test_manifest_documents_adapter_source_drift():

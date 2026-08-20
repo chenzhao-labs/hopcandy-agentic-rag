@@ -1,0 +1,107 @@
+{
+  "schema_version": "hopcandy-textual-holdout-matrix-v1",
+  "status": "partially_complete_frozen_pending_optimized_8b",
+  "title": "Textual 2-hop Final Test15 comparison",
+  "scope": "Frozen independent textual two-hop holdout over the BT3Y six-report corpus. Machine Facts is disabled for this benchmark.",
+  "method_note": "Full Gold Chain Rate requires every applicable Gold hop to retrieve at least one acceptable evidence item.",
+  "archive_note": "Completed metrics were frozen from private-server result summaries. The original result/runtime JSON files remain private and are pending local archival; public display must not infer or fill the pending 8B optimized cell.",
+  "runs": [
+    {
+      "id": "baseline_v0_1_qwen3_4b",
+      "display_order": 1,
+      "system": "Baseline v0.1",
+      "model": "Qwen3-4B",
+      "max_output_tokens": 2048,
+      "status": "completed_posthoc_control",
+      "status_label": "已完成 · 事后对照",
+      "metrics": {
+        "em": 0.133,
+        "f1": 0.316,
+        "avg_hop_recall": 0.333,
+        "full_gold_chain_rate": 0.267,
+        "full_gold_chain_count": 4,
+        "applicable_samples": 15,
+        "system_errors": 0,
+        "machine_facts_calls": 0
+      },
+      "provenance": {
+        "location": "private GPU server",
+        "runtime_sha256": "c417ad5619608e5aaf9e0d7e022947e095469d8992b3faa4d9f0afdeeb63833b",
+        "raw_artifact_status": "pending_local_archive"
+      }
+    },
+    {
+      "id": "baseline_v0_1_qwen3_8b",
+      "display_order": 2,
+      "system": "Baseline v0.1",
+      "model": "Qwen3-8B",
+      "max_output_tokens": 2048,
+      "status": "completed_model_scale_control",
+      "status_label": "已完成 · 模型规模对照",
+      "metrics": {
+        "em": 0.2,
+        "f1": 0.436,
+        "avg_hop_recall": 0.433,
+        "full_gold_chain_rate": 0.4,
+        "full_gold_chain_count": 6,
+        "applicable_samples": 15,
+        "system_errors": 0,
+        "machine_facts_calls": 0
+      },
+      "provenance": {
+        "location": "private GPU server",
+        "runtime_sha256": null,
+        "raw_artifact_status": "pending_local_archive"
+      }
+    },
+    {
+      "id": "optimized_v2_3_qwen3_4b",
+      "display_order": 3,
+      "system": "V2-2.3 Optimized",
+      "model": "Qwen3-4B",
+      "max_output_tokens": 2048,
+      "status": "completed_final_test",
+      "status_label": "已完成 · 唯一正式 Final Test",
+      "metrics": {
+        "em": 0.2,
+        "f1": 0.462,
+        "avg_hop_recall": 0.6,
+        "full_gold_chain_rate": 0.4,
+        "full_gold_chain_count": 6,
+        "applicable_samples": 15,
+        "system_errors": 0,
+        "machine_facts_calls": 0
+      },
+      "provenance": {
+        "location": "private GPU server",
+        "runtime_sha256": "0a141115a515cc0f5ad8df468f29aee9fb5851a98356c71bf92851a9f26817b0",
+        "report_sha256": "946c1fa282e944bed85e5716c4f9ca311784632cb0ad08934bf2162e2d8e5085",
+        "raw_artifact_status": "pending_local_archive"
+      }
+    },
+    {
+      "id": "optimized_v2_3_qwen3_8b",
+      "display_order": 4,
+      "system": "V2-2.3 Optimized",
+      "model": "Qwen3-8B",
+      "max_output_tokens": 2048,
+      "status": "pending",
+      "status_label": "待补充 · 未运行",
+      "metrics": {
+        "em": null,
+        "f1": null,
+        "avg_hop_recall": null,
+        "full_gold_chain_rate": null,
+        "full_gold_chain_count": null,
+        "applicable_samples": null,
+        "system_errors": null,
+        "machine_facts_calls": null
+      },
+      "provenance": {
+        "location": "not_run",
+        "runtime_sha256": null,
+        "raw_artifact_status": "not_available"
+      }
+    }
+  ]
+}
