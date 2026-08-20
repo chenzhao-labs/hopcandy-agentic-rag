@@ -18,7 +18,7 @@
   </p>
 </div>
 
-> **在线演示：** [hopcandy-agentic-rag.vercel.app](https://hopcandy-agentic-rag.vercel.app/)，当前以冻结 Bundled JSON 提供 Replay 工作台。
+> **在线演示：当前以冻结 Bundled JSON 提供 Replay 工作台呈现
 
 ---
 
